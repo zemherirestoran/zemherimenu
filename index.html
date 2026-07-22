@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zemheri Semir Şef - QR Menü</title>
+    <title>Zemheri Semir Şef - Fix Menü</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -14,7 +14,6 @@
             --accent-gold: #F3E5AB;
             --dark-gold: #AA7C11;
             --bg-black: #0B0B0B;
-            --card-bg: #141414;
             --border-color: #2A2415;
             --text-light: #F5F5F5;
             --text-muted: #A0A0A0;
@@ -24,8 +23,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            user-select: none;
-            -webkit-user-select: none;
         }
 
         body {
@@ -33,564 +30,485 @@
             color: var(--text-light);
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            padding-bottom: 30px;
+            padding: 20px 10px;
             background-image: radial-gradient(circle at 50% 0%, #1c170d 0%, #0b0b0b 70%);
             background-attachment: fixed;
         }
 
-        /* HEADER */
+        .menu-wrapper {
+            max-width: 650px;
+            margin: 0 auto;
+            border: 2px solid var(--primary-gold);
+            padding: 25px 20px;
+            position: relative;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            background: rgba(11, 11, 11, 0.95);
+        }
+
+        .menu-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+        }
+
         header {
             text-align: center;
-            padding: 25px 20px 15px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            padding: 3px;
-            background: linear-gradient(135deg, var(--accent-gold), var(--primary-gold), var(--dark-gold));
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-            margin-bottom: 12px;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #000;
-            display: block;
-        }
-
-        .header-frame {
-            display: inline-block;
-            border: 2px solid var(--primary-gold);
-            padding: 8px 25px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-        }
-
-        .header-frame::before {
-            content: '❖';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-black);
-            color: var(--primary-gold);
-            padding: 0 8px;
-            font-size: 14px;
-        }
-
-        h1 {
+        .brand-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.7rem;
-            letter-spacing: 4px;
+            font-size: 2.2rem;
+            letter-spacing: 6px;
             color: var(--primary-gold);
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        /* KATEGORİ AKORDEON YAPISI */
-        .category-accordion {
-            background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            transition: border-color 0.3s;
-        }
-
-        .category-accordion.open {
-            border-color: var(--primary-gold);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-        }
-
-        .category-header {
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--primary-gold);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .category-header i.icon-left {
-            margin-right: 10px;
-            color: var(--accent-gold);
-        }
-
-        .category-header .arrow-icon {
-            transition: transform 0.3s ease;
-            color: var(--primary-gold);
-        }
-
-        .category-accordion.open .arrow-icon {
-            transform: rotate(180deg);
-        }
-
-        .category-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.3s ease;
-            background-color: #0d0d0d;
-        }
-
-        .category-accordion.open .category-content {
-            max-height: 2000px;
-            padding: 15px;
-            border-top: 1px solid #222;
-        }
-
-        /* FIX MENÜ KARTLARI */
-        .fix-price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
-
-        .fix-price-card-wrapper {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: rgba(212, 175, 55, 0.05);
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-
-        .fix-price-card-wrapper.active {
-            border-color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .fix-card-header {
-            padding: 15px 12px;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .fix-card-header .option-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-bottom: 4px;
-        }
-
-        .fix-card-header .option-price {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
             font-weight: 800;
-            color: var(--primary-gold);
+            text-transform: uppercase;
+            line-height: 1.1;
         }
 
-        .fix-card-header .click-hint {
-            font-size: 0.7rem;
-            color: var(--text-muted);
+        .brand-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 7px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
             margin-top: 4px;
         }
 
-        .fix-card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #121212;
-            padding: 0 12px;
-            font-size: 0.82rem;
-            color: var(--text-light);
-        }
-
-        .fix-price-card-wrapper.active .fix-card-content {
-            max-height: 600px;
-            padding: 12px;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .fix-details-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .fix-details-list li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .fix-details-list li::before {
-            content: '•';
-            color: var(--primary-gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* MENÜ İÇERİK IZGARASI */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 10px;
-        }
-
-        .menu-card {
-            background-color: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 8px;
-            padding: 12px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .item-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-
-        .item-desc {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .item-price {
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary-gold);
-            white-space: nowrap;
-        }
-
-        /* FOOTER BÖLÜMÜ */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            background-color: #080808;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-info {
-            max-width: 600px;
-            margin: 0 auto 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-item {
+        .divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .footer-item i {
+            margin: 10px 0;
             color: var(--primary-gold);
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
 
-        .footer-note {
+        .divider::before, .divider::after {
+            content: '';
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 18px;
+            margin-bottom: 4px;
+        }
+
+        .meze-list {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .meze-list span {
+            display: block;
+        }
+
+        .item-highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .section-desc {
+            text-align: center;
+            font-size: 0.92rem;
+            color: var(--text-light);
+        }
+
+        /* PAKET KARTLARI */
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 25px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .package-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid var(--primary-gold);
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            background: rgba(30, 25, 15, 0.9);
+        }
+
+        .package-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 4px;
+        }
+
+        .package-price {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .package-hint {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            margin-top: 6px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .reservation-box {
+            border: 1px solid var(--primary-gold);
+            border-radius: 6px;
+            padding: 10px 15px;
+            text-align: center;
+            margin-top: 20px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .reservation-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+
+        .reservation-sub {
+            font-size: 0.8rem;
             font-style: italic;
             color: var(--accent-gold);
-            font-size: 0.8rem;
-            margin: 15px auto;
-            max-width: 500px;
-            line-height: 1.4;
-            padding: 10px;
-            border-left: 2px solid var(--primary-gold);
-            border-right: 2px solid var(--primary-gold);
-            background: rgba(212, 175, 55, 0.03);
         }
 
-        .social-link {
+        footer {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            gap: 15px;
+        }
+
+        .footer-left, .footer-right {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .insta-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: #151515;
-            border: 1px solid var(--border-color);
+            gap: 6px;
             color: var(--primary-gold);
-            padding: 8px 16px;
-            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
-        .social-link:hover, .social-link:active {
-            background: var(--primary-gold);
-            color: #000;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        .insta-link:hover {
+            text-decoration: underline;
+        }
+
+        /* MODAL / ŞIK AÇILIR PENCERE */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: #111;
+            border: 2px solid var(--primary-gold);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 480px;
+            padding: 25px;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .modal-price {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .modal-list {
+            list-style: none;
+            font-size: 0.88rem;
+        }
+
+        .modal-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-list li i {
+            color: var(--primary-gold);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .footer-right {
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="logo-img">
-        </div>
-        <div class="header-frame">
-            <h1>ZEMHERİ</h1>
-            <div class="subtitle">SEMİR ŞEF</div>
-        </div>
-    </header>
+    <div class="menu-wrapper">
+        
+        <header>
+            <div class="brand-title">ZEMHERİ</div>
+            <div class="brand-subtitle">SEMİR ŞEF</div>
+        </header>
 
-    <div class="container">
+        <div class="section-title">❖ 9 ÇEŞİT MEZE ❖</div>
+        <div class="divider">❖</div>
+        <div class="meze-list">
+            <span>• Humus</span>
+            <span>• Tahin Soslu Köz Patlıcan</span>
+            <span>• Muhammara</span>
+            <span class="item-highlight">• Zemheri Atom</span>
+            <span>• Haydari</span>
+            <span>• Ekşili Yaprak Sarma</span>
+            <span>• Pembe Sultan</span>
+            <span>• Midyat Turşu</span>
+            <span>• Cevizli Köz Biber</span>
+        </div>
 
-        <!-- FIX MENÜ KATEGORİSİ -->
-        <div class="category-accordion open">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-star icon-left"></i> ZEMHERİ FİX MENÜ</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        <div class="section-title"><i class="fa-solid fa-leaf"></i> SALATA <i class="fa-solid fa-leaf"></i></div>
+        <div class="divider">❖</div>
+        <div class="section-desc">Roka Salatası</div>
+
+        <div class="section-title"><i class="fa-solid fa-fire"></i> ARA SICAK <i class="fa-solid fa-fire"></i></div>
+        <div class="divider">❖</div>
+        <div class="section-desc">İçli Köfte & Patlıcan Dolma</div>
+
+        <div class="section-title"><i class="fa-solid fa-utensils"></i> ANA YEMEKLER (SEÇMELİ) <i class="fa-solid fa-utensils"></i></div>
+        <div class="divider">❖</div>
+        <div class="section-desc">Kuzu Tandır / Şef Kavurma / İnçasiye</div>
+
+        <div class="section-title"><i class="fa-solid fa-cake-candles"></i> TATLI <i class="fa-solid fa-cake-candles"></i></div>
+        <div class="divider">❖</div>
+        <div class="section-desc">Sütlaç ve Mevsim Meyvesi</div>
+
+        <div class="section-title"><i class="fa-solid fa-music"></i> SIRA GECESİ <i class="fa-solid fa-music"></i></div>
+        <div class="divider">❖</div>
+        <div class="section-desc" style="font-size:0.85rem; color:var(--accent-gold);">Canlı Müzik & Sıra Gecesi ile Unutulmaz Bir Akşam</div>
+
+        <!-- PAKET SEÇENEKLERİ -->
+        <div class="packages-container">
+            <div class="package-card" onclick="openModal('kizkiza')">
+                <div class="package-title"><i class="fa-solid fa-person-dress"></i> KIZ KIZA</div>
+                <div class="package-price">2.000 ₺</div>
+                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
             </div>
-            <div class="category-content">
-                <p style="font-size:0.8rem; color:var(--text-muted); text-align:center; margin-bottom:12px;">Detayları görmek için paketlerin üzerine tıklayınız (Kişi Başı)</p>
-                
-                <div class="fix-price-grid">
-                    
-                    <!-- Kız Kıza -->
-                    <div class="fix-price-card-wrapper" onclick="toggleFixCard(this)">
-                        <div class="fix-card-header">
-                            <div class="option-title"><i class="fa-solid fa-person-dress"></i> Kız Kıza</div>
-                            <div class="option-price">2.000 ₺</div>
-                            <div class="click-hint"><i class="fa-solid fa-chevron-down"></i> Detaylar için tıkla</div>
-                        </div>
-                        <div class="fix-card-content">
-                            <ul class="fix-details-list">
-                                <li><strong>Soğuk Mezeler:</strong> 6 Çeşit Şef Mezeleri</li>
-                                <li><strong>Ara Sıcaklar:</strong> Paçanga Böreği & İçli Köfte</li>
-                                <li><strong>Ana Yemek:</strong> Seçmeli Kebap veya Tavuk Şiş</li>
-                                <li><strong>İçecek:</strong> Sınırsız Alkolsüz İçecekler & Cocktail</li>
-                                <li><strong>Tatlı & Meyve:</strong> Mevsim Meyveleri Tabak</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Alkolsüz -->
-                    <div class="fix-price-card-wrapper" onclick="toggleFixCard(this)">
-                        <div class="fix-card-header">
-                            <div class="option-title"><i class="fa-solid fa-glass-water"></i> Alkolsüz Fix</div>
-                            <div class="option-price">2.300 ₺</div>
-                            <div class="click-hint"><i class="fa-solid fa-chevron-down"></i> Detaylar için tıkla</div>
-                        </div>
-                        <div class="fix-card-content">
-                            <ul class="fix-details-list">
-                                <li><strong>Soğuk Mezeler:</strong> 8 Çeşit Serpme Meze</li>
-                                <li><strong>Ara Sıcaklar:</strong> İçli Köfte, Fındık Lahmacun</li>
-                                <li><strong>Ana Yemek:</strong> Semir Şef Özel Karışık Izgara</li>
-                                <li><strong>İçecek:</strong> Sınırsız Meşrubat, Ayran, Şalgam</li>
-                                <li><strong>Kapanış:</strong> Fıstıklı Katmer ve Çay/Kahve</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Alkollü -->
-                    <div class="fix-price-card-wrapper" onclick="toggleFixCard(this)">
-                        <div class="fix-card-header">
-                            <div class="option-title"><i class="fa-solid fa-wine-glass"></i> Alkollü Fix</div>
-                            <div class="option-price">3.000 ₺</div>
-                            <div class="click-hint"><i class="fa-solid fa-chevron-down"></i> Detaylar için tıkla</div>
-                        </div>
-                        <div class="fix-card-content">
-                            <ul class="fix-details-list">
-                                <li><strong>Mezeler:</strong> 10 Çeşit Zengin Meze Tabağı</li>
-                                <li><strong>Ara Sıcaklar:</strong> Tereyağlı Karides & Paçanga</li>
-                                <li><strong>Ana Yemek:</strong> Kuzu Pirzola veya Özel Kebap</li>
-                                <li><strong>Alkol:</strong> Kişi başı 35cl Rakı veya 2 Kadeh Şarap / Viski</li>
-                                <li><strong>Kapanış:</strong> Tatlı ve Meyve Tabağı</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="package-card" onclick="openModal('alkolsuz')">
+                <div class="package-title"><i class="fa-solid fa-glass-water"></i> ALKOLSÜZ</div>
+                <div class="package-price">2.300 ₺</div>
+                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
+            </div>
+            <div class="package-card" onclick="openModal('alkollu')">
+                <div class="package-title"><i class="fa-solid fa-wine-glass"></i> ALKOLLÜ</div>
+                <div class="package-price">3.000 ₺</div>
+                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
             </div>
         </div>
 
-        <!-- MEZELER -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-bowl-food icon-left"></i> MEZELER</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">Humus</div><div class="item-price">250 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Tahin Soslu Köz Patlıcan</div><div class="item-price">250 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Muhammara</div><div class="item-price">250 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Zemheri Atom</div><div class="item-price">250 ₺</div></div>
-                </div>
-            </div>
+        <div class="reservation-box">
+            <div class="reservation-title">REZERVASYON YAPMAYI UNUTMAYIN!</div>
+            <div class="reservation-sub">İyi bir akşam için yerinizi ayırtın.</div>
         </div>
 
-        <!-- SALATALAR -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-leaf icon-left"></i> SALATALAR</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        <footer>
+            <div class="footer-left">
+                <div><i class="fa-solid fa-phone" style="color:var(--primary-gold);"></i> <a href="tel:+905352113133" style="color:inherit; text-decoration:none;">+90 (535) 211 31 33</a></div>
+                <a href="https://www.instagram.com/zemherisemirsef/" target="_blank" class="insta-link">
+                    <i class="fa-brands fa-instagram"></i> @zemherisemirsef
+                </a>
             </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-info"><div class="item-name">Gevurdağı Salatası</div><div class="item-desc">Ceviz, nar ekşisi ve domates</div></div><div class="item-price">300 ₺</div></div>
-                    <div class="menu-card"><div class="item-info"><div class="item-name">Zemheri Özel Salata</div><div class="item-desc">Avokado ve özel şef sosu</div></div><div class="item-price">350 ₺</div></div>
-                </div>
+            <div class="footer-right">
+                <div><i class="fa-solid fa-location-dot" style="color:var(--primary-gold);"></i> Savur Kapı Mah. Yalın Cad.</div>
+                <div>Mardin Otogarı Yanı 3.Km</div>
+                <div style="font-weight:600; color:var(--primary-gold);">Artuklu / MARDİN</div>
             </div>
-        </div>
-
-        <!-- ARA SICAKLAR -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-fire icon-left"></i> ARA SICAKLAR</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">İçli Köfte (Adet)</div><div class="item-price">180 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Paçanga Böreği</div><div class="item-price">220 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Tereyağlı Karides</div><div class="item-price">450 ₺</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PEYNİRLER -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-cheese icon-left"></i> PEYNİRLER</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">Ezine Peyniri Tabak</div><div class="item-price">280 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">İthal Peynir Tabağı</div><div class="item-price">500 ₺</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ANA YEMEKLER -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-utensils icon-left"></i> ANA YEMEKLER</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-info"><div class="item-name">Semir Şef Özel Kebap</div><div class="item-desc">Marine kuzu eti</div></div><div class="item-price">750 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Kuzu Pirzola</div><div class="item-price">850 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Tavuk Şiş</div><div class="item-price">550 ₺</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TATLI & MEYVE -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-cake-candles icon-left"></i> TATLI & MEYVE</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">Fıstıklı Katmer</div><div class="item-price">350 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Mevsim Meyveleri Tabağı</div><div class="item-price">300 ₺</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ALKOLSÜZ İÇECEKLER -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-glass-water icon-left"></i> ALKOLSÜZ İÇECEKLER</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">Kutu Meşrubatlar</div><div class="item-price">90 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Taze Sıkılmış Portakal Suyu</div><div class="item-price">140 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Maden Suyu</div><div class="item-price">60 ₺</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ALKOLLÜ İÇECEKLER -->
-        <div class="category-accordion">
-            <div class="category-header" onclick="toggleCategory(this)">
-                <span><i class="fa-solid fa-wine-glass icon-left"></i> ALKOLLÜ İÇECEKLER</span>
-                <i class="fa-solid fa-chevron-down arrow-icon"></i>
-            </div>
-            <div class="category-content">
-                <div class="menu-grid">
-                    <div class="menu-card"><div class="item-name">Chivas Regal 12 Yıl</div><div class="item-price">3.500 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Jack Daniel's</div><div class="item-price">3.200 ₺</div></div>
-                    <div class="menu-card"><div class="item-name">Yeni Rakı 70cl</div><div class="item-price">2.800 ₺</div></div>
-                </div>
-            </div>
-        </div>
+        </footer>
 
     </div>
 
-    <!-- ALT BİLGİ VE İLETİŞİM ALANI -->
-    <footer>
-        <div class="footer-info">
-            <div class="footer-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>Yalım Cad. No:30 C Savur Kapı Mah. Mardin Otogar Yanı</span>
+    <!-- MODAL / ŞİK AÇILIR PENCERE -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-container">
+            <button class="modal-close" onclick="forceCloseModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Paket Adı</div>
+                <div class="modal-price" id="modalPrice">0 ₺</div>
             </div>
-            <div class="footer-item">
-                <i class="fa-solid fa-phone"></i>
-                <a href="tel:+90535 211 31 33" style="color: inherit; text-decoration: none;">+90 (555) 123 45 67</a>
-            </div>
+            <ul class="modal-list" id="modalList">
+                <!-- İçerik JS ile eklenecek -->
+            </ul>
         </div>
-
-        <div class="footer-note">
-            "Siz değerli misafirlerimize en taze lezzetleri sunmak için tüm tabaklarımız anlık olarak özenle hazırlanmaktadır."
-        </div>
-
-        <a href="https://www.instagram.com/zemherisemirsef/" target="_blank" class="social-link">
-            <i class="fa-brands fa-instagram"></i> @zemherisemirsef
-        </a>
-
-        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.6;">Zemheri Semir Şef &copy; Tüm Hakları Saklıdır.</p>
-    </footer>
+    </div>
 
     <script>
-        function toggleCategory(header) {
-            const accordion = header.parentElement;
-            accordion.classList.toggle('open');
+        const packageData = {
+            kizkiza: {
+                title: "Kız Kıza Fix Menü",
+                price: "2.000 ₺",
+                details: [
+                    "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
+                    "<b>Salata:</b> Roka Salatası",
+                    "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
+                    "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
+                    "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
+                    "<b>İçecekler:</b> Sınırsız Alkolsüz İçecekler & Kokteyller Dâhil"
+                ]
+            },
+            alkolsuz: {
+                title: "Alkolsüz Fix Menü",
+                price: "2.300 ₺",
+                details: [
+                    "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
+                    "<b>Salata:</b> Roka Salatası",
+                    "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
+                    "<b>Ana Yemek (Seçmeli):</b> Kuzu Tandır / Şef Kavurma / İnçasiye",
+                    "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
+                    "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
+                    "<b>İçecekler:</b> Sınırsız Alkolsüz Meşrubatlar, Ayran & Şalgam Dâhil"
+                ]
+            },
+            alkollu: {
+                title: "Alkollü Fix Menü",
+                price: "3.000 ₺",
+                details: [
+                    "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
+                    "<b>Salata:</b> Roka Salatası",
+                    "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
+                    "<b>Ana Yemek (Seçmeli):</b> Kuzu Tandır / Şef Kavurma / İnçasiye",
+                    "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
+                    "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
+                    "<b>Alkol Seçenekleri:</b> Rakı / Şarap / Viski Seçenekleri Dâhil"
+                ]
+            }
+        };
+
+        function openModal(packageKey) {
+            const data = packageData[packageKey];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalPrice').innerText = data.price;
+            
+            const listElement = document.getElementById('modalList');
+            listElement.innerHTML = '';
+            
+            data.details.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item}</span>`;
+                listElement.appendChild(li);
+            });
+
+            document.getElementById('modalOverlay').classList.add('active');
         }
 
-        function toggleFixCard(card) {
-            card.classList.toggle('active');
+        function closeModal(event) {
+            if (event.target.id === 'modalOverlay') {
+                document.getElementById('modalOverlay').classList.remove('active');
+            }
+        }
+
+        function forceCloseModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
         }
     </script>
+
 </body>
 </html>
