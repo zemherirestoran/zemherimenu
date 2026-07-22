@@ -227,9 +227,7 @@
 
         .fix-menu-header {
             text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 10px;
         }
 
         .fix-menu-header h2 {
@@ -239,40 +237,124 @@
             letter-spacing: 2px;
         }
 
-        /* Fix Menu Fiyat Seçenekleri Kutuları */
         .fix-price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .fix-price-card {
             background: rgba(212, 175, 55, 0.08);
             border: 1px solid var(--primary-gold);
             border-radius: 10px;
-            padding: 12px 10px;
+            padding: 18px 12px;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fix-price-card:hover, .fix-price-card:active {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
 
         .fix-price-card .option-title {
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             color: var(--accent-gold);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .fix-price-card .option-price {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--primary-gold);
+        }
+
+        .fix-price-card .click-info {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-transform: none;
+        }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
+            border: 1px solid var(--primary-gold);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 25px 20px;
+            position: relative;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+            animation: modalAnim 0.3s ease-out;
+        }
+
+        @keyframes modalAnim {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            text-align: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+        }
+
+        .modal-header .modal-price {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 4px;
         }
 
         .fix-section {
@@ -396,101 +478,30 @@
 
     <div class="container">
 
-        <!-- FIX MENÜ -->
+        <!-- FIX MENÜ SEÇİM ALANI -->
         <section id="fix-menu">
             <div class="fix-menu-container">
                 <div class="fix-menu-header">
                     <h2>ZEMHERİ FİX MENÜ</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Özel Lezzetler & Sıra Gecesi Deneyimi (Kişi Başı)</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Detayları ve menü içeriğini görmek için lütfen paket seçiniz (Kişi Başı)</p>
                     
-                    <!-- 3 Farklı Fiyat Kartları -->
                     <div class="fix-price-grid">
-                        <div class="fix-price-card">
+                        <div class="fix-price-card" onclick="openModal('kizkiza')">
                             <span class="option-title"><i class="fa-solid fa-person-dress"></i> Kız Kıza</span>
                             <span class="option-price">2.000 ₺</span>
+                            <span class="click-info"><i class="fa-solid fa-circle-info"></i> İçeriği Gör</span>
                         </div>
-                        <div class="fix-price-card">
+                        <div class="fix-price-card" onclick="openModal('alkolsuz')">
                             <span class="option-title"><i class="fa-solid fa-glass-water"></i> Alkolsüz</span>
                             <span class="option-price">2.300 ₺</span>
+                            <span class="click-info"><i class="fa-solid fa-circle-info"></i> İçeriği Gör</span>
                         </div>
-                        <div class="fix-price-card">
+                        <div class="fix-price-card" onclick="openModal('alkollu')">
                             <span class="option-title"><i class="fa-solid fa-wine-glass"></i> Alkollü</span>
                             <span class="option-price">3.000 ₺</span>
+                            <span class="click-info"><i class="fa-solid fa-circle-info"></i> İçeriği Gör</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-mortar-pestle"></i> 7 Çeşіt Meze</div>
-                    <ul class="fix-list">
-                        <li>Humus</li>
-                        <li>Tahin Soslu Köz Patlıcan</li>
-                        <li>Muhammara</li>
-                        <li>Zemheri Atom</li>
-                        <li>Haydari</li>
-                        <li>Pembe Sultan</li>
-                        <li>Midyat Turşu</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> Salata</div>
-                    <ul class="fix-list">
-                        <li>Roka Salatası</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> Ara Sıcak</div>
-                    <ul class="fix-list">
-                        <li>İçli Köfte</li>
-                        <li>Patlıcan Dolma</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-drumstick-bite"></i> Ana Yemek (Seçmeli)</div>
-                    <ul class="fix-list">
-                        <li>Kuzu Tandır</li>
-                        <li>Şef Kavurma</li>
-                        <li>Izgara Köfte</li>
-                        <li>Tavuk Bonfile</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-ice-cream"></i> Tatlı (Seçmeli)</div>
-                    <ul class="fix-list">
-                        <li>Fırın Sütlaç <span>veya</span> Meyve Tabağı</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-music"></i> Etkinlik</div>
-                    <ul class="fix-list">
-                        <li>Canlı Müzik & Sıra Gecesi İle Unutulmaz Bir Akşam</li>
-                    </ul>
-                </div>
-
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> İçecek Seçenekleri (Alkollü Menü İçin)</div>
-                    <div class="drink-options">
-                        <div class="drink-box">
-                            <strong>2 Kişi</strong>
-                            35 cl Rakı / Şarap
-                        </div>
-                        <div class="drink-box">
-                            <strong>3 Kişi</strong>
-                            50 cl Rakı
-                        </div>
-                        <div class="drink-box">
-                            <strong>4 Kişi</strong>
-                            70 cl Rakı
-                        </div>
-                    </div>
-                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; text-align: center;">
-                        Şarap Seçenekleri: Kırmızı, Beyaz, Rose, Kadeh
-                    </p>
                 </div>
             </div>
         </section>
@@ -590,18 +601,12 @@
         <section id="alkolsuz-icecekler">
             <h2 class="section-title"><span>ALKOLSÜZ İÇECEKLER</span></h2>
             <div class="menu-grid">
-                <div class="menu-card"><div class="item-info"><div class="item-name">Su</div></div><div class="item-price">30 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Soda</div></div><div class="item-price">50 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Meyveli Soda</div></div><div class="item-price">60 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Enerji İçeceği (Red Bull)</div></div><div class="item-price">200 ₺</div></div>
                 <div class="menu-card"><div class="item-info"><div class="item-name">Kutu Kola / Fanta / Sprite</div></div><div class="item-price">100 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Şalgam</div></div><div class="item-price">80 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Ayran</div></div><div class="item-price">70 ₺</div></div>
                 <div class="menu-card"><div class="item-info"><div class="item-name">Meyve Suyu Çeşitleri</div></div><div class="item-price">100 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Sıkma Portakal Suyu</div></div><div class="item-price">150 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Enerji İçeceği</div></div><div class="item-price">150 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Sıcak Çay</div></div><div class="item-price">30 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Mırra</div><div class="item-desc">Geleneksel Mardin Kahvesi</div></div><div class="item-price">50 ₺</div></div>
-                <div class="menu-card"><div class="item-info"><div class="item-name">Türk Kahvesi</div></div><div class="item-price">100 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Soda</div></div><div class="item-price">70 ₺</div></div>                
+                <div class="menu-card"><div class="item-info"><div class="item-name">Şalgam</div></div><div class="item-price">80 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Ayran</div></div><div class="item-price">80 ₺</div></div>
             </div>
         </section>
 
@@ -649,25 +654,153 @@
 
     </div>
 
+    <!-- FIX MENÜ MODAL (AÇILIR PENCERE) -->
+    <div id="fixModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModalDirect()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header">
+                <h3 id="modalTitle">FİX MENÜ DİSPLAY</h3>
+                <div class="modal-price" id="modalPrice">0 ₺</div>
+            </div>
+            <div id="modalBody">
+                <!-- İçerik Dinamik Yüklenecek -->
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-info">
             <p style="color: var(--primary-gold); font-weight: 600;">REZERVASYON YAPMAYI UNUTMAYIN!</p>
             <p style="font-style: italic;">İyi bir akşam için yerinizi ayırtın.</p>
             <p><a href="tel:+905352113133"><i class="fa-solid fa-phone"></i> +90 (535) 211 31 33</a></p>
-            <p><i class="fa-solid fa-location-dot"></i> Savur Kapı Mah. Yalın Cad. Mardin Otogarı Yanı 3.Km Artuklu / MARDİN</p>
         </div>
-        <p style="font-size: 0.75rem; color: #555; margin-top: 15px;">© Zemheri Semir Şef - Tüm Hakları Saklıdır.</p>
     </footer>
 
     <script>
-        // Kategori Navigasyonu Aktiflik Kontrolü
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        const fixData = {
+            kizkiza: {
+                title: "KIZ KIZA FİX MENÜ",
+                price: "2.000 ₺ (Kişi Başı)",
+                hasMain: false,
+                hasAlcohol: false
+            },
+            alkolsuz: {
+                title: "ALKOLSÜZ FİX MENÜ",
+                price: "2.300 ₺ (Kişi Başı)",
+                hasMain: true,
+                hasAlcohol: false
+            },
+            alkollu: {
+                title: "ALKOLLÜ FİX MENÜ",
+                price: "3.000 ₺ (Kişi Başı)",
+                hasMain: true,
+                hasAlcohol: true
+            }
+        };
+
+        function openModal(type) {
+            const data = fixData[type];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalPrice').innerText = data.price;
+
+            let html = `
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-mortar-pestle"></i> 7 Çeşit Meze</div>
+                    <ul class="fix-list">
+                        <li>Humus</li>
+                        <li>Tahin Soslu Köz Patlıcan</li>
+                        <li>Muhammara</li>
+                        <li>Zemheri Atom</li>
+                        <li>Haydari</li>
+                        <li>Pembe Sultan</li>
+                        <li>Midyat Turşu</li>
+                    </ul>
+                </div>
+
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> Salata</div>
+                    <ul class="fix-list">
+                        <li>Roka Salatası</li>
+                    </ul>
+                </div>
+
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> Ara Sıcak (2 Çeşit)</div>
+                    <ul class="fix-list">
+                        <li>İçli Köfte</li>
+                        <li>Patlıcan Dolma</li>
+                    </ul>
+                </div>
+            `;
+
+            if (data.hasMain) {
+                html += `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-drumstick-bite"></i> Ana Yemek (Seçmeli)</div>
+                        <ul class="fix-list">
+                            <li>Kuzu Tandır</li>
+                            <li>Şef Kavurma</li>
+                            <li>Izgara Köfte</li>
+                            <li>Tavuk Bonfile</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-ice-cream"></i> Tatlı (Seçmeli)</div>
+                    <ul class="fix-list">
+                        <li>Fırın Sütlaç <span>veya</span> Meyve Tabağı</li>
+                    </ul>
+                </div>
+
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-music"></i> Etkinlik</div>
+                    <ul class="fix-list">
+                        <li>Canlı Müzik & Sıra Gecesi İle Unutulmaz Bir Akşam</li>
+                    </ul>
+                </div>
+            `;
+
+            if (data.hasAlcohol) {
+                html += `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> İçecek Seçenekleri</div>
+                        <div class="drink-options">
+                            <div class="drink-box">
+                                <strong>2 Kişi</strong>
+                                35 cl Rakı / Şarap
+                            </div>
+                            <div class="drink-box">
+                                <strong>3 Kişi</strong>
+                                50 cl Rakı
+                            </div>
+                            <div class="drink-box">
+                                <strong>4 Kişi</strong>
+                                70 cl Rakı
+                            </div>
+                        </div>
+                        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; text-align: center;">
+                            Şarap Seçenekleri: Kırmızı, Beyaz, Rose, Kadeh
+                        </p>
+                    </div>
+                `;
+            }
+
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('fixModal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'fixModal') {
+                document.getElementById('fixModal').style.display = 'none';
+            }
+        }
+
+        function closeModalDirect() {
+            document.getElementById('fixModal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
