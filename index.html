@@ -234,7 +234,7 @@
             background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
             border: 1px solid var(--primary-gold);
             border-radius: 12px;
-            padding: 25px 20px;
+            padding: 20px 15px;
             margin-top: 10px;
             margin-bottom: 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
@@ -247,41 +247,48 @@
         .fix-menu-header h2 {
             font-family: 'Cinzel', serif;
             color: var(--primary-gold);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
 
         .fix-price-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .fix-price-card {
             background: rgba(212, 175, 55, 0.08);
             border: 1px solid var(--primary-gold);
-            border-radius: 10px;
-            padding: 18px 12px;
+            border-radius: 8px;
+            padding: 12px 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .fix-price-card:hover {
             background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .fix-price-card .option-title {
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-size: 0.82rem;
+            font-weight: 600;
             color: var(--accent-gold);
-            margin-bottom: 6px;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .fix-price-card .option-price {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--primary-gold);
         }
@@ -371,7 +378,7 @@
         .modal-header h3 {
             font-family: 'Cinzel', serif;
             color: var(--primary-gold);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .modal-item-list {
@@ -581,7 +588,7 @@
             <div class="fix-menu-container">
                 <div class="fix-menu-header">
                     <h2>ZEMHERİ FİX MENÜ</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
                     
                     <div class="fix-price-grid">
                         <div class="fix-price-card" onclick="openFixModal('kizkiza')">
@@ -685,7 +692,7 @@
             <div class="address-box">
                 <a href="https://maps.apple.com/place?address=Zübeyde+Hanım+Cd.+10%2C+47100+Hatunlu+Mardin%2C+Türkiye&coordinate=37.316830%2C40.750430&name=Yalım+Cad.+No%3A30+C+Savur+Kapı+Mah.+Mardin+Otogar+Yanı" target="_blank" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none;">
                     <i class="fa-solid fa-location-dot" style="color: var(--primary-gold);"></i>
-                    <span>Savu Kapı Mah. Yalım Cad. No:30 Mardin Otogar Yanı</span>
+                    <span>Savur Kapı Mah. Yalım Cad. No:30 Mardin Otogar Yanı</span>
                     <br><u style="color: var(--primary-gold);">(Haritada Aç / Open Maps)</u>
                 </a>
             </div>
@@ -1273,7 +1280,7 @@
             en: {
                 search: "Search menu...", navFix: "Fix Menu", navMeze: "Appetizers", navSalata: "Salads", navAra: "Warm Starters",
                 navPeynir: "Cheeses", navAna: "Main Courses", navTatli: "Dessert & Fruit", navAlkolsuz: "Soft Drinks", navAlkollu: "Alcoholic Drinks",
-                fixSub: "Click to see details (Per Person)", fixKiz: "Girls Night Out", fixAlkolsuz: "Non-Alcoholic", fixAlkollu: "Alcoholic",
+                fixSub: "Click to see details (Per Person)", fixKiz: "Girls Night", fixAlkolsuz: "Non-Alcoholic", fixAlkollu: "Alcoholic",
                 catMeze: "APPETIZERS", catSalata: "SALADS", catAra: "WARM STARTERS", catPeynir: "CHEESE SELECTION", catAna: "MAIN COURSES", catTatli: "DESSERTS & FRUITS", catAlkolsuz: "SOFT DRINKS", catAlkollu: "ALCOHOLIC DRINKS",
                 inspect: "View", reserve: "Book Table", footTitle: "DON'T FORGET TO RESERVATE!", searchResults: "Search Results", noResult: "No items found matching your search."
             },
