@@ -34,7 +34,14 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             padding-bottom: 80px;
-            background-image: radial-gradient(circle at 50% 0%, #1c170d 0%, #0b0b0b 70%);
+
+            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
+            background-image: 
+                linear-gradient(rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0.92)), 
+                url('mardin-tas-duvar.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
         }
 
@@ -44,7 +51,7 @@
             justify-content: center;
             gap: 8px;
             padding: 10px 0 0;
-            background: rgba(11, 11, 11, 0.9);
+            background: rgba(11, 11, 11, 0.85);
         }
 
         .lang-btn {
@@ -89,6 +96,8 @@
             padding: 12px 28px;
             position: relative;
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+            background: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(4px);
         }
 
         .header-frame::before {
@@ -137,13 +146,14 @@
         .search-box input {
             width: 100%;
             padding: 12px 40px 12px 18px;
-            background: #141414;
+            background: rgba(20, 20, 20, 0.9);
             border: 1px solid var(--border-color);
             border-radius: 25px;
             color: var(--text-light);
             font-size: 0.9rem;
             outline: none;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .search-box input:focus {
@@ -181,7 +191,7 @@
             overflow-x: auto;
             white-space: nowrap;
             padding: 15px 10px;
-            background-color: rgba(15, 15, 15, 0.95);
+            background-color: rgba(15, 15, 15, 0.92);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -231,13 +241,14 @@
         }
 
         .fix-menu-container {
-            background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
+            background: linear-gradient(145deg, rgba(24, 21, 16, 0.9) 0%, rgba(13, 12, 8, 0.9) 100%);
             border: 1px solid var(--primary-gold);
             border-radius: 12px;
             padding: 20px 15px;
             margin-top: 10px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
         }
 
         .fix-menu-header {
@@ -298,7 +309,7 @@
         }
 
         .category-card {
-            background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
+            background: linear-gradient(145deg, rgba(24, 21, 16, 0.9) 0%, rgba(13, 12, 8, 0.9) 100%);
             border: 1px solid #282418;
             border-left: 4px solid var(--primary-gold);
             border-radius: 10px;
@@ -308,6 +319,7 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
         }
 
         .category-card:hover {
@@ -383,6 +395,7 @@
 
         .modal-item-list {
             display: flex;
+            flex-direction: flex;
             flex-direction: column;
             gap: 10px;
         }
@@ -519,7 +532,7 @@
             padding: 30px 20px;
             margin-top: 40px;
             border-top: 1px solid var(--border-color);
-            background-color: #080808;
+            background-color: rgba(8, 8, 8, 0.95);
             font-size: 0.85rem;
             color: var(--text-muted);
         }
@@ -702,7 +715,6 @@
     <script>
         let currentLang = 'tr';
 
-        // TÜM DİLLERDE KATEGORİ VE ÜRÜN VERİLERİ
         const categoryData = {
             tr: {
                 mezeler: {
@@ -799,22 +811,22 @@
                     title: "ALKOLLÜ İÇECEKLER",
                     subgroups: [
                         { groupTitle: "Viskiler", items: [
-                            { name: "Chivas Regal 12 Viski", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Chivas Regal 12 Viski", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Chivas Regal 12 Viski", desc: "70 cl", price: "4.000 ₺" },
-                            { name: "Jack Daniel's Viski", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Jack Daniel's Viski", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Jack Daniel's Viski", desc: "70 cl", price: "4.000 ₺" }
+                            { name: "Chivas Regal 12", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Chivas Regal 12", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Chivas Regal 12", desc: "70 cl", price: "4.000 ₺" },
+                            { name: "Jack Daniel's", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Jack Daniel's", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Jack Daniel's", desc: "70 cl", price: "4.000 ₺" }
                         ]},
                         { groupTitle: "Rakılar", items: [
-                            { name: "Tekirdağ Altın Seri Rakı", desc: "35 cl", price: "2.200 ₺" },
-                            { name: "Tekirdağ Altın Seri Rakı", desc: "50 cl", price: "2.700 ₺" },
-                            { name: "Tekirdağ Altın Seri Rakı", desc: "70 cl", price: "3.200 ₺" },
-                            { name: "Tekirdağ Altın Seri Rakı", desc: "100 cl", price: "5.000 ₺" },
-                            { name: "Beylerbeyi Göbek Rakı", desc: "35 cl", price: "2.400 ₺" },
-                            { name: "Beylerbeyi Göbek Rakı", desc: "50 cl", price: "3.000 ₺" },
-                            { name: "Beylerbeyi Göbek Rakı", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "Beylerbeyi Göbek Rakı", desc: "100 cl", price: "5.500 ₺" }
+                            { name: "Tekirdağ Altın Seri", desc: "35 cl", price: "2.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "50 cl", price: "2.700 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "70 cl", price: "3.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "100 cl", price: "5.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
                         ]},
                         { groupTitle: "Biralar", items: [
                             { name: "Carlsberg Bira", price: "400 ₺" },
@@ -943,10 +955,10 @@
                             { name: "Beylerbeyi Gobek", desc: "100 cl", price: "5.500 ₺" }
                         ]},
                         { groupTitle: "Beers", items: [
-                            { name: "Carlsberg", price: "400 ₺" },
-                            { name: "Tuborg Gold", price: "400 ₺" },
-                            { name: "Tuborg Red", price: "400 ₺" },
-                            { name: "Efes Shot", price: "400 ₺" }
+                            { name: "Carlsberg Beer", price: "400 ₺" },
+                            { name: "Tuborg Gold Beer", price: "400 ₺" },
+                            { name: "Tuborg Red Beer", price: "400 ₺" },
+                            { name: "Efes Shot Beer", price: "400 ₺" }
                         ]},
                         { groupTitle: "Wines", items: [
                             { name: "Red Syriac Wine", price: "1.700 ₺" },
@@ -1195,10 +1207,10 @@
                             { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
                         ]},
                         { groupTitle: "Bîra", items: [
-                            { name: "Carlsberg", price: "400 ₺" },
-                            { name: "Tuborg Gold", price: "400 ₺" },
-                            { name: "Tuborg Kırmızı", price: "400 ₺" },
-                            { name: "Efes Shot", price: "400 ₺" }
+                            { name: "Carlsberg Bîra", price: "400 ₺" },
+                            { name: "Tuborg Gold Bîra", price: "400 ₺" },
+                            { name: "Tuborg Kırmızı Bîra", price: "400 ₺" },
+                            { name: "Efes Shot Bîra", price: "400 ₺" }
                         ]},
                         { groupTitle: "Şerab", items: [
                             { name: "Şeraba Suryanî ya Sor", price: "1.700 ₺" },
@@ -1210,7 +1222,6 @@
             }
         };
 
-        // FİX MENÜ DETAYLARI İÇİN DİL DESTEĞİ
         const fixData = {
             tr: {
                 kizkiza: { title: "KIZ KIZA FİX MENÜ", price: "2.000 ₺ (Kişi Başı)", hasMain: false, hasAlcohol: true },
@@ -1339,7 +1350,6 @@
             filterSearch();
         }
 
-        // AKILLI ÜRÜN ARAMA
         function filterSearch() {
             let input = document.getElementById('menuSearch').value.toLowerCase().trim();
             let resultsContainer = document.getElementById('search-results-container');
@@ -1364,16 +1374,28 @@
 
             for (let catKey in data) {
                 let category = data[catKey];
+                let catTitleLower = category.title.toLowerCase();
+
                 if (category.items) {
                     category.items.forEach(item => {
-                        if (item.name.toLowerCase().includes(input) || (item.desc && item.desc.toLowerCase().includes(input))) {
+                        let nameMatch = item.name.toLowerCase().includes(input);
+                        let descMatch = item.desc && item.desc.toLowerCase().includes(input);
+                        let catMatch = catTitleLower.includes(input);
+
+                        if (nameMatch || descMatch || catMatch) {
                             matches.push({ ...item, categoryTitle: category.title });
                         }
                     });
                 } else if (category.subgroups) {
                     category.subgroups.forEach(sub => {
+                        let subTitleLower = sub.groupTitle.toLowerCase();
                         sub.items.forEach(item => {
-                            if (item.name.toLowerCase().includes(input) || (item.desc && item.desc.toLowerCase().includes(input))) {
+                            let nameMatch = item.name.toLowerCase().includes(input);
+                            let descMatch = item.desc && item.desc.toLowerCase().includes(input);
+                            let subMatch = subTitleLower.includes(input);
+                            let catMatch = catTitleLower.includes(input);
+
+                            if (nameMatch || descMatch || subMatch || catMatch) {
                                 matches.push({ ...item, categoryTitle: category.title + ' - ' + sub.groupTitle });
                             }
                         });
@@ -1398,7 +1420,6 @@
             }
         }
 
-        // FİX MENÜ POPUP (Tamamen Dinamik Çok Dilli)
         function openFixModal(type) {
             const data = fixData[currentLang][type];
             const fc = fixContentTranslations[currentLang];
@@ -1464,7 +1485,6 @@
             document.getElementById('appModal').style.display = 'flex';
         }
 
-        // KATEGORİ MODAL POPUP
         function openCategoryModal(key) {
             const data = categoryData[currentLang][key];
             if (!data) return;
