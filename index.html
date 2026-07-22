@@ -227,7 +227,7 @@
 
         .fix-menu-header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px dashed var(--border-color);
         }
@@ -237,6 +237,42 @@
             color: var(--primary-gold);
             font-size: 1.6rem;
             letter-spacing: 2px;
+        }
+
+        /* Fix Menu Fiyat Seçenekleri Kutuları */
+        .fix-price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .fix-price-card {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--primary-gold);
+            border-radius: 10px;
+            padding: 12px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fix-price-card .option-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .fix-price-card .option-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-gold);
         }
 
         .fix-section {
@@ -333,6 +369,7 @@
             h1 { font-size: 1.8rem; }
             .subtitle { font-size: 0.8rem; letter-spacing: 4px; }
             .menu-grid { grid-template-columns: 1fr; }
+            .fix-price-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -353,6 +390,7 @@
         <a href="#peynirler" class="nav-item"><i class="fa-solid fa-cheese"></i> Peynirler</a>
         <a href="#ana-yemekler" class="nav-item"><i class="fa-solid fa-utensils"></i> Ana Yemekler</a>
         <a href="#tatli-meyve" class="nav-item"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve</a>
+        <a href="#alkolsuz-icecekler" class="nav-item"><i class="fa-solid fa-glass-water"></i> Alkolsüz İçecekler</a>
         <a href="#alkollu-icecekler" class="nav-item"><i class="fa-solid fa-wine-glass"></i> Alkollü İçecekler</a>
     </nav>
 
@@ -363,7 +401,23 @@
             <div class="fix-menu-container">
                 <div class="fix-menu-header">
                     <h2>ZEMHERİ FİX MENÜ</h2>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Özel Lezzetler & Sıra Gecesi Deneyimi</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Özel Lezzetler & Sıra Gecesi Deneyimi (Kişi Başı)</p>
+                    
+                    <!-- 3 Farklı Fiyat Kartları -->
+                    <div class="fix-price-grid">
+                        <div class="fix-price-card">
+                            <span class="option-title"><i class="fa-solid fa-person-dress"></i> Kız Kıza</span>
+                            <span class="option-price">2.000 ₺</span>
+                        </div>
+                        <div class="fix-price-card">
+                            <span class="option-title"><i class="fa-solid fa-glass-water"></i> Alkolsüz</span>
+                            <span class="option-price">2.300 ₺</span>
+                        </div>
+                        <div class="fix-price-card">
+                            <span class="option-title"><i class="fa-solid fa-wine-glass"></i> Alkollü</span>
+                            <span class="option-price">3.000 ₺</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="fix-section">
@@ -382,7 +436,7 @@
                 <div class="fix-section">
                     <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> Salata</div>
                     <ul class="fix-list">
-                        <li>Roka Salatası (Kekik & Fesleğen Soslu)</li>
+                        <li>Roka Salatası</li>
                     </ul>
                 </div>
 
@@ -390,7 +444,7 @@
                     <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> Ara Sıcak</div>
                     <ul class="fix-list">
                         <li>İçli Köfte</li>
-                        <li>Kuru Patlıcan Biber Dolma</li>
+                        <li>Patlıcan Dolma</li>
                     </ul>
                 </div>
 
@@ -419,7 +473,7 @@
                 </div>
 
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> İçecek Seçenekleri</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> İçecek Seçenekleri (Alkollü Menü İçin)</div>
                     <div class="drink-options">
                         <div class="drink-box">
                             <strong>2 Kişi</strong>
@@ -529,6 +583,25 @@
                 <div class="menu-card"><div class="item-info"><div class="item-name">Jelibon Tabağı</div></div><div class="item-price">250 ₺</div></div>
                 <div class="menu-card"><div class="item-info"><div class="item-name">Napoliten Çikolata Tabağı</div></div><div class="item-price">250 ₺</div></div>
                 <div class="menu-card"><div class="item-info"><div class="item-name">Yer Fıstığı</div></div><div class="item-price">250 ₺</div></div>
+            </div>
+        </section>
+
+        <!-- ALKOLSÜZ İÇECEKLER -->
+        <section id="alkolsuz-icecekler">
+            <h2 class="section-title"><span>ALKOLSÜZ İÇECEKLER</span></h2>
+            <div class="menu-grid">
+                <div class="menu-card"><div class="item-info"><div class="item-name">Su</div></div><div class="item-price">30 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Soda</div></div><div class="item-price">50 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Meyveli Soda</div></div><div class="item-price">60 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Kutu Kola / Fanta / Sprite</div></div><div class="item-price">100 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Şalgam</div></div><div class="item-price">80 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Ayran</div></div><div class="item-price">70 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Meyve Suyu Çeşitleri</div></div><div class="item-price">100 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Sıkma Portakal Suyu</div></div><div class="item-price">150 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Enerji İçeceği</div></div><div class="item-price">150 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Sıcak Çay</div></div><div class="item-price">30 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Mırra</div><div class="item-desc">Geleneksel Mardin Kahvesi</div></div><div class="item-price">50 ₺</div></div>
+                <div class="menu-card"><div class="item-info"><div class="item-name">Türk Kahvesi</div></div><div class="item-price">100 ₺</div></div>
             </div>
         </section>
 
