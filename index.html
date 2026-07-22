@@ -252,7 +252,7 @@
             border: 2px solid var(--primary-gold);
             border-radius: 12px;
             width: 100%;
-            max-width: 500px;
+            max-width: 520px;
             max-height: 85vh;
             overflow-y: auto;
             padding: 25px 20px;
@@ -329,9 +329,48 @@
             font-size: 0.85rem;
         }
 
+        /* ALKOL LİSTESİ ŞIK TASARIMI */
+        .drink-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 6px;
+            width: 100%;
+        }
+
+        .drink-box-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 3px;
+        }
+
+        .drink-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.82rem;
+        }
+
+        .drink-col-title {
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         @media (max-width: 480px) {
             .footer-right {
                 text-align: left;
+            }
+            .drink-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -447,6 +486,27 @@
     </div>
 
     <script>
+        const drinkHTML = `
+            <div class="drink-box">
+                <div class="drink-box-title">❖ İÇECEK SEÇENEKLERİ ❖</div>
+                <div class="drink-grid">
+                    <div>
+                        <div class="drink-col-title"><i class="fa-solid fa-bottle-droplet"></i> RAKILAR</div>
+                        <div>• 2 Kişiye 35'lik Rakı</div>
+                        <div>• 3 Kişiye 50'lik Rakı</div>
+                        <div>• 4 Kişiye 70'lik Rakı</div>
+                    </div>
+                    <div>
+                        <div class="drink-col-title"><i class="fa-solid fa-wine-glass"></i> ŞARAPLAR</div>
+                        <div>• Kırmızı Şarap</div>
+                        <div>• Beyaz Şarap</div>
+                        <div>• Rose Şarap</div>
+                        <div>• Kadeh Şarap</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
         const menuData = {
             // FIX MENÜLER
             kizkiza: {
@@ -458,7 +518,7 @@
                     "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
                     "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
                     "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
-                    "<b>İçecek:</b> Sınırsız Alkolsüz İçecekler Dâhil"
+                    drinkHTML
                 ]
             },
             alkolsuz: {
@@ -484,7 +544,7 @@
                     "<b>Ana Yemek (Seçmeli):</b> Kuzu Tandır / Şef Kavurma / İnçasiye",
                     "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
                     "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
-                    "<b>Alkol Seçenekleri:</b> Rakı / Şarap / Viski Seçenekleri Dâhil"
+                    drinkHTML
                 ]
             },
             // DİĞER MENÜLER
@@ -546,7 +606,11 @@
             
             data.items.forEach(item => {
                 const li = document.createElement('li');
-                li.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item}</span>`;
+                if (item.includes('drink-box')) {
+                    li.innerHTML = item;
+                } else {
+                    li.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item}</span>`;
+                }
                 listElement.appendChild(li);
             });
 
