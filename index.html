@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zemheri Semir Şef - Fix Menü</title>
+    <title>Zemheri Semir Şef - Menü</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
             --accent-gold: #F3E5AB;
             --dark-gold: #AA7C11;
             --bg-black: #0B0B0B;
+            --card-bg: rgba(20, 20, 20, 0.85);
             --border-color: #2A2415;
             --text-light: #F5F5F5;
             --text-muted: #A0A0A0;
@@ -58,7 +59,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .brand-title {
@@ -80,107 +81,83 @@
             margin-top: 4px;
         }
 
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px 0;
-            color: var(--primary-gold);
-            font-size: 0.8rem;
-        }
-
-        .divider::before, .divider::after {
-            content: '';
-            height: 1px;
-            width: 80px;
-            background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
-            margin: 0 10px;
-            display: inline-block;
-        }
-
-        .section-title {
+        .section-header {
             font-family: 'Cinzel', serif;
             color: var(--primary-gold);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-align: center;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 18px;
-            margin-bottom: 4px;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .meze-list {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.7;
+        .section-header::before, .section-header::after {
+            content: '';
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
         }
 
-        .meze-list span {
-            display: block;
-        }
-
-        .item-highlight {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .section-desc {
-            text-align: center;
-            font-size: 0.92rem;
-            color: var(--text-light);
-        }
-
-        /* PAKET KARTLARI */
-        .packages-container {
+        /* GRID KART YAPISI */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 12px;
-            margin-top: 25px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
         }
 
-        .package-card {
-            background: rgba(20, 20, 20, 0.8);
+        .menu-card {
+            background: var(--card-bg);
             border: 1px solid var(--primary-gold);
             border-radius: 8px;
-            padding: 15px 10px;
+            padding: 16px 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
         }
 
-        .package-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            background: rgba(30, 25, 15, 0.9);
+        .menu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+            background: rgba(30, 25, 15, 0.95);
         }
 
-        .package-title {
-            font-family: 'Cinzel', serif;
-            color: var(--accent-gold);
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 4px;
-        }
-
-        .package-price {
-            font-family: 'Cinzel', serif;
+        .card-icon {
+            font-size: 1.4rem;
             color: var(--primary-gold);
-            font-size: 1.3rem;
-            font-weight: 800;
             margin-bottom: 8px;
         }
 
-        .package-hint {
+        .card-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .card-price {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-top: 6px;
+        }
+
+        .card-action {
             font-size: 0.7rem;
             color: var(--accent-gold);
-            margin-top: 6px;
+            margin-top: 8px;
             font-style: italic;
             display: flex;
             align-items: center;
@@ -191,9 +168,9 @@
         .reservation-box {
             border: 1px solid var(--primary-gold);
             border-radius: 6px;
-            padding: 10px 15px;
+            padding: 12px 15px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
             background: rgba(212, 175, 55, 0.05);
         }
 
@@ -212,7 +189,7 @@
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 25px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -253,8 +230,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(6px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -271,16 +248,18 @@
         }
 
         .modal-container {
-            background: #111;
+            background: #111111;
             border: 2px solid var(--primary-gold);
             border-radius: 12px;
             width: 100%;
-            max-width: 480px;
-            padding: 25px;
+            max-width: 500px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 25px 20px;
             position: relative;
-            transform: scale(0.8);
+            transform: scale(0.85);
             transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
         }
 
         .modal-overlay.active .modal-container {
@@ -294,8 +273,13 @@
             background: transparent;
             border: none;
             color: var(--primary-gold);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #fff;
         }
 
         .modal-header {
@@ -308,32 +292,41 @@
         .modal-title {
             font-family: 'Cinzel', serif;
             color: var(--accent-gold);
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
         }
 
         .modal-price {
             font-family: 'Cinzel', serif;
             color: var(--primary-gold);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
+            margin-top: 4px;
         }
 
         .modal-list {
             list-style: none;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
         }
 
         .modal-list li {
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
             display: flex;
+            align-items: flex-start;
             gap: 10px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .modal-list li:last-child {
+            border-bottom: none;
         }
 
         .modal-list li i {
             color: var(--primary-gold);
             margin-top: 4px;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 480px) {
@@ -352,64 +345,77 @@
             <div class="brand-subtitle">SEMİR ŞEF</div>
         </header>
 
-        <div class="section-title">❖ 9 ÇEŞİT MEZE ❖</div>
-        <div class="divider">❖</div>
-        <div class="meze-list">
-            <span>• Humus</span>
-            <span>• Tahin Soslu Köz Patlıcan</span>
-            <span>• Muhammara</span>
-            <span class="item-highlight">• Zemheri Atom</span>
-            <span>• Haydari</span>
-            <span>• Ekşili Yaprak Sarma</span>
-            <span>• Pembe Sultan</span>
-            <span>• Midyat Turşu</span>
-            <span>• Cevizli Köz Biber</span>
+        <!-- FIX MENÜ KATEGORİLERİ -->
+        <div class="section-header">❖ FİX MENÜ PAKETLERİ ❖</div>
+        <div class="cards-grid">
+            
+            <div class="menu-card" onclick="openModal('kizkiza')">
+                <div class="card-icon"><i class="fa-solid fa-person-dress"></i></div>
+                <div class="card-title">Kız Kıza</div>
+                <div class="card-subtitle">Özel Fix Menü</div>
+                <div class="card-price">2.000 ₺</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> Detaylı İncele</div>
+            </div>
+
+            <div class="menu-card" onclick="openModal('alkolsuz')">
+                <div class="card-icon"><i class="fa-solid fa-glass-water"></i></div>
+                <div class="card-title">Alkolsüz</div>
+                <div class="card-subtitle">Fix Menü</div>
+                <div class="card-price">2.300 ₺</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> Detaylı İncele</div>
+            </div>
+
+            <div class="menu-card" onclick="openModal('alkollu')">
+                <div class="card-icon"><i class="fa-solid fa-wine-glass"></i></div>
+                <div class="card-title">Alkollü</div>
+                <div class="card-subtitle">Fix Menü</div>
+                <div class="card-price">3.000 ₺</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> Detaylı İncele</div>
+            </div>
+
         </div>
 
-        <div class="section-title"><i class="fa-solid fa-leaf"></i> SALATA <i class="fa-solid fa-leaf"></i></div>
-        <div class="divider">❖</div>
-        <div class="section-desc">Roka Salatası</div>
-
-        <div class="section-title"><i class="fa-solid fa-fire"></i> ARA SICAK <i class="fa-solid fa-fire"></i></div>
-        <div class="divider">❖</div>
-        <div class="section-desc">İçli Köfte & Patlıcan Dolma</div>
-
-        <div class="section-title"><i class="fa-solid fa-utensils"></i> ANA YEMEKLER (SEÇMELİ) <i class="fa-solid fa-utensils"></i></div>
-        <div class="divider">❖</div>
-        <div class="section-desc">Kuzu Tandır / Şef Kavurma / İnçasiye</div>
-
-        <div class="section-title"><i class="fa-solid fa-cake-candles"></i> TATLI <i class="fa-solid fa-cake-candles"></i></div>
-        <div class="divider">❖</div>
-        <div class="section-desc">Sütlaç ve Mevsim Meyvesi</div>
-
-        <div class="section-title"><i class="fa-solid fa-music"></i> SIRA GECESİ <i class="fa-solid fa-music"></i></div>
-        <div class="divider">❖</div>
-        <div class="section-desc" style="font-size:0.85rem; color:var(--accent-gold);">Canlı Müzik & Sıra Gecesi ile Unutulmaz Bir Akşam</div>
-
-        <!-- PAKET SEÇENEKLERİ -->
-        <div class="packages-container">
-            <div class="package-card" onclick="openModal('kizkiza')">
-                <div class="package-title"><i class="fa-solid fa-person-dress"></i> KIZ KIZA</div>
-                <div class="package-price">2.000 ₺</div>
-                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
+        <!-- DİĞER / A LA CARTE MENÜLER -->
+        <div class="section-header">❖ DİĞER MENÜLER ❖</div>
+        <div class="cards-grid">
+            
+            <div class="menu-card" onclick="openModal('meze')">
+                <div class="card-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                <div class="card-title">Soğuk Mezeler</div>
+                <div class="card-subtitle">9 Çeşit Lezzet</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> İncele</div>
             </div>
-            <div class="package-card" onclick="openModal('alkolsuz')">
-                <div class="package-title"><i class="fa-solid fa-glass-water"></i> ALKOLSÜZ</div>
-                <div class="package-price">2.300 ₺</div>
-                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
+
+            <div class="menu-card" onclick="openModal('arasicak')">
+                <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
+                <div class="card-title">Salata & Ara Sıcak</div>
+                <div class="card-subtitle">Taze & Sıcak Lezzetler</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> İncele</div>
             </div>
-            <div class="package-card" onclick="openModal('alkollu')">
-                <div class="package-title"><i class="fa-solid fa-wine-glass"></i> ALKOLLÜ</div>
-                <div class="package-price">3.000 ₺</div>
-                <div class="package-hint"><i class="fa-solid fa-eye"></i> Detayları Gör</div>
+
+            <div class="menu-card" onclick="openModal('anayemek')">
+                <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="card-title">Ana Yemekler</div>
+                <div class="card-subtitle">Tandır, Kavurma & Saray</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> İncele</div>
             </div>
+
+            <div class="menu-card" onclick="openModal('tatli_icecek')">
+                <div class="card-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                <div class="card-title">Tatlı & İçecek</div>
+                <div class="card-subtitle">Sütlaç, Meyve & İçecekler</div>
+                <div class="card-action"><i class="fa-solid fa-eye"></i> İncele</div>
+            </div>
+
         </div>
 
+        <!-- REZERVASYON BOX -->
         <div class="reservation-box">
             <div class="reservation-title">REZERVASYON YAPMAYI UNUTMAYIN!</div>
             <div class="reservation-sub">İyi bir akşam için yerinizi ayırtın.</div>
         </div>
 
+        <!-- FOOTER -->
         <footer>
             <div class="footer-left">
                 <div><i class="fa-solid fa-phone" style="color:var(--primary-gold);"></i> <a href="tel:+905352113133" style="color:inherit; text-decoration:none;">+90 (535) 211 31 33</a></div>
@@ -426,13 +432,13 @@
 
     </div>
 
-    <!-- MODAL / ŞİK AÇILIR PENCERE -->
+    <!-- MODAL (AÇILIR PENCERE) -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal-container">
             <button class="modal-close" onclick="forceCloseModal()">&times;</button>
             <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Paket Adı</div>
-                <div class="modal-price" id="modalPrice">0 ₺</div>
+                <div class="modal-title" id="modalTitle">Menü Detayı</div>
+                <div class="modal-price" id="modalPrice"></div>
             </div>
             <ul class="modal-list" id="modalList">
                 <!-- İçerik JS ile eklenecek -->
@@ -441,36 +447,37 @@
     </div>
 
     <script>
-        const packageData = {
+        const menuData = {
+            // FIX MENÜLER
             kizkiza: {
                 title: "Kız Kıza Fix Menü",
                 price: "2.000 ₺",
-                details: [
+                items: [
                     "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
                     "<b>Salata:</b> Roka Salatası",
                     "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
                     "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
                     "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
-                    "<b>İçecekler:</b> Sınırsız Alkolsüz İçecekler & Kokteyller Dâhil"
+                    "<b>İçecek:</b> Sınırsız Alkolsüz İçecekler Dâhil"
                 ]
             },
             alkolsuz: {
                 title: "Alkolsüz Fix Menü",
                 price: "2.300 ₺",
-                details: [
+                items: [
                     "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
                     "<b>Salata:</b> Roka Salatası",
                     "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
                     "<b>Ana Yemek (Seçmeli):</b> Kuzu Tandır / Şef Kavurma / İnçasiye",
                     "<b>Tatlı:</b> Sütlaç ve Mevsim Meyvesi",
                     "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
-                    "<b>İçecekler:</b> Sınırsız Alkolsüz Meşrubatlar, Ayran & Şalgam Dâhil"
+                    "<b>İçecek:</b> Sınırsız Meşrubat, Ayran & Şalgam Dâhil"
                 ]
             },
             alkollu: {
                 title: "Alkollü Fix Menü",
                 price: "3.000 ₺",
-                details: [
+                items: [
                     "<b>9 Çeşit Meze:</b> Humus, Tahin Soslu Köz Patlıcan, Muhammara, Zemheri Atom, Haydari, Ekşili Yaprak Sarma, Pembe Sultan, Midyat Turşu, Cevizli Köz Biber",
                     "<b>Salata:</b> Roka Salatası",
                     "<b>Ara Sıcak:</b> İçli Köfte & Patlıcan Dolma",
@@ -479,18 +486,65 @@
                     "<b>Eğlence:</b> Canlı Müzik & Sıra Gecesi",
                     "<b>Alkol Seçenekleri:</b> Rakı / Şarap / Viski Seçenekleri Dâhil"
                 ]
+            },
+            // DİĞER MENÜLER
+            meze: {
+                title: "Soğuk Mezeler",
+                price: "A la Carte",
+                items: [
+                    "Humus",
+                    "Tahin Soslu Köz Patlıcan",
+                    "Muhammara",
+                    "Zemheri Atom",
+                    "Haydari",
+                    "Ekşili Yaprak Sarma",
+                    "Pembe Sultan",
+                    "Midyat Turşu",
+                    "Cevizli Köz Biber"
+                ]
+            },
+            arasicak: {
+                title: "Salatalar & Ara Sıcaklar",
+                price: "A la Carte",
+                items: [
+                    "<b>Roka Salatası:</b> Taze roka, ceviz, parmesan ve nar ekşisi sosu ile",
+                    "<b>İçli Köfte:</b> Geleneksel zırh kıymalı ve cevizli özel içli köfte",
+                    "<b>Patlıcan Dolma:</b> Özel baharatlı dolma pirinci ile doldurulmuş fırınlanmış patlıcan"
+                ]
+            },
+            anayemek: {
+                title: "Ana Yemekler",
+                price: "A la Carte",
+                items: [
+                    "<b>Kuzu Tandır:</b> Ağır ateşte uzun süre pişirilmiş lokum kıvamında kuzu tandır",
+                    "<b>Şef Kavurma:</b> Özel döküm tavada tereyağı ve özel baharatlarla kavrulmuş et",
+                    "<b>İnçasiye:</b> Geleneksel Osmanlı-Mardin mutfağı saray lezzeti"
+                ]
+            },
+            tatli_icecek: {
+                title: "Tatlılar & İçecekler",
+                price: "A la Carte",
+                items: [
+                    "<b>Sütlaç:</b> Fırınlanmış geleneksel sütlaç",
+                    "<b>Mevsim Meyvesi:</b> Taze mevsim meyveleri tabağı",
+                    "<b>Sınırsız Meşrubat Çeşitleri</b>",
+                    "<b>Ev Yapımı Şalgam & Ayran</b>",
+                    "<b>Taze Demleme Çay & Türk Kahvesi</b>"
+                ]
             }
         };
 
-        function openModal(packageKey) {
-            const data = packageData[packageKey];
+        function openModal(key) {
+            const data = menuData[key];
+            if (!data) return;
+
             document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalPrice').innerText = data.price;
+            document.getElementById('modalPrice').innerText = data.price ? data.price : '';
             
             const listElement = document.getElementById('modalList');
             listElement.innerHTML = '';
             
-            data.details.forEach(item => {
+            data.items.forEach(item => {
                 const li = document.createElement('li');
                 li.innerHTML = `<i class="fa-solid fa-star"></i> <span>${item}</span>`;
                 listElement.appendChild(li);
