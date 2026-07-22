@@ -1203,6 +1203,7 @@
             }
         };
 
+        // FİX MENÜ DETAYLARI İÇİN DİL DESTEĞİ
         const fixData = {
             tr: {
                 kizkiza: { title: "KIZ KIZA FİX MENÜ", price: "2.000 ₺ (Kişi Başı)", hasMain: false, hasAlcohol: true },
@@ -1223,6 +1224,41 @@
                 kizkiza: { title: "FÎKS MENU KEÇ Bİ KEÇ", price: "2.000 ₺ (Ji bo Kesekî)", hasMain: false, hasAlcohol: true },
                 alkolsuz: { title: "FÎKS MENU BÊ ALKOL", price: "2.300 ₺ (Ji bo Kesekî)", hasMain: true, hasAlcohol: false },
                 alkollu: { title: "FÎKS MENU BÎ ALKOL", price: "3.000 ₺ (Ji bo Kesekî)", hasMain: true, hasAlcohol: true }
+            }
+        };
+
+        const fixContentTranslations = {
+            tr: {
+                mezeTitle: "7 Mezeler", mezeList: ["Humus", "Tahin Soslu Köz Patlıcan", "Muhammara", "Zemheri Atom", "Haydari", "Pembe Sultan", "Midyat Turşu"],
+                salataTitle: "Salata", salataList: ["Roka Salatası"],
+                araTitle: "Ara Sıcak (2 Çeşit)", araList: ["İçli Köfte", "Patlıcan Dolma"],
+                anaTitle: "Ana Yemek", anaList: ["Kuzu Tandır", "Şef Kavurma", "Izgara Köfte", "Tavuk Bonfile"],
+                tatliTitle: "Tatlı", tatliList: ["Fırın Sütlaç / Meyve Tabağı"],
+                drinkTitle: "İçecek", drink2: "2 Kişi", drink2desc: "35 cl Rakı / Şarap", drink3: "3 Kişi", drink3desc: "50 cl Rakı", drink4: "4 Kişi", drink4desc: "70 cl Rakı"
+            },
+            en: {
+                mezeTitle: "7 Appetizers", mezeList: ["Hummus", "Roasted Eggplant with Tahini", "Muhammara", "Zemheri Atom", "Haydari", "Pink Sultan", "Midyat Pickles"],
+                salataTitle: "Salad", salataList: ["Arugula Salad"],
+                araTitle: "Warm Starters (2 Kinds)", araList: ["Stuffed Meatballs (Kibbeh)", "Stuffed Eggplant"],
+                anaTitle: "Main Course", anaList: ["Lamb Tandoori", "Chef's Sauteed Meat", "Grilled Meatballs", "Chicken Fillet"],
+                tatliTitle: "Dessert", tatliList: ["Rice Pudding / Fruit Plate"],
+                drinkTitle: "Drinks", drink2: "2 Persons", drink2desc: "35 cl Raki / Wine", drink3: "3 Persons", drink3desc: "50 cl Raki", drink4: "4 Persons", drink4desc: "70 cl Raki"
+            },
+            ar: {
+                mezeTitle: "7 مقبلات", mezeList: ["حمص", "باذنجان مشوي بالطحينة", "محمرة", "زمهرير أتوم", "حيدري", "سلطان وردي", "مخلل مديات"],
+                salataTitle: "سلطة", salataList: ["سلطة جرجير"],
+                araTitle: "مقبلات ساخنة (نوعان)", araList: ["كبة مقلية", "محشي باذنجان"],
+                anaTitle: "طبق رئيسي", anaList: ["تنور لحم ضأن", "قاورما الشيف", "كفتة مشوية", "فليه دجاج"],
+                tatliTitle: "حلويات", tatliList: ["أرز بالحليب / صحن فواكه"],
+                drinkTitle: "المشروبات", drink2: "شخصان", drink2desc: "35 cl راكي / نبيذ", drink3: "3 أشخاص", drink3desc: "50 cl راكي", drink4: "4 أشخاص", drink4desc: "70 cl راكي"
+            },
+            ku: {
+                mezeTitle: "7 Meze", mezeList: ["Humus", "Bacanên Sorik bi Tahîn", "Muhammara", "Zemherî Atom", "Haydarî", "Sultana Pembe", "Tirşiya Midyadê"],
+                salataTitle: "Salata", salataList: ["Salata Rokayê"],
+                araTitle: "Germik (2 Cins)", araList: ["Kutlik", "Mahiya Bacanê"],
+                anaTitle: "Xwarina Serekê", anaList: ["Tandûra Berxê", "Kavurma Şef", "Koftê Sêlê", "Bonfîleya Mirîşkê"],
+                tatliTitle: "Şîrnî", tatliList: ["Sutlaç / Siniya Mêveyan"],
+                drinkTitle: "Vexwarin", drink2: "2 Kes", drink2desc: "35 cl Raqî / Şerab", drink3: "3 Kes", drink3desc: "50 cl Raqî", drink4: "4 Kes", drink4desc: "70 cl Raqî"
             }
         };
 
@@ -1293,11 +1329,10 @@
             document.getElementById('foot-title').innerText = t.footTitle;
             document.getElementById('search-results-title').innerText = t.searchResults;
 
-            // Eğer arama yapılmış durumdaysa dili değişince sonuçları da güncelle
             filterSearch();
         }
 
-        // AKILLI ÜRÜN ARAMA (Bütün ürünlerde arayıp ad-fiyat getirir)
+        // AKILLI ÜRÜN ARAMA
         function filterSearch() {
             let input = document.getElementById('menuSearch').value.toLowerCase().trim();
             let resultsContainer = document.getElementById('search-results-container');
@@ -1312,7 +1347,6 @@
                 return;
             }
 
-            // Ana içerikleri gizleyip arama panelini göster
             mainContent.style.display = "none";
             mainNav.style.display = "none";
             resultsContainer.style.display = "block";
@@ -1357,53 +1391,63 @@
             }
         }
 
-        // FİX MENÜ POPUP
+        // FİX MENÜ POPUP (Tamamen Dinamik Çok Dilli)
         function openFixModal(type) {
             const data = fixData[currentLang][type];
+            const fc = fixContentTranslations[currentLang];
+
             document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalPrice').innerText = data.price;
 
             let html = `
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-mortar-pestle"></i> 7 Mezeler</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-mortar-pestle"></i> ${fc.mezeTitle}</div>
                     <ul class="fix-list">
-                        <li>Humus</li><li>Tahin Soslu Köz Patlıcan</li><li>Muhammara</li><li>Zemheri Atom</li><li>Haydari</li><li>Pembe Sultan</li><li>Midyat Turşu</li>
+                        ${fc.mezeList.map(item => `<li>${item}</li>`).join('')}
                     </ul>
                 </div>
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> Salata</div>
-                    <ul class="fix-list"><li>Roka Salatası</li></ul>
+                    <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> ${fc.salataTitle}</div>
+                    <ul class="fix-list">
+                        ${fc.salataList.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
                 </div>
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> Ara Sıcak (2 Çeşit)</div>
-                    <ul class="fix-list"><li>İçli Köfte</li><li>Patlıcan Dolma</li></ul>
+                    <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> ${fc.araTitle}</div>
+                    <ul class="fix-list">
+                        ${fc.araList.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
                 </div>
             `;
 
             if (data.hasMain) {
                 html += `
                     <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-drumstick-bite"></i> Ana Yemek</div>
-                        <ul class="fix-list"><li>Kuzu Tandır</li><li>Şef Kavurma</li><li>Izgara Köfte</li><li>Tavuk Bonfile</li></ul>
+                        <div class="fix-section-title"><i class="fa-solid fa-drumstick-bite"></i> ${fc.anaTitle}</div>
+                        <ul class="fix-list">
+                            ${fc.anaList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
                     </div>
                 `;
             }
 
             html += `
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-ice-cream"></i> Tatlı</div>
-                    <ul class="fix-list"><li>Fırın Sütlaç / Meyve Tabağı</li></ul>
+                    <div class="fix-section-title"><i class="fa-solid fa-ice-cream"></i> ${fc.tatliTitle}</div>
+                    <ul class="fix-list">
+                        ${fc.tatliList.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
                 </div>
             `;
 
             if (data.hasAlcohol) {
                 html += `
                     <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> İçecek</div>
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> ${fc.drinkTitle}</div>
                         <div class="drink-options">
-                            <div class="drink-box"><strong>2 Kişi</strong>35 cl Rakı / Şarap</div>
-                            <div class="drink-box"><strong>3 Kişi</strong>50 cl Rakı</div>
-                            <div class="drink-box"><strong>4 Kişi</strong>70 cl Rakı</div>
+                            <div class="drink-box"><strong>${fc.drink2}</strong>${fc.drink2desc}</div>
+                            <div class="drink-box"><strong>${fc.drink3}</strong>${fc.drink3desc}</div>
+                            <div class="drink-box"><strong>${fc.drink4}</strong>${fc.drink4desc}</div>
                         </div>
                     </div>
                 `;
