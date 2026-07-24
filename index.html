@@ -25,17 +25,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* --- GURME MOOD VE TEMA DEĞİŞKENLERİ --- */
-        :root, [data-theme="dark"][data-mood="classic"] {
+        :root {
             --brand-primary: #C59B27;
             --brand-light: #E5C158;
             --brand-dark: #4A3515;
             --bg-base: #1C1510;
-            --bg-card: rgba(35, 27, 21, 0.85);
+            --bg-card: rgba(43, 33, 26, 0.88);
             --border-glow: rgba(229, 193, 88, 0.28);
             --text-main: #FDFBF7;
             --text-muted: #D4C5B0;
             --accent-warm: #F3D372;
-            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.45), rgba(15, 11, 8, 0.65));
+            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95));
+        }
+
+        /* Akşam (Klasik Altın) Teması */
+        [data-theme="dark"][data-mood="classic"] {
+            --brand-primary: #C59B27;
+            --brand-light: #E5C158;
+            --brand-dark: #4A3515;
+            --bg-base: #1C1510;
+            --bg-card: rgba(43, 33, 26, 0.88);
+            --border-glow: rgba(229, 193, 88, 0.28);
+            --text-main: #FDFBF7;
+            --text-muted: #D4C5B0;
+            --accent-warm: #F3D372;
+            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95));
         }
 
         /* Öğle (Ferah) Teması */
@@ -49,7 +63,7 @@
             --text-main: #2c3e2d;
             --text-muted: #586e59;
             --accent-warm: #6b8e23;
-            --bg-gradient: linear-gradient(rgba(244, 246, 240, 0.75), rgba(230, 235, 222, 0.85));
+            --bg-gradient: linear-gradient(rgba(244, 246, 240, 0.9), rgba(230, 235, 222, 0.95));
         }
 
         /* Sıcak (Baharat) Teması */
@@ -58,12 +72,12 @@
             --brand-light: #e09f3e;
             --brand-dark: #40322c;
             --bg-base: #1a1412;
-            --bg-card: rgba(38, 31, 28, 0.85);
+            --bg-card: rgba(38, 31, 28, 0.92);
             --border-glow: rgba(217, 119, 87, 0.3);
             --text-main: #f0e6df;
             --text-muted: #b8a296;
             --accent-warm: #e09f3e;
-            --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.45), rgba(15, 11, 10, 0.65));
+            --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.9), rgba(15, 11, 10, 0.95));
         }
 
         * {
@@ -896,6 +910,7 @@
     <script>
         let currentLang = 'tr';
         
+        // Gurme Mod Tema Değiştirici Fonksiyon
         function setTheme(theme, mood, e) {
             const html = document.documentElement;
             html.setAttribute('data-theme', theme);
