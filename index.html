@@ -35,7 +35,6 @@
             line-height: 1.6;
             padding-bottom: 80px;
 
-            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
             background-image: 
                 linear-gradient(rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0.92)), 
                 url('mardin-tas-duvar.jpeg');
@@ -45,7 +44,6 @@
             background-attachment: fixed;
         }
 
-        /* DİL SEÇİM ALANI */
         .lang-switch {
             display: flex;
             justify-content: center;
@@ -84,54 +82,17 @@
         }
 
         .main-logo {
-            max-width: 130px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.3));
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-gold);
+            background-color: #141414;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.8);
+            margin: 10px auto 15px auto;
+            display: block;
         }
 
-        .header-frame {
-            display: inline-block;
-            border: 2px solid var(--primary-gold);
-            padding: 12px 28px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-            background: rgba(11, 11, 11, 0.6);
-            backdrop-filter: blur(4px);
-        }
-
-        .header-frame::before {
-            content: '❖';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-black);
-            color: var(--primary-gold);
-            padding: 0 8px;
-            font-size: 14px;
-        }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            letter-spacing: 6px;
-            color: var(--accent-gold);
-            margin-top: 4px;
-            text-transform: uppercase;
-        }
-
-        /* ARAMA ÇUBUĞU */
         .search-container {
             max-width: 800px;
             margin: 15px auto 0;
@@ -169,7 +130,6 @@
             color: var(--primary-gold);
         }
 
-        /* ARAMA SONUÇLARI KUTUSU */
         #search-results-container {
             display: none;
             max-width: 800px;
@@ -341,7 +301,6 @@
             color: var(--primary-gold);
         }
 
-        /* MODAL STYLES */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -395,7 +354,6 @@
 
         .modal-item-list {
             display: flex;
-            flex-direction: flex;
             flex-direction: column;
             gap: 10px;
         }
@@ -503,7 +461,6 @@
             display: block;
         }
 
-        /* YÜZER REZERVASYON BUTONU */
         .floating-btn {
             position: fixed;
             bottom: 20px;
@@ -553,7 +510,6 @@
 </head>
 <body>
 
-    <!-- DİL SEÇİM BUTONLARI -->
     <div class="lang-switch">
         <button class="lang-btn active" onclick="changeLang('tr', event)">TR</button>
         <button class="lang-btn" onclick="changeLang('en', event)">EN</button>
@@ -563,13 +519,8 @@
 
     <header>
         <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
-        <div class="header-frame">
-            <h1>ZEMHERİ</h1>
-            <div class="subtitle">SEMİR ŞEF</div>
-        </div>
     </header>
 
-    <!-- ARAMA ÇUBUĞU -->
     <div class="search-container">
         <div class="search-box">
             <input type="text" id="menuSearch" placeholder="Menüde ara..." onkeyup="filterSearch()">
@@ -577,13 +528,11 @@
         </div>
     </div>
 
-    <!-- ARAMA SONUÇLARI KUTUSU -->
     <div id="search-results-container">
         <div class="search-results-header" id="search-results-title">Arama Sonuçları</div>
         <div id="search-results-list" class="modal-item-list"></div>
     </div>
 
-    <!-- KATEGORİ NAVİGASYON -->
     <nav class="category-nav" id="main-nav">
         <div class="nav-item" onclick="scrollToElement('fix-menu')"><i class="fa-solid fa-star"></i> <span id="nav-fix">Fix Menü</span></div>
         <div class="nav-item" onclick="scrollToElement('sec-mezeler')"><i class="fa-solid fa-bowl-food"></i> <span id="nav-mezeler">Mezeler</span></div>
@@ -621,7 +570,6 @@
             </div>
         </section>
 
-        <!-- KATEGORİ LİSTESİ -->
         <div class="category-section" id="sec-mezeler">
             <div class="category-card" onclick="openCategoryModal('mezeler')">
                 <div class="category-card-title"><i class="fa-solid fa-bowl-food"></i> <span id="cat-mezeler">MEZELER</span></div>
@@ -679,12 +627,10 @@
         </div>
     </div>
 
-    <!-- WHATSAPP REZERVASYON BUTONU -->
     <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="floating-btn">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> <span id="reserve-btn">Rezerve Et</span>
     </a>
 
-    <!-- ORTAK MODAL -->
     <div id="appModal" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModalDirect()"><i class="fa-solid fa-xmark"></i></button>
