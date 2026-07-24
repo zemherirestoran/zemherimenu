@@ -769,7 +769,6 @@
     </footer>
 
     <script>
-        // (Aynı JavaScript mantığı korunmuştur)
         let currentLang = 'tr';
         const categoryData = {
             tr: {
@@ -899,34 +898,382 @@
                 }
             },
             en: {
-                mezeler: { title: "APPETIZERS", items: [{ name: "Hummus", price: "250 ₺" }, { name: "Roasted Eggplant with Tahini", price: "250 ₺" }] },
-                salatalar: { title: "SALADS", items: [{ name: "Arugula Salad", price: "250 ₺" }] },
-                "ara-sicaklar": { title: "WARM STARTERS", items: [{ name: "Stuffed Meatballs", price: "300 ₺" }] },
-                peynirler: { title: "CHEESE SELECTION", items: [{ name: "Feta Cheese", price: "200 ₺" }] },
-                "ana-yemekler": { title: "MAIN COURSES", items: [{ name: "Chef's Sauteed Meat", price: "750 ₺" }] },
-                "tatli-meyve": { title: "DESSERTS & FRUITS", items: [{ name: "Rice Pudding", price: "300 ₺" }] },
-                "alkolsuz-icecekler": { title: "SOFT DRINKS", items: [{ name: "Mineral Water", price: "70 ₺" }] },
-                "alkollu-icecekler": { title: "ALCOHOLIC DRINKS", subgroups: [{ groupTitle: "Whiskey", items: [{ name: "Chivas Regal 12", price: "3.000 ₺" }] }] }
+                mezeler: {
+                    title: "APPETIZERS",
+                    items: [
+                        { name: "Hummus", price: "250 ₺" },
+                        { name: "Roasted Eggplant with Tahini", price: "250 ₺" },
+                        { name: "Muhammara", price: "250 ₺" },
+                        { name: "Zemheri Atom", price: "250 ₺" },
+                        { name: "Pink Sultan", price: "250 ₺" },
+                        { name: "Midyat Pickles", price: "250 ₺" },
+                        { name: "Carrot Tarator", price: "250 ₺" },
+                        { name: "Shakshuka", price: "250 ₺" },
+                        { name: "Strained Yogurt", price: "250 ₺" },
+                        { name: "Russian Salad", price: "250 ₺" },
+                        { name: "Derik Olives", price: "250 ₺" },
+                        { name: "Haydari", price: "250 ₺" },
+                        { name: "Roasted Pepper with Walnuts", price: "250 ₺" }
+                    ]
+                },
+                salatalar: {
+                    title: "SALADS",
+                    items: [
+                        { name: "Arugula Salad", price: "250 ₺" },
+                        { name: "Gavurdağı Salad", price: "300 ₺" },
+                        { name: "Seasonal Salad", price: "250 ₺" },
+                        { name: "Shepherd Salad", price: "250 ₺" }
+                    ]
+                },
+                "ara-sicaklar": {
+                    title: "WARM STARTERS",
+                    items: [
+                        { name: "Stuffed Meatballs (İçli Köfte)", desc: "1 Portion", price: "300 ₺" },
+                        { name: "Stuffed Eggplant & Peppers", desc: "1 Portion", price: "300 ₺" },
+                        { name: "Leaf Liver", price: "500 ₺" }
+                    ]
+                },
+                peynirler: {
+                    title: "CHEESE SELECTION",
+                    items: [
+                        { name: "Strained Cheese", price: "200 ₺" },
+                        { name: "Melted Mardin Village Cheese", price: "300 ₺" },
+                        { name: "Braid Cheese", price: "300 ₺" },
+                        { name: "Ezine Cheese", price: "200 ₺" }
+                    ]
+                },
+                "ana-yemekler": {
+                    title: "MAIN COURSES",
+                    items: [
+                        { name: "Chef's Sauteed Meat", price: "750 ₺" },
+                        { name: "Lamb Chops", price: "850 ₺" },
+                        { name: "Zemheri Meatballs", price: "700 ₺" },
+                        { name: "Slow Cooked Lamb (Tandır)", price: "700 ₺" },
+                        { name: "Pan Sauteed Meat", price: "750 ₺" },
+                        { name: "Spicy Chicken Fillet", price: "550 ₺" },
+                        { name: "Lamb Shank", price: "800 ₺" },
+                        { name: "Chicken Chops", price: "550 ₺" },
+                        { name: "Beef Tenderloin (Lokum)", price: "1.000 ₺" }
+                    ]
+                },
+                "tatli-meyve": {
+                    title: "DESSERTS & FRUITS",
+                    items: [
+                        { name: "Rice Pudding", price: "300 ₺" },
+                        { name: "Harire", desc: "Local Mardin Dessert", price: "250 ₺" },
+                        { name: "Pistachio Keşkül", price: "350 ₺" },
+                        { name: "Iced Almonds", price: "500 ₺" },
+                        { name: "Iced Walnuts", price: "500 ₺" },
+                        { name: "Mixed Nuts Plate", price: "400 ₺" },
+                        { name: "Roasted Peanuts", price: "500 ₺" },
+                        { name: "Seasonal Fruits", price: "500 ₺" },
+                        { name: "Watermelon Plate", price: "250 ₺" },
+                        { name: "Melon Plate", price: "250 ₺" },
+                        { name: "Cherry Plate", price: "250 ₺" },
+                        { name: "Armenian Cucumber Plate", price: "250 ₺" },
+                        { name: "Grape Plate", price: "250 ₺" },
+                        { name: "Jelly Candy Plate", price: "250 ₺" },
+                        { name: "Neapolitan Chocolate Plate", price: "250 ₺" },
+                        { name: "Peanuts", price: "250 ₺" }
+                    ]
+                },
+                "alkolsuz-icecekler": {
+                    title: "SOFT DRINKS",
+                    items: [
+                        { name: "Energy Drink (Red Bull)", price: "200 ₺" },
+                        { name: "Can Cola / Fanta / Sprite", price: "100 ₺" },
+                        { name: "Fruit Juice Varieties", price: "100 ₺" },
+                        { name: "Mineral Water (Soda)", price: "70 ₺" },
+                        { name: "Şalgam (Turnip Juice)", price: "80 ₺" },
+                        { name: "Ayran", price: "80 ₺" }
+                    ]
+                },
+                "alkollu-icecekler": {
+                    title: "ALCOHOLIC DRINKS",
+                    subgroups: [
+                        { groupTitle: "Whiskeys", items: [
+                            { name: "Chivas Regal 12", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Chivas Regal 12", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Chivas Regal 12", desc: "70 cl", price: "4.000 ₺" },
+                            { name: "Jack Daniel's", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Jack Daniel's", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Jack Daniel's", desc: "70 cl", price: "4.000 ₺" }
+                        ]},
+                        { groupTitle: "Rakıs", items: [
+                            { name: "Tekirdağ Altın Seri", desc: "35 cl", price: "2.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "50 cl", price: "2.700 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "70 cl", price: "3.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "100 cl", price: "5.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
+                        ]},
+                        { groupTitle: "Beers", items: [
+                            { name: "Carlsberg Beer", price: "400 ₺" },
+                            { name: "Tuborg Gold Beer", price: "400 ₺" },
+                            { name: "Tuborg Red Beer", price: "400 ₺" },
+                            { name: "Efes Shot Beer", price: "400 ₺" }
+                        ]},
+                        { groupTitle: "Wines", items: [
+                            { name: "Red Syriac Wine", price: "1.700 ₺" },
+                            { name: "Rose Syriac Wine", price: "1.700 ₺" },
+                            { name: "White Syriac Wine", price: "1.700 ₺" }
+                        ]}
+                    ]
+                }
             },
             ar: {
-                mezeler: { title: "المقبلات", items: [{ name: "حمص", price: "250 ₺" }] },
-                salatalar: { title: "السلطات", items: [{ name: "سلطة جرجير", price: "250 ₺" }] },
-                "ara-sicaklar": { title: "المقبلات الساخنة", items: [{ name: "كبة مقلية", price: "300 ₺" }] },
-                peynirler: { title: "تشكيلة الأجبان", items: [{ name: "جبن أبيض", price: "200 ₺" }] },
-                "ana-yemekler": { title: "الأطباق الرئيسية", items: [{ name: "قاورما الشيف", price: "750 ₺" }] },
-                "tatli-meyve": { title: "الحلويات والفواكه", items: [{ name: "رز بالحليب", price: "300 ₺" }] },
-                "alkolsuz-icecekler": { title: "المشروبات الخفيفة", items: [{ name: "مياه غازية", price: "70 ₺" }] },
-                "alkollu-icecekler": { title: "المشروبات الروحية", subgroups: [{ groupTitle: "ويسكي", items: [{ name: "شيفاز ريجال 12", price: "3.000 ₺" }] }] }
+                mezeler: {
+                    title: "المقبلات",
+                    items: [
+                        { name: "حمص", price: "250 ₺" },
+                        { name: "باذنجان مشوي بالطحينة", price: "250 ₺" },
+                        { name: "محمرة", price: "250 ₺" },
+                        { name: "زمهري أتوم", price: "250 ₺" },
+                        { name: "السلطانة البنفسجية", price: "250 ₺" },
+                        { name: "مخلل مديات", price: "250 ₺" },
+                        { name: "تراتور الجزر", price: "250 ₺" },
+                        { name: "شكشوكة", price: "250 ₺" },
+                        { name: "لبن مصفى", price: "250 ₺" },
+                        { name: "سلطة روسية", price: "250 ₺" },
+                        { name: "زيتون ديريك", price: "250 ₺" },
+                        { name: "حيدري", price: "250 ₺" },
+                        { name: "فلفل مشوي بالجوز", price: "250 ₺" }
+                    ]
+                },
+                salatalar: {
+                    title: "السلطات",
+                    items: [
+                        { name: "سلطة جرجير", price: "250 ₺" },
+                        { name: "سلطة غاورداغي", price: "300 ₺" },
+                        { name: "سلطة موسمية", price: "250 ₺" },
+                        { name: "سلطة الراعي", price: "250 ₺" }
+                    ]
+                },
+                "ara-sicaklar": {
+                    title: "المقبلات الساخنة",
+                    items: [
+                        { name: "كبة مقلية", desc: "1 حصة", price: "300 ₺" },
+                        { name: "محشي باذنجان وفلفل", desc: "1 حصة", price: "300 ₺" },
+                        { name: "كبدة مقلية", price: "500 ₺" }
+                    ]
+                },
+                peynirler: {
+                    title: "تشكيلة الأجبان",
+                    items: [
+                        { name: "جبنة مصفاة", price: "200 ₺" },
+                        { name: "جبنة قرى ماردين المذابة", price: "300 ₺" },
+                        { name: "جبنة ضفيرة", price: "300 ₺" },
+                        { name: "جبنة إزينه", price: "200 ₺" }
+                    ]
+                },
+                "ana-yemekler": {
+                    title: "الأطباق الرئيسية",
+                    items: [
+                        { name: "قاورما الشيف", price: "750 ₺" },
+                        { name: "ريش غنم", price: "850 ₺" },
+                        { name: "كفتة زمهري", price: "700 ₺" },
+                        { name: "لحم تنور غنم", price: "700 ₺" },
+                        { name: "قاورما الصاج", price: "750 ₺" },
+                        { name: "فيليه دجاج حار", price: "550 ₺" },
+                        { name: "موزات غنم", price: "800 ₺" },
+                        { name: "ريش دجاج", price: "550 ₺" },
+                        { name: "لوكوم اللحم البقري", price: "1.000 ₺" }
+                    ]
+                },
+                "tatli-meyve": {
+                    title: "الحلويات والفواكه",
+                    items: [
+                        { name: "رز بالحليب", price: "300 ₺" },
+                        { name: "حريرة (حلى ماردين التراثي)", desc: "حلوى ماردين التقليدية", price: "250 ₺" },
+                        { name: "كشكول بالفستق", price: "350 ₺" },
+                        { name: "لوز مثلج", price: "500 ₺" },
+                        { name: "جوز مثلج", price: "500 ₺" },
+                        { name: "تشكيلة مكسرات", price: "400 ₺" },
+                        { name: "فستق محمص", price: "500 ₺" },
+                        { name: "فواكه موسمية", price: "500 ₺" },
+                        { name: "صحة بطيخ", price: "250 ₺" },
+                        { name: "صحة شماس", price: "250 ₺" },
+                        { name: "صحة كرز", price: "250 ₺" },
+                        { name: "صحة فقوس", price: "250 ₺" },
+                        { name: "صحة عنب", price: "250 ₺" },
+                        { name: "صحة جيلي", price: "250 ₺" },
+                        { name: "صحة شوكولاتة نابوليتان", price: "250 ₺" },
+                        { name: "فول سوداني", price: "250 ₺" }
+                    ]
+                },
+                "alkolsuz-icecekler": {
+                    title: "المشروبات الخفيفة",
+                    items: [
+                        { name: "مشروب طاقة (ريد بول)", price: "200 ₺" },
+                        { name: "كولا / فانتا / سبرايت علبة", price: "100 ₺" },
+                        { name: "عصائر متنوعة", price: "100 ₺" },
+                        { name: "مياه غازية (صودا)", price: "70 ₺" },
+                        { name: "شالغام (عصير الشلجم)", price: "80 ₺" },
+                        { name: "عيران", price: "80 ₺" }
+                    ]
+                },
+                "alkollu-icecekler": {
+                    title: "المشروبات الروحية",
+                    subgroups: [
+                        { groupTitle: "الويسكي", items: [
+                            { name: "شيفاز ريجال 12", desc: "35 سل", price: "3.000 ₺" },
+                            { name: "شيفاز ريجال 12", desc: "50 سل", price: "3.500 ₺" },
+                            { name: "شيفاز ريجال 12", desc: "70 سل", price: "4.000 ₺" },
+                            { name: "جاك دانيالز", desc: "35 سل", price: "3.000 ₺" },
+                            { name: "جاك دانيالز", desc: "50 سل", price: "3.500 ₺" },
+                            { name: "جاك دانيالز", desc: "70 سل", price: "4.000 ₺" }
+                        ]},
+                        { groupTitle: "الراكا", items: [
+                            { name: "تكيرداغ ألتين سيري", desc: "35 سل", price: "2.200 ₺" },
+                            { name: "تكيرداغ ألتين سيري", desc: "50 سل", price: "2.700 ₺" },
+                            { name: "تكيرداغ ألتين سيري", desc: "70 سل", price: "3.200 ₺" },
+                            { name: "تكيرداغ ألتين سيري", desc: "100 سل", price: "5.000 ₺" },
+                            { name: "بيكليربي غوبيك", desc: "35 سل", price: "2.400 ₺" },
+                            { name: "بيكليربي غوبيك", desc: "50 سل", price: "3.000 ₺" },
+                            { name: "بيكليربي غوبيك", desc: "70 سل", price: "3.600 ₺" },
+                            { name: "بيكليربي غوبيك", desc: "100 سل", price: "5.500 ₺" }
+                        ]},
+                        { groupTitle: "البيرة", items: [
+                            { name: "بيرة كارلسبرغ", price: "400 ₺" },
+                            { name: "بيرة توبورغ غولد", price: "400 ₺" },
+                            { name: "بيرة توبورغ الحمراء", price: "400 ₺" },
+                            { name: "بيرة إفيس شوت", price: "400 ₺" }
+                        ]},
+                        { groupTitle: "النبيذ", items: [
+                            { name: "نبيذ السريان الأحمر", price: "1.700 ₺" },
+                            { name: "نبيذ السريان الروزيه", price: "1.700 ₺" },
+                            { name: "نبيذ السريان الأبيض", price: "1.700 ₺" }
+                        ]}
+                    ]
+                }
             },
             ku: {
-                mezeler: { title: "MEZE", items: [{ name: "Humus", price: "250 ₺" }] },
-                salatalar: { title: "SALATA", items: [{ name: "Salata Rokayê", price: "250 ₺" }] },
-                "ara-sicaklar": { title: "GERMİK", items: [{ name: "Kutlik", price: "300 ₺" }] },
-                peynirler: { title: "CEŞNÎNÊN PENÊR", items: [{ name: "Penêrê Sûzme", price: "200 ₺" }] },
-                "ana-yemekler": { title: "XWARINÊN SEREKÊ", items: [{ name: "Kavurma Şef", price: "750 ₺" }] },
-                "tatli-meyve": { title: "ŞÎRNÎ Û MÊVE", items: [{ name: "Sutlaç", price: "300 ₺" }] },
-                "alkolsuz-icecekler": { title: "VEXWARINÊN BÊ ALKOL", items: [{ name: "Soda", price: "70 ₺" }] },
-                "alkollu-icecekler": { title: "VEXWARINÊN BÎ ALKOL", subgroups: [{ groupTitle: "Vîskî", items: [{ name: "Chivas Regal 12", price: "3.000 ₺" }] }] }
+                mezeler: {
+                    title: "MEZE",
+                    items: [
+                        { name: "Humus", price: "250 ₺" },
+                        { name: "Bademcanê Roştandî bi Tahîn", price: "250 ₺" },
+                        { name: "Muhammara", price: "250 ₺" },
+                        { name: "Zemheri Atom", price: "250 ₺" },
+                        { name: "Pembe Sultan", price: "250 ₺" },
+                        { name: "Tirşiya Mêrdînê", price: "250 ₺" },
+                        { name: "Taratora Gêzerê", price: "250 ₺" },
+                        { name: "Şakşuka", price: "250 ₺" },
+                        { name: "Mastê Sûzme", price: "250 ₺" },
+                        { name: "Salata Rûsî", price: "250 ₺" },
+                        { name: "Zeytûna Dêrikê", price: "250 ₺" },
+                        { name: "Haydarî", price: "250 ₺" },
+                        { name: "Bîbera Roştandî bi Gûz", price: "250 ₺" }
+                    ]
+                },
+                salatalar: {
+                    title: "SALATA",
+                    items: [
+                        { name: "Salata Rokayê", price: "250 ₺" },
+                        { name: "Salata Gewirdaxê", price: "300 ₺" },
+                        { name: "Salata Demsalê", price: "250 ₺" },
+                        { name: "Salata Çoban", price: "250 ₺" }
+                    ]
+                },
+                "ara-sicaklar": {
+                    title: "GERMİK",
+                    items: [
+                        { name: "Kutlîk (İçli Köfte)", desc: "1 Por", price: "300 ₺" },
+                        { name: "Dolama Bademcan û Bîber", desc: "1 Por", price: "300 ₺" },
+                        { name: "Ciyerê Pirtî", price: "500 ₺" }
+                    ]
+                },
+                peynirler: {
+                    title: "CEŞNÎNÊN PENÊR",
+                    items: [
+                        { name: "Penêrê Sûzme", price: "200 ₺" },
+                        { name: "Penêrê Gundê Mêrdînê yê Heliyayî", price: "300 ₺" },
+                        { name: "Penêrê Kunî", price: "300 ₺" },
+                        { name: "Penêrê Ezîne", price: "200 ₺" }
+                    ]
+                },
+                "ana-yemekler": {
+                    title: "XWARINÊN SEREKÊ",
+                    items: [
+                        { name: " Qاورما (Qawurmaya Şef)", price: "750 ₺" },
+                        { name: "Pirsola Berxê", price: "850 ₺" },
+                        { name: "Kofteya Zemherî", price: "700 ₺" },
+                        { name: "Tandûra Berxê", price: "700 ₺" },
+                        { name: "Qawurmaya Sacê", price: "750 ₺" },
+                        { name: "Bonfîla Tirş û Tûj ya Mirîşkê", price: "550 ₺" },
+                        { name: "Sînga Berxê (İncik)", price: "800 ₺" },
+                        { name: "Pirsola Mirîşkê", price: "550 ₺" },
+                        { name: "Lokûmê Denê", price: "1.000 ₺" }
+                    ]
+                },
+                "tatli-meyve": {
+                    title: "ŞÎRNÎ Û MÊVE",
+                    items: [
+                        { name: "Sutlaç", price: "300 ₺" },
+                        { name: "Harire", desc: "Şîrniya Xwecihî ya Mêrdînê", price: "250 ₺" },
+                        { name: "Keşkûlê bi Fistiq", price: "350 ₺" },
+                        { name: "Bademên Bûzî", price: "500 ₺" },
+                        { name: "Gûzên Bûzî", price: "500 ₺" },
+                        { name: "Sêniya Çerezan", price: "400 ₺" },
+                        { name: "Fistiqên Qelandî", price: "500 ₺" },
+                        { name: "Mêvên Demsalê", price: "500 ₺" },
+                        { name: "Sêniya Zebeş", price: "250 ₺" },
+                        { name: "Sêniya Gêrmê", price: "250 ₺" },
+                        { name: "Sêniya Gîlaz", price: "250 ₺" },
+                        { name: "Sêniya Acur", price: "250 ₺" },
+                        { name: "Sêniya Tiryî", price: "250 ₺" },
+                        { name: "Sêniya Jelîbon", price: "250 ₺" },
+                        { name: "Sêniya Çîkolata Napoliten", price: "250 ₺" },
+                        { name: "Fistiqê Erdê", price: "250 ₺" }
+                    ]
+                },
+                "alkolsuz-icecekler": {
+                    title: "VEXWARINÊN BÊ ALKOL",
+                    items: [
+                        { name: "Vexwarina Enerjiyê (Red Bull)", price: "200 ₺" },
+                        { name: "Kutî Kola / Fanta / Sprite", price: "100 ₺" },
+                        { name: "Cûrbûrên Ava Mêwan", price: "100 ₺" },
+                        { name: "Soda", price: "70 ₺" },
+                        { name: "Şalgam", price: "80 ₺" },
+                        { name: "Ayran", price: "80 ₺" }
+                    ]
+                },
+                "alkollu-icecekler": {
+                    title: "VEXWARINÊN BÎ ALKOL",
+                    subgroups: [
+                        { groupTitle: "Vîskî", items: [
+                            { name: "Chivas Regal 12", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Chivas Regal 12", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Chivas Regal 12", desc: "70 cl", price: "4.000 ₺" },
+                            { name: "Jack Daniel's", desc: "35 cl", price: "3.000 ₺" },
+                            { name: "Jack Daniel's", desc: "50 cl", price: "3.500 ₺" },
+                            { name: "Jack Daniel's", desc: "70 cl", price: "4.000 ₺" }
+                        ]},
+                        { groupTitle: "Raqî", items: [
+                            { name: "Tekirdağ Altın Seri", desc: "35 cl", price: "2.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "50 cl", price: "2.700 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "70 cl", price: "3.200 ₺" },
+                            { name: "Tekirdağ Altın Seri", desc: "100 cl", price: "5.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
+                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
+                        ]},
+                        { groupTitle: "Bîra", items: [
+                            { name: "Carlsberg Bîra", price: "400 ₺" },
+                            { name: "Tuborg Gold Bîra", price: "400 ₺" },
+                            { name: "Tuborg Kırmızı Bîra", price: "400 ₺" },
+                            { name: "Efes Shot Bîra", price: "400 ₺" }
+                        ]},
+                        { groupTitle: "Şerab", items: [
+                            { name: "Şerabê Suryanî yê Sor", price: "1.700 ₺" },
+                            { name: "Şerabê Suryanî yê Roze", price: "1.700 ₺" },
+                            { name: "Şerabê Suryanî yê Spî", price: "1.700 ₺" }
+                        ]}
+                    ]
+                }
             }
         };
 
@@ -936,9 +1283,21 @@
                 alkolsuz: { title: "ALKOLSÜZ FİX MENÜ", price: "2.300 ₺ (Kişi Başı)", hasMain: true, hasAlcohol: false },
                 alkollu: { title: "ALKOLLÜ FİX MENÜ", price: "3.000 ₺ (Kişi Başı)", hasMain: true, hasAlcohol: true }
             },
-            en: { kızkiza: { title: "GIRLS NIGHT FIX", price: "2.000 ₺", hasMain: false, hasAlcohol: true }, alkolsuz: { title: "NON-ALCOHOLIC FIX", price: "2.300 ₺", hasMain: true, hasAlcohol: false }, alkollu: { title: "ALCOHOLIC FIX", price: "3.000 ₺", hasMain: true, hasAlcohol: true } },
-            ar: { kızkiza: { title: "قائمة السيدات", price: "2.000 ₺", hasMain: false, hasAlcohol: true }, alkolsuz: { title: "قائمة بدون كحول", price: "2.300 ₺", hasMain: true, hasAlcohol: false }, alkollu: { title: "قائمة مع كحول", price: "3.000 ₺", hasMain: true, hasAlcohol: true } },
-            ku: { kızkiza: { title: "FÎKS KEÇ Bİ KEÇ", price: "2.000 ₺", hasMain: false, hasAlcohol: true }, alkolsuz: { title: "FÎKS BÊ ALKOL", price: "2.300 ₺", hasMain: true, hasAlcohol: false }, alkollu: { title: "FÎKS BÎ ALKOL", price: "3.000 ₺", hasMain: true, hasAlcohol: true } }
+            en: { 
+                kizkiza: { title: "GIRLS NIGHT FIX MENU", price: "2.000 ₺ (Per Person)", hasMain: false, hasAlcohol: true }, 
+                alkolsuz: { title: "NON-ALCOHOLIC FIX MENU", price: "2.300 ₺ (Per Person)", hasMain: true, hasAlcohol: false }, 
+                alkollu: { title: "ALCOHOLIC FIX MENU", price: "3.000 ₺ (Per Person)", hasMain: true, hasAlcohol: true } 
+            },
+            ar: { 
+                kizkiza: { title: "قائمة سهرة السيدات الثابتة", price: "2.000 ₺ (للشخص)", hasMain: false, hasAlcohol: true }, 
+                alkolsuz: { title: "القائمة الثابتة بدون كحول", price: "2.300 ₺ (للشخص)", hasMain: true, hasAlcohol: false }, 
+                alkollu: { title: "القائمة الثابتة مع الكحول", price: "3.000 ₺ (للشخص)", hasMain: true, hasAlcohol: true } 
+            },
+            ku: { 
+                kizkiza: { title: "FÎKSA KEÇ Bİ KEÇ", price: "2.000 ₺ (Ji Bo Her Kesî)", hasMain: false, hasAlcohol: true }, 
+                alkolsuz: { title: "FÎKSA BÊ ALKOL", price: "2.300 ₺ (Ji Bo Her Kesî)", hasMain: true, hasAlcohol: false }, 
+                alkollu: { title: "FÎKSA BÎ ALKOL", price: "3.000 ₺ (Ji Bo Her Kesî)", hasMain: true, hasAlcohol: true } 
+            }
         };
 
         const fixContentTranslations = {
@@ -950,9 +1309,30 @@
                 tatliTitle: "Tatlı", tatliList: ["Fırın Sütlaç / Meyve Tabağı"],
                 drinkTitle: "İçecek", drink2: "2 Kişi", drink2desc: "35 cl Rakı / Şarap", drink3: "3 Kişi", drink3desc: "50 cl Rakı / Şarap", drink4: "4 Kişi", drink4desc: "70 cl Rakı / Şarap"
             },
-            en: { mezeTitle: "7 Appetizers", mezeList: ["Hummus"], salataTitle: "Salad", salataList: ["Arugula"], araTitle: "Warm Starters", araList: ["Kibbeh"], anaTitle: "Main", anaList: ["Lamb"], tatliTitle: "Dessert", tatliList: ["Rice Pudding"], drinkTitle: "Drinks", drink2: "2 Person", drink2desc: "35cl", drink3: "3 Person", drink3desc: "50cl", drink4: "4 Person", drink4desc: "70cl" },
-            ar: { mezeTitle: "7 مقبلات", mezeList: ["حمص"], salataTitle: "سلطة", salataList: ["جرجير"], araTitle: "مقبلات ساخنة", araList: ["كبة"], anaTitle: "طبق رئيسي", anaList: ["لحم"], tatliTitle: "حلوى", tatliList: ["سوتلاج"], drinkTitle: "مشروبات", drink2: "شخصان", drink2desc: "35cl", drink3: "3 أشخاص", drink3desc: "50cl", drink4: "4 أشخاص", drink4desc: "70cl" },
-            ku: { mezeTitle: "7 Meze", mezeList: ["Humus"], salataTitle: "Salata", salataList: ["Roka"], araTitle: "Germik", araList: ["Kutlik"], anaTitle: "Serekê", anaList: ["Tandûr"], tatliTitle: "Şîrnî", tatliList: ["Sutlaç"], drinkTitle: "Vexwarin", drink2: "2 Kes", drink2desc: "35cl", drink3: "3 Kes", drink3desc: "50cl", drink4: "4 Kes", drink4desc: "70cl" }
+            en: { 
+                mezeTitle: "7 Appetizers", mezeList: ["Hummus", "Roasted Eggplant with Tahini", "Muhammara", "Zemheri Atom", "Haydari", "Pink Sultan", "Midyat Pickles"], 
+                salataTitle: "Salad", salataList: ["Arugula Salad"], 
+                araTitle: "Warm Starters (2 Varieties)", araList: ["Stuffed Meatballs", "Stuffed Eggplant"], 
+                anaTitle: "Main Course", anaList: ["Slow Cooked Lamb", "Chef's Sauteed Meat", "Grilled Meatballs", "Chicken Fillet"], 
+                tatliTitle: "Dessert", tatliList: ["Baked Rice Pudding / Fruit Plate"], 
+                drinkTitle: "Drinks", drink2: "2 Person", drink2desc: "35cl Rakı / Wine", drink3: "3 Person", drink3desc: "50cl Rakı / Wine", drink4: "4 Person", drink4desc: "70cl Rakı / Wine" 
+            },
+            ar: { 
+                mezeTitle: "7 مقبلات", mezeList: ["حمص", "باذنجان مشوي بالطحينة", "محمرة", "زمهري أتوم", "حيدري", "السلطانة البنفسجية", "مخلل مديات"], 
+                salataTitle: "سلطة", salataList: ["سلطة جرجير"], 
+                araTitle: "مقبلات ساخنة (نوعين)", araList: ["كبة مقلية", "محشي باذنجان"], 
+                anaTitle: "الطبق الرئيسي", anaList: ["لحم تنور", "قاورما الشيف", "كفتة مشوية", "فيليه دجاج"], 
+                tatliTitle: "الحلوى", tatliList: ["رز بالحليب بالفرن / صحن فواكه"], 
+                drinkTitle: "المشروبات", drink2: "شخصان", drink2desc: "35 سل راكي / نبيذ", drink3: "3 أشخاص", drink3desc: "50 سل راكي / نبيذ", drink4: "4 أشخاص", drink4desc: "70 سل راكي / نبيذ" 
+            },
+            ku: { 
+                mezeTitle: "7 Meze", mezeList: ["Humus", "Bademcanê Roştandî bi Tahîn", "Muhammara", "Zemheri Atom", "Haydarî", "Pembe Sultan", "Tirşiya Mêrdînê"], 
+                salataTitle: "Salata", salataList: ["Salata Rokayê"], 
+                araTitle: "Germik (2 Cûre)", araList: ["Kutlîk", "Dolama Bademcan"], 
+                anaTitle: "Xwarina Serekê", anaList: ["Tandûra Berxê", "Qawurmaya Şef", "Kofteya Grill", "Bonfîla Mirîşkê"], 
+                tatliTitle: "Şîrnî", tatliList: ["Sutlaçê Firûnê / Sêniya Mêwan"], 
+                drinkTitle: "Vexwarin", drink2: "2 Kes", drink2desc: "35 cl Raqî / Şerab", drink3: "3 Kes", drink3desc: "50 cl Raqî / Şerab", drink4: "4 Kes", drink4desc: "70 cl Raqî / Şerab" 
+            }
         };
 
         const translations = {
