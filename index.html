@@ -35,7 +35,7 @@
             line-height: 1.6;
             padding-bottom: 80px;
 
-            /* MARDİN TAŞ DUVAR GÖRSELİ */
+            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
             background-image: 
                 linear-gradient(rgba(11, 11, 11, 0.80), rgba(11, 11, 11, 0.90)), 
                 url('mardin-tas-duvar.jpeg');
@@ -74,7 +74,7 @@
 
         header {
             text-align: center;
-            padding: 45px 20px 15px; /* Logoya üstte yer açmak için artırıldı */
+            padding: 15px 20px 15px;
             border-bottom: 1px solid var(--border-color);
             position: relative;
             background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(11,11,11,0) 100%);
@@ -83,31 +83,33 @@
             align-items: center;
         }
 
+        .main-logo {
+            max-width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.3));
+        }
+
         .header-frame {
             display: inline-block;
             border: 2px solid var(--primary-gold);
-            padding: 24px 28px 12px; /* Logo üstten binsin diye padding-top artırıldı */
+            padding: 12px 28px;
             position: relative;
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
             background: rgba(11, 11, 11, 0.6);
             backdrop-filter: blur(4px);
-            margin-top: 25px;
         }
 
-        /* YUVARLAK LOGO ÇERÇEVEYE YERLEŞTİRİLDİ */
-        .main-logo {
+        .header-frame::before {
+            content: '❖';
             position: absolute;
-            top: 0;
+            top: -12px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-gold);
-            background-color: var(--bg-black);
-            object-fit: cover;
-            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.5));
-            z-index: 10;
+            transform: translateX(-50%);
+            background: var(--bg-black);
+            color: var(--primary-gold);
+            padding: 0 8px;
+            font-size: 14px;
         }
 
         h1 {
@@ -436,6 +438,70 @@
             padding-bottom: 4px;
         }
 
+        .fix-section {
+            margin-bottom: 20px;
+        }
+
+        .fix-section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #262013;
+            padding-bottom: 4px;
+        }
+
+        .fix-section-title i {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        .fix-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .fix-list li {
+            font-size: 0.88rem;
+            color: #d1d1d1;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .fix-list li::before {
+            content: '•';
+            color: var(--primary-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .drink-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .drink-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid #3d3219;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .drink-box strong {
+            color: var(--primary-gold);
+            display: block;
+        }
+
         /* YÜZER REZERVASYON BUTONU */
         .floating-btn {
             position: fixed;
@@ -495,11 +561,7 @@
     </div>
 
     <header>
-        <div class="header-frame">
-            <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
-            <h1>ZEMHERİ</h1>
-            <div class="subtitle">SEMİR ŞEF</div>
-        </div>
+        <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
     </header>
 
     <!-- ARAMA ÇUBUĞU -->
@@ -759,142 +821,13 @@
                             { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" },
-                            { name: "Yeni Rakı", desc: "35 cl", price: "2.000 ₺" },
-                            { name: "Yeni Rakı", desc: "50 cl", price: "2.500 ₺" },
-                            { name: "Yeni Rakı", desc: "70 cl", price: "3.000 ₺" },
-                            { name: "Yeni Rakı", desc: "100 cl", price: "4.500 ₺" },
-                            { name: "Yeni Rakı Seri", desc: "35 cl", price: "2.100 ₺" },
-                            { name: "Yeni Rakı Seri", desc: "50 cl", price: "2.600 ₺" },
-                            { name: "Yeni Rakı Seri", desc: "70 cl", price: "3.100 ₺" },
-                            { name: "Yeni Rakı Seri", desc: "100 cl", price: "4.800 ₺" }
+                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
                         ]},
-                        { groupTitle: "Biralar", items: [
-                            { name: "Efes Pilsen / Malt", price: "200 ₺" },
-                            { name: "Tuborg Gold", price: "200 ₺" },
-                            { name: "Carlsberg", price: "220 ₺" },
-                            { name: "Corona", price: "250 ₺" }
-                        ]},
-                        { groupTitle: "Şaraplar", items: [
-                            { name: "Kırmızı Ev Şarabı (Şişe)", price: "1.200 ₺" },
-                            { name: "Beyaz Ev Şarabı (Şişe)", price: "1.200 ₺" },
-                            { name: "Süryani Şarabı (Shiluh)", price: "1.500 ₺" }
-                        ]}
+                        { groupTitle: "Biralar", items: []}
                     ]
                 }
             }
         };
-
-        const fixModalData = {
-            kizkiza: {
-                title: "KIZ KIZA FİX MENÜ",
-                price: "2.000 ₺ / Kişi Başı",
-                content: `
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Mezeler & Salata</div>
-                        <ul class="fix-list">
-                            <li>Zemheri Serpme Mezeleri (Günlük Taze)</li>
-                            <li>Taze Mevsim Salatası veya Roka Salatası</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
-                        <ul class="fix-list">
-                            <li>Çıtır İçli Köfte</li>
-                            <li>Özel Yaprak Ciğer</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek Seçenekleri</div>
-                        <ul class="fix-list">
-                            <li>Şef Kavurma veya Zemheri Özel Köfte</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-glass-water"></i> İçecek İkramı</div>
-                        <p style="font-size: 0.85rem; color:#bbb;">Sınırsız Soft İçecekler & Çay/Kahve İkramı</p>
-                    </div>
-                `
-            },
-            alkolsuz: {
-                title: "ALKOLSÜZ FİX MENÜ",
-                price: "2.300 ₺ / Kişi Başı",
-                content: `
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Mezeler & Peynir</div>
-                        <ul class="fix-list">
-                            <li>Serpme Zengin Meze Tabağı</li>
-                            <li>Mardin Yöresel Peynir Tabağı</li>
-                            <li>Gavurdağı veya Roka Salatası</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
-                        <ul class="fix-list">
-                            <li>Sıcak İçli Köfte</li>
-                            <li>Közde Patlıcan Dolma</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
-                        <ul class="fix-list">
-                            <li>Kuzu Pirzola, Saç Kavurma veya Şef Kavurma</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & İçecek</div>
-                        <ul class="fix-list">
-                            <li>Mevsim Meyveleri Tabağı & Yöresel Mardin Hariresi</li>
-                            <li>Sınırsız Alkolsüz İçecekler</li>
-                        </ul>
-                    </div>
-                `
-            },
-            alkollu: {
-                title: "ALKOLLÜ FİX MENÜ",
-                price: "3.000 ₺ / Kişi Başı",
-                content: `
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Başlangıç & Mezeler</div>
-                        <ul class="fix-list">
-                            <li>Full Serpme Meze Masası</li>
-                            <li>Ezine & Mardin Eritme Peyniri</li>
-                            <li>Özel Yaprak Ciğer & Sıcak Ara Sıcaklar</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
-                        <ul class="fix-list">
-                            <li>Kuzu İncik, Dana Lokum veya Özel Kavurma</li>
-                        </ul>
-                    </div>
-                    <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> Alkol Seçeneği (Limitli)</div>
-                        <div class="drink-options">
-                            <div class="drink-box"><strong>Rakı</strong> 35cl (2 Kişiye)</div>
-                            <div class="drink-box"><strong>Bira</strong> 3 Adet</div>
-                            <div class="drink-box"><strong>Şarap</strong> 1 Şişe (2 Kişiye)</div>
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        function scrollToElement(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                const offset = 80;
-                const bodyRect = document.body.getBoundingClientRect().top;
-                const elementRect = el.getBoundingClientRect().top;
-                const elementPosition = elementRect - bodyRect;
-                const offsetPosition = elementPosition - offset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
 
         function changeLang(lang, event) {
             currentLang = lang;
@@ -902,83 +835,25 @@
             if(event) event.target.classList.add('active');
         }
 
-        function openCategoryModal(catKey) {
-            const data = categoryData.tr[catKey];
-            if (!data) return;
-
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalPrice').innerText = '';
-
-            let html = '<div class="modal-item-list">';
-
-            if (data.items) {
-                data.items.forEach(item => {
-                    html += `
-                        <div class="modal-item">
-                            <div>
-                                <div class="modal-item-name">${item.name}</div>
-                                ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
-                            </div>
-                            <div class="modal-item-price">${item.price}</div>
-                        </div>
-                    `;
-                });
-            } else if (data.subgroups) {
-                data.subgroups.forEach(group => {
-                    html += `<div class="modal-subgroup-title">${group.groupTitle}</div>`;
-                    group.items.forEach(item => {
-                        html += `
-                            <div class="modal-item">
-                                <div>
-                                    <div class="modal-item-name">${item.name}</div>
-                                    ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
-                                </div>
-                                <div class="modal-item-price">${item.price}</div>
-                            </div>
-                        `;
-                    });
-                });
+        function scrollToElement(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
             }
-
-            html += '</div>';
-            document.getElementById('modalBody').innerHTML = html;
-            document.getElementById('appModal').style.display = 'flex';
-        }
-
-        function openFixModal(fixKey) {
-            const data = fixModalData[fixKey];
-            if (!data) return;
-
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalPrice').innerText = data.price;
-            document.getElementById('modalBody').innerHTML = data.content;
-            document.getElementById('appModal').style.display = 'flex';
-        }
-
-        function closeModal(event) {
-            if (event.target.id === 'appModal') {
-                document.getElementById('appModal').style.display = 'none';
-            }
-        }
-
-        function closeModalDirect() {
-            document.getElementById('appModal').style.display = 'none';
         }
 
         function filterSearch() {
             const query = document.getElementById('menuSearch').value.toLowerCase().trim();
             const resultsContainer = document.getElementById('search-results-container');
             const resultsList = document.getElementById('search-results-list');
-            const mainContent = document.getElementById('main-content');
-
-            if (query === "") {
+            
+            if (!query) {
                 resultsContainer.style.display = 'none';
-                mainContent.style.display = 'block';
                 return;
             }
 
             let matches = [];
-            const data = categoryData.tr;
+            const data = categoryData[currentLang] || categoryData['tr'];
 
             Object.keys(data).forEach(catKey => {
                 const cat = data[catKey];
@@ -1000,8 +875,33 @@
             });
 
             if (matches.length > 0) {
-                let html = '';
-                matches.forEach(item => {
+                resultsList.innerHTML = matches.map(item => `
+                    <div class="modal-item">
+                        <div>
+                            <div class="modal-item-name">${item.name}</div>
+                            ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
+                        </div>
+                        <div class="modal-item-price">${item.price}</div>
+                    </div>
+                `).join('');
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsList.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 10px;">Sonuç bulunamadı.</div>';
+                resultsContainer.style.display = 'block';
+            }
+        }
+
+        function openCategoryModal(categoryKey) {
+            const data = categoryData[currentLang] || categoryData['tr'];
+            const category = data[categoryKey];
+            if (!category) return;
+
+            document.getElementById('modalTitle').innerText = category.title;
+            document.getElementById('modalPrice').innerText = '';
+            
+            let html = '<div class="modal-item-list">';
+            if (category.items) {
+                category.items.forEach(item => {
                     html += `
                         <div class="modal-item">
                             <div>
@@ -1012,14 +912,76 @@
                         </div>
                     `;
                 });
-                resultsList.innerHTML = html;
-                resultsContainer.style.display = 'block';
-                mainContent.style.display = 'none';
-            } else {
-                resultsList.innerHTML = '<div style="text-align:center; padding: 20px; color: var(--text-muted);">Sonuç bulunamadı.</div>';
-                resultsContainer.style.display = 'block';
-                mainContent.style.display = 'none';
+            } else if (category.subgroups) {
+                category.subgroups.forEach(group => {
+                    if (group.items.length > 0) {
+                        html += `<div class="modal-subgroup-title">${group.groupTitle}</div>`;
+                        group.items.forEach(item => {
+                            html += `
+                                <div class="modal-item">
+                                    <div>
+                                        <div class="modal-item-name">${item.name}</div>
+                                        ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
+                                    </div>
+                                    <div class="modal-item-price">${item.price}</div>
+                                </div>
+                            `;
+                        });
+                    }
+                });
             }
+            html += '</div>';
+
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('appModal').style.display = 'flex';
+        }
+
+        function openFixModal(type) {
+            document.getElementById('modalTitle').innerText = "FİX MENÜ DETAYI";
+            document.getElementById('modalPrice').innerText = type === 'kizkiza' ? "2.000 ₺ / Kişi Başı" : (type === 'alkolsuz' ? "2.300 ₺ / Kişi Başı" : "3.000 ₺ / Kişi Başı");
+            
+            let html = `
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Soğuk Mezeler & İkramlar</div>
+                    <ul class="fix-list">
+                        <li>Günün Zengin Meze Çeşitleri</li>
+                        <li>Mevsim Salatası & Yeşillikler</li>
+                        <li>Peynir Tabağı</li>
+                    </ul>
+                </div>
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                    <ul class="fix-list">
+                        <li>İçli Köfte</li>
+                        <li>Sıcak Başlangıç Çeşitleri</li>
+                    </ul>
+                </div>
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                    <ul class="fix-list">
+                        <li>Karışık Izgara Veya Günün Özel Ana Yemeği</li>
+                    </ul>
+                </div>
+                <div class="fix-section">
+                    <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve</div>
+                    <ul class="fix-list">
+                        <li>Mevsim Meyveleri & Yöresel Tatlı İkramı</li>
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('appModal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'appModal') {
+                document.getElementById('appModal').style.display = 'none';
+            }
+        }
+
+        function closeModalDirect() {
+            document.getElementById('appModal').style.display = 'none';
         }
     </script>
 </body>
