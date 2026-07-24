@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zemheri Semir Şef - QR Menü</title>
+    <title>Zemheri Semir Şef - Lüks QR Menü</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-gold: #D4AF37;
-            --accent-gold: #F3E5AB;
-            --dark-gold: #AA7C11;
-            --bg-black: #0B0B0B;
-            --card-bg: #141414;
-            --border-color: #2A2415;
-            --text-light: #F5F5F5;
-            --text-muted: #A0A0A0;
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-dark: #997A15;
+            --bg-deep: #070707;
+            --card-glass: rgba(20, 20, 20, 0.75);
+            --border-glass: rgba(212, 175, 55, 0.18);
+            --text-main: #F4F4F4;
+            --text-muted: #9E9E9E;
         }
 
         * {
@@ -25,78 +25,107 @@
             margin: 0;
             padding: 0;
             user-select: none;
-            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-black);
-            color: var(--text-light);
-            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
-            padding-bottom: 80px;
-
+            min-height: 100vh;
+            padding-bottom: 100px;
             background-image: 
-                linear-gradient(rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0.92)), 
-                url('mardin-tas-duvar.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(20, 20, 20, 0.8) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
-        .lang-switch {
+        /* Dil Seçici - Modern Hap Tasarım */
+        .lang-container {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            padding: 10px 0 0;
-            background: rgba(11, 11, 11, 0.85);
+            gap: 6px;
+            padding: 16px 0 6px;
+            background: transparent;
         }
 
         .lang-btn {
-            background: #181818;
-            border: 1px solid var(--border-color);
+            background: rgba(25, 25, 25, 0.6);
+            border: 1px solid var(--border-glass);
             color: var(--text-muted);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
         }
 
         .lang-btn.active, .lang-btn:hover {
-            background: var(--primary-gold);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: #000;
-            border-color: var(--primary-gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-1px);
         }
 
+        /* Lüks Header & Logo Alanı */
         header {
             text-align: center;
-            padding: 15px 20px 15px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 10px 20px 20px;
             position: relative;
-            background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(11,11,11,0) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 12px;
+        }
+
+        .logo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+            z-index: -1;
+            animation: rotateGlow 6s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .main-logo {
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid var(--primary-gold);
-            background-color: #141414;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.8);
-            margin: 10px auto 15px auto;
-            display: block;
+            border: 2px solid var(--bg-deep);
+            background-color: #111;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
+        .restaurant-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* Cam Efektli Arama Çubuğu */
         .search-container {
-            max-width: 800px;
-            margin: 15px auto 0;
-            padding: 0 15px;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .search-box {
@@ -106,58 +135,64 @@
 
         .search-box input {
             width: 100%;
-            padding: 12px 40px 12px 18px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid var(--border-color);
-            border-radius: 25px;
-            color: var(--text-light);
-            font-size: 0.9rem;
+            padding: 14px 45px 14px 20px;
+            background: var(--card-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 30px;
+            color: var(--text-main);
+            font-size: 0.85rem;
             outline: none;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(12px);
         }
 
         .search-box input:focus {
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(25, 25, 25, 0.9);
         }
 
         .search-box i {
             position: absolute;
-            right: 15px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--primary-gold);
+            color: var(--gold);
+            font-size: 0.9rem;
         }
 
         #search-results-container {
             display: none;
-            max-width: 800px;
+            max-width: 650px;
             margin: 20px auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         .search-results-header {
             font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.1rem;
+            color: var(--gold);
+            font-size: 1rem;
             margin-bottom: 12px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 6px;
+            letter-spacing: 1px;
         }
 
+        /* Yatay Kategori Navigasyonu (Pill Bar) */
         .category-nav {
             display: flex;
             overflow-x: auto;
             white-space: nowrap;
-            padding: 15px 10px;
-            background-color: rgba(15, 15, 15, 0.92);
+            padding: 18px 20px;
+            background: rgba(10, 10, 10, 0.85);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
             scrollbar-width: none;
+            gap: 8px;
         }
 
         .category-nav::-webkit-scrollbar {
@@ -165,14 +200,13 @@
         }
 
         .nav-item {
-            padding: 10px 20px;
-            margin: 0 4px;
-            background: #181818;
-            border: 1px solid #282828;
-            border-radius: 20px;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            font-weight: 600;
+            padding: 9px 18px;
+            background: rgba(25, 25, 25, 0.5);
+            border: 1px solid var(--border-glass);
+            border-radius: 25px;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -181,34 +215,49 @@
         }
 
         .nav-item i {
-            color: var(--primary-gold);
+            color: var(--gold);
+            font-size: 0.85rem;
         }
 
         .nav-item:hover, .nav-item:active {
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: #000;
-            border-color: var(--primary-gold);
+            border-color: var(--gold);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
         }
 
         .nav-item:hover i, .nav-item:active i {
             color: #000;
         }
 
+        /* Ana İçerik Alanı */
         .container {
-            max-width: 800px;
+            max-width: 650px;
             margin: 0 auto;
-            padding: 20px 15px;
+            padding: 25px 20px;
         }
 
+        /* Fix Menü Vitrini Kartı */
         .fix-menu-container {
-            background: linear-gradient(145deg, rgba(24, 21, 16, 0.9) 0%, rgba(13, 12, 8, 0.9) 100%);
-            border: 1px solid var(--primary-gold);
-            border-radius: 12px;
-            padding: 20px 15px;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            backdrop-filter: blur(8px);
+            background: linear-gradient(145deg, rgba(22, 20, 16, 0.85) 0%, rgba(10, 9, 7, 0.95) 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px 18px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .fix-menu-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
         }
 
         .fix-menu-header {
@@ -217,25 +266,26 @@
 
         .fix-menu-header h2 {
             font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
+            color: var(--gold);
+            font-size: 1.35rem;
+            letter-spacing: 1.5px;
         }
 
         .fix-price-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 18px;
         }
 
         .fix-price-card {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid var(--primary-gold);
-            border-radius: 8px;
-            padding: 12px 8px;
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 12px 6px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -243,64 +293,94 @@
         }
 
         .fix-price-card:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-2px);
+            background: rgba(212, 175, 55, 0.12);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
         }
 
         .fix-price-card .option-title {
-            font-size: 0.82rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            color: var(--accent-gold);
-            margin-bottom: 3px;
+            color: var(--gold-light);
+            margin-bottom: 5px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         .fix-price-card .option-price {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--primary-gold);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gold);
         }
 
+        /* Kategori Kartları (Dergi Tarzı) */
         .category-section {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .category-card {
-            background: linear-gradient(145deg, rgba(24, 21, 16, 0.9) 0%, rgba(13, 12, 8, 0.9) 100%);
-            border: 1px solid #282418;
-            border-left: 4px solid var(--primary-gold);
-            border-radius: 10px;
+            background: var(--card-glass);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
             padding: 18px 22px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(6px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .category-card:hover {
-            border-color: var(--primary-gold);
+            border-color: var(--border-glass);
+            background: rgba(30, 28, 24, 0.85);
             transform: translateX(4px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.08);
         }
 
         .category-card-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--accent-gold);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            letter-spacing: 0.5px;
         }
 
         .category-card-title i {
-            color: var(--primary-gold);
+            color: var(--gold);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
         }
 
+        .category-card-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .category-card-action i {
+            font-size: 0.65rem;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-card-action i {
+            transform: translateX(3px);
+        }
+
+        /* Modal Pencereler */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -308,133 +388,167 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 15px;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            background: linear-gradient(145deg, #181510 0%, #0d0c08 100%);
-            border: 1px solid var(--primary-gold);
-            border-radius: 12px;
+            background: linear-gradient(145deg, #141311 0%, #0a0908 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
             width: 100%;
-            max-width: 600px;
-            max-height: 85vh;
+            max-width: 580px;
+            max-height: 82vh;
             overflow-y: auto;
-            padding: 25px 20px;
+            padding: 30px 22px;
             position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: transparent;
-            border: none;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
+            top: 18px;
+            right: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--gold);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--gold);
+            color: #000;
         }
 
         .modal-header {
             text-align: center;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 18px;
+            margin-bottom: 22px;
         }
 
         .modal-header h3 {
             font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.4rem;
+            color: var(--gold);
+            font-size: 1.3rem;
+            letter-spacing: 1px;
         }
 
         .modal-item-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .modal-item {
-            background-color: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 8px;
-            padding: 12px 16px;
+            background: rgba(25, 25, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 14px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-item:hover {
+            border-color: rgba(212, 175, 55, 0.15);
+            background: rgba(30, 30, 30, 0.7);
         }
 
         .modal-item-name {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--text-main);
         }
 
         .modal-item-desc {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         .modal-item-price {
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--primary-gold);
+            color: var(--gold);
             white-space: nowrap;
+            margin-left: 15px;
         }
 
         .modal-subgroup-title {
-            color: var(--accent-gold);
+            color: var(--gold-light);
             font-family: 'Cinzel', serif;
-            margin: 20px 0 10px;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #262013;
-            padding-bottom: 4px;
+            margin: 24px 0 12px;
+            font-size: 1rem;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+            padding-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         .fix-section {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .fix-section-title {
             font-family: 'Cinzel', serif;
-            color: var(--accent-gold);
-            font-size: 1rem;
+            color: var(--gold-light);
+            font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 1px solid #262013;
-            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 6px;
         }
 
         .fix-section-title i {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
+            color: var(--gold);
+            font-size: 0.85rem;
         }
 
         .fix-list {
             list-style: none;
-            padding-left: 10px;
+            padding-left: 6px;
         }
 
         .fix-list li {
-            font-size: 0.88rem;
-            color: #d1d1d1;
-            margin-bottom: 4px;
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 5px;
             position: relative;
-            padding-left: 15px;
+            padding-left: 16px;
         }
 
         .fix-list li::before {
             content: '•';
-            color: var(--primary-gold);
+            color: var(--gold);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -442,65 +556,81 @@
 
         .drink-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .drink-box {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid #3d3219;
-            padding: 8px;
-            border-radius: 6px;
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border-glass);
+            padding: 10px 6px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            color: #ddd;
         }
 
         .drink-box strong {
-            color: var(--primary-gold);
+            color: var(--gold);
             display: block;
+            margin-bottom: 2px;
+            font-size: 0.8rem;
         }
 
+        /* Sabit WhatsApp Rezervasyon Butonu */
         .floating-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #25D366;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 35px;
             font-weight: 700;
             font-size: 0.85rem;
+            letter-spacing: 0.5px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             z-index: 99;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .floating-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.06);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
         }
 
+        /* Altbilgi (Footer) */
         footer {
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            background-color: rgba(8, 8, 8, 0.95);
-            font-size: 0.85rem;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(5, 5, 5, 0.95);
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
         .footer-info a {
-            color: var(--primary-gold);
+            color: var(--gold);
             text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-info a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
         }
 
         .address-box {
-            margin-top: 10px;
+            margin-top: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -510,7 +640,7 @@
 </head>
 <body>
 
-    <div class="lang-switch">
+    <div class="lang-container">
         <button class="lang-btn active" onclick="changeLang('tr', event)">TR</button>
         <button class="lang-btn" onclick="changeLang('en', event)">EN</button>
         <button class="lang-btn" onclick="changeLang('ar', event)">AR</button>
@@ -518,12 +648,15 @@
     </div>
 
     <header>
-        <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
+        <div class="logo-wrapper">
+            <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
+        </div>
+        <div class="restaurant-subtitle">Mardin Haute Cuisine</div>
     </header>
 
     <div class="search-container">
         <div class="search-box">
-            <input type="text" id="menuSearch" placeholder="Menüde ara..." onkeyup="filterSearch()">
+            <input type="text" id="menuSearch" placeholder="Menüde arayın..." onkeyup="filterSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </div>
@@ -550,7 +683,7 @@
             <div class="fix-menu-container">
                 <div class="fix-menu-header">
                     <h2>ZEMHERİ FİX MENÜ</h2>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
                     
                     <div class="fix-price-grid">
                         <div class="fix-price-card" onclick="openFixModal('kizkiza')">
@@ -628,7 +761,7 @@
     </div>
 
     <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="floating-btn">
-        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> <span id="reserve-btn">Rezerve Et</span>
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> <span id="reserve-btn">Rezerve Et</span>
     </a>
 
     <div id="appModal" class="modal-overlay" onclick="closeModal(event)">
@@ -636,7 +769,7 @@
             <button class="modal-close" onclick="closeModalDirect()"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-header">
                 <h3 id="modalTitle">MENÜ DETAYI</h3>
-                <div style="color: var(--accent-gold); margin-top: 4px;" id="modalPrice"></div>
+                <div style="color: var(--gold-light); margin-top: 6px; font-size: 0.9rem;" id="modalPrice"></div>
             </div>
             <div id="modalBody"></div>
         </div>
@@ -644,15 +777,15 @@
 
     <footer>
         <div class="footer-info">
-            <p style="color: var(--primary-gold); font-weight: 600;" id="foot-title">REZERVASYON YAPMAYI UNUTMAYIN!</p>
+            <p style="color: var(--gold); font-weight: 600; letter-spacing: 1px;" id="foot-title">REZERVASYON YAPMAYI UNUTMAYIN!</p>
             <p><a href="tel:+905352113133"><i class="fa-solid fa-phone"></i> +90 (535) 211 31 33</a></p>
             <p><a href="https://www.instagram.com/zemherisemirsef" target="_blank"><i class="fa-brands fa-instagram"></i> @zemherisemirsef</a></p>
             
             <div class="address-box">
-                <a href="https://maps.apple.com/place?address=Zübeyde+Hanım+Cd.+10%2C+47100+Hatunlu+Mardin%2C+Türkiye&coordinate=37.316830%2C40.750430&name=Yalım+Cad.+No%3A30+C+Savur+Kapı+Mah.+Mardin+Otogar+Yanı" target="_blank" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: none;">
-                    <i class="fa-solid fa-location-dot" style="color: var(--primary-gold);"></i>
+                <a href="https://maps.apple.com/place?address=Zübeyde+Hanım+Cd.+10%2C+47100+Hatunlu+Mardin%2C+Türkiye&coordinate=37.316830%2C40.750430&name=Yalım+Cad.+No%3A30+C+Savur+Kapı+Mah.+Mardin+Otogar+Yanı" target="_blank" style="color: var(--text-muted); font-size: 0.75rem; text-decoration: none;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--gold);"></i>
                     <span>Savur Kapı Mah. Yalım Cad. No:30 Mardin Otogar Yanı</span>
-                    <br><u style="color: var(--primary-gold);">(Haritada Aç / Open Maps)</u>
+                    <br><u style="color: var(--gold);">(Haritada Aç / Open Maps)</u>
                 </a>
             </div>
         </div>
@@ -1228,7 +1361,7 @@
 
         const translations = {
             tr: {
-                search: "Menüde ara...", navFix: "Fix Menü", navMeze: "Mezeler", navSalata: "Salatalar", navAra: "Ara Sıcaklar",
+                search: "Menüde arayın...", navFix: "Fix Menü", navMeze: "Mezeler", navSalata: "Salatalar", navAra: "Ara Sıcaklar",
                 navPeynir: "Peynirler", navAna: "Ana Yemekler", navTatli: "Tatlı & Meyve", navAlkolsuz: "Alkolsüz İçecekler", navAlkollu: "Alkollü İçecekler",
                 fixSub: "İçeriği görmek için tıklayın (Kişi Başı)", fixKiz: "Kız Kıza", fixAlkolsuz: "Alkolsüz", fixAlkollu: "Alkollü",
                 catMeze: "MEZELER", catSalata: "SALATALAR", catAra: "ARA SICAKLAR", catPeynir: "PEYNİR ÇEŞİTLERİ", catAna: "ANA YEMEKLER", catTatli: "TATLI & MEYVE", catAlkolsuz: "ALKOLSÜZ İÇECEKLER", catAlkollu: "ALKOLLÜ İÇECEKLER",
