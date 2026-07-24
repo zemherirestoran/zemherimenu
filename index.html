@@ -30,26 +30,12 @@
             --brand-light: #E5C158;
             --brand-dark: #4A3515;
             --bg-base: #1C1510;
-            --bg-card: rgba(43, 33, 26, 0.88);
-            --border-glow: rgba(229, 193, 88, 0.28);
+            --bg-card: rgba(35, 26, 20, 0.75);
+            --border-glow: rgba(229, 193, 88, 0.32);
             --text-main: #FDFBF7;
             --text-muted: #D4C5B0;
             --accent-warm: #F3D372;
-            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95));
-        }
-
-        /* Akşam (Klasik Altın) Teması */
-        [data-theme="dark"][data-mood="classic"] {
-            --brand-primary: #C59B27;
-            --brand-light: #E5C158;
-            --brand-dark: #4A3515;
-            --bg-base: #1C1510;
-            --bg-card: rgba(43, 33, 26, 0.88);
-            --border-glow: rgba(229, 193, 88, 0.28);
-            --text-main: #FDFBF7;
-            --text-muted: #D4C5B0;
-            --accent-warm: #F3D372;
-            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95));
+            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.65), rgba(15, 11, 8, 0.82));
         }
 
         /* Öğle (Ferah) Teması */
@@ -58,12 +44,12 @@
             --brand-light: #6b8e23;
             --brand-dark: #2c3e2d;
             --bg-base: #f4f6f0;
-            --bg-card: rgba(255, 255, 255, 0.92);
-            --border-glow: rgba(85, 107, 47, 0.3);
+            --bg-card: rgba(255, 255, 255, 0.82);
+            --border-glow: rgba(85, 107, 47, 0.35);
             --text-main: #2c3e2d;
             --text-muted: #586e59;
             --accent-warm: #6b8e23;
-            --bg-gradient: linear-gradient(rgba(244, 246, 240, 0.9), rgba(230, 235, 222, 0.95));
+            --bg-gradient: linear-gradient(rgba(244, 246, 240, 0.75), rgba(230, 235, 222, 0.85));
         }
 
         /* Sıcak (Baharat) Teması */
@@ -72,12 +58,26 @@
             --brand-light: #e09f3e;
             --brand-dark: #40322c;
             --bg-base: #1a1412;
-            --bg-card: rgba(38, 31, 28, 0.92);
-            --border-glow: rgba(217, 119, 87, 0.3);
+            --bg-card: rgba(38, 31, 28, 0.78);
+            --border-glow: rgba(217, 119, 87, 0.35);
             --text-main: #f0e6df;
             --text-muted: #b8a296;
             --accent-warm: #e09f3e;
-            --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.9), rgba(15, 11, 10, 0.95));
+            --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.7), rgba(15, 11, 10, 0.85));
+        }
+
+        /* Koyu Mod Teması (Sağdaki Yeni Buton İçin) */
+        [data-theme="dark"][data-mood="pure-dark"] {
+            --brand-primary: #a370f7;
+            --brand-light: #c49eff;
+            --brand-dark: #2a1b4e;
+            --bg-base: #0b090e;
+            --bg-card: rgba(20, 16, 28, 0.78);
+            --border-glow: rgba(196, 158, 255, 0.3);
+            --text-main: #f5f2ff;
+            --text-muted: #b8b0cc;
+            --accent-warm: #d4bcff;
+            --bg-gradient: linear-gradient(rgba(11, 9, 14, 0.7), rgba(5, 4, 8, 0.85));
         }
 
         * {
@@ -166,7 +166,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            padding: 20px 0 8px;
+            padding: 16px 0 8px;
         }
 
         .lang-btn {
@@ -194,7 +194,7 @@
         /* Lüks Header & Logo Alanı */
         header {
             text-align: center;
-            padding: 10px 20px 25px;
+            padding: 5px 20px 20px;
         }
 
         .logo-wrapper {
@@ -769,6 +769,7 @@
         <button class="gourmet-btn active" onclick="setTheme('dark', 'classic', event)">Akşam (Klasik Altın)</button>
         <button class="gourmet-btn" onclick="setTheme('light', 'olive', event)">Öğle (Ferah Zeytin)</button>
         <button class="gourmet-btn" onclick="setTheme('dark', 'terracotta', event)">Sıcak (Terracotta)</button>
+        <button class="gourmet-btn" onclick="setTheme('dark', 'pure-dark', event)">Koyu Mod</button>
     </div>
 
     <div class="lang-container">
