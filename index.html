@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark" data-mood="classic">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="description" content="Mardin'in en lezzetli yöresel yemekleri ve özel şef spesiyalleri için Zemheri Restoran dijital menüsü.">
     <meta name="keywords" content="Mardin restoran, Zemheri menü, Mardin yemek yerleri, yöresel yemekler">
     <meta property="og:title" content="Zemheri Restoran | Dijital Menü">
@@ -24,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- GURME MOOD VE TEMA DEĞİŞKENLERİ --- */
         :root {
             --brand-primary: #C59B27;
             --brand-light: #E5C158;
@@ -34,6 +35,35 @@
             --text-main: #FDFBF7;
             --text-muted: #D4C5B0;
             --accent-warm: #F3D372;
+            --bg-gradient: linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95));
+        }
+
+        /* Öğle (Ferah) Teması */
+        [data-theme="light"][data-mood="olive"] {
+            --brand-primary: #556b2f;
+            --brand-light: #6b8e23;
+            --brand-dark: #2c3e2d;
+            --bg-base: #f4f6f0;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --border-glow: rgba(85, 107, 47, 0.3);
+            --text-main: #2c3e2d;
+            --text-muted: #586e59;
+            --accent-warm: #6b8e23;
+            --bg-gradient: linear-gradient(rgba(244, 246, 240, 0.9), rgba(230, 235, 222, 0.95));
+        }
+
+        /* Sıcak (Baharat) Teması */
+        [data-theme="dark"][data-mood="terracotta"] {
+            --brand-primary: #d97757;
+            --brand-light: #e09f3e;
+            --brand-dark: #40322c;
+            --bg-base: #1a1412;
+            --bg-card: rgba(38, 31, 28, 0.9);
+            --border-glow: rgba(217, 119, 87, 0.3);
+            --text-main: #f0e6df;
+            --text-muted: #b8a296;
+            --accent-warm: #e09f3e;
+            --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.9), rgba(15, 11, 10, 0.95));
         }
 
         * {
@@ -46,7 +76,7 @@
         body {
             background-color: var(--bg-base);
             background-image: 
-                linear-gradient(rgba(28, 21, 16, 0.85), rgba(15, 11, 8, 0.95)),
+                var(--bg-gradient),
                 url('mardin.jpg');
             background-size: cover;
             background-position: center;
@@ -56,6 +86,37 @@
             min-height: 100vh;
             padding-bottom: 120px;
             overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* --- KİŞİSELLEŞTİRİLMİŞ GURME MODU SEÇİCİ PANELİ ---. */
+        .gourmet-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .gourmet-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .gourmet-btn.active, .gourmet-btn:hover {
+            background: linear-gradient(135deg, var(--brand-light), var(--brand-primary));
+            color: #fff;
+            border-color: var(--brand-light);
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.3);
+            transform: translateY(-2px);
         }
 
         /* Dil Seçici - Lüks Hap Tasarım */
@@ -63,11 +124,11 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            padding: 24px 0 12px;
+            padding: 20px 0 8px;
         }
 
         .lang-btn {
-            background: rgba(43, 33, 26, 0.9);
+            background: var(--bg-card);
             border: 1px solid var(--border-glow);
             color: var(--text-muted);
             padding: 6px 18px;
@@ -82,7 +143,7 @@
 
         .lang-btn.active, .lang-btn:hover {
             background: linear-gradient(135deg, var(--brand-light), var(--brand-primary));
-            color: #15110E;
+            color: #fff;
             border-color: var(--brand-light);
             box-shadow: 0 0 25px rgba(229, 193, 88, 0.35);
             transform: translateY(-2px);
@@ -154,7 +215,7 @@
         .search-box input:focus {
             border-color: var(--brand-light);
             box-shadow: 0 0 30px rgba(229, 193, 88, 0.25), inset 0 2px 4px rgba(0,0,0,0.2);
-            background: rgba(55, 43, 34, 0.95);
+            background: var(--bg-card);
         }
 
         .search-box i {
@@ -242,7 +303,7 @@
 
         /* Fix Menü Kartı - Özel Tasarım */
         .fix-menu-showcase {
-            background: linear-gradient(145deg, rgba(50, 39, 30, 0.95) 0%, rgba(24, 18, 13, 0.98) 100%);
+            background: var(--bg-card);
             border: 1px solid var(--brand-light);
             border-radius: 22px;
             padding: 28px 20px;
@@ -284,7 +345,7 @@
         }
 
         .fix-opt-card {
-            background: rgba(30, 23, 18, 0.75);
+            background: var(--bg-base);
             border: 1px solid var(--border-glow);
             border-radius: 12px;
             padding: 12px 6px;
@@ -344,7 +405,6 @@
 
         .category-row-card:hover {
             border-color: var(--brand-light);
-            background: rgba(55, 43, 34, 0.92);
             transform: translateX(4px);
             box-shadow: 0 6px 25px rgba(229, 193, 88, 0.15);
         }
@@ -410,7 +470,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(145deg, #2B2118 0%, #17110C 100%);
+            background: var(--bg-card);
             border: 1px solid var(--brand-light);
             border-radius: 20px;
             width: 100%;
@@ -448,7 +508,7 @@
 
         .modal-close:hover {
             background: var(--brand-light);
-            color: #15110E;
+            color: #fff;
         }
 
         .modal-header {
@@ -472,7 +532,7 @@
         }
 
         .modal-item {
-            background: rgba(43, 33, 26, 0.55);
+            background: var(--bg-base);
             border: 1px solid rgba(229, 193, 88, 0.12);
             border-radius: 12px;
             padding: 14px 18px;
@@ -484,7 +544,6 @@
 
         .modal-item:hover {
             border-color: rgba(229, 193, 88, 0.35);
-            background: rgba(58, 45, 36, 0.8);
         }
 
         .modal-item-name {
@@ -569,7 +628,7 @@
         }
 
         .drink-box {
-            background: rgba(229, 193, 88, 0.06);
+            background: var(--bg-base);
             border: 1px solid var(--border-glow);
             padding: 10px 6px;
             border-radius: 10px;
@@ -618,7 +677,7 @@
             padding: 45px 20px;
             margin-top: 50px;
             border-top: 1px solid rgba(229, 193, 88, 0.15);
-            background: rgba(15, 11, 8, 0.98);
+            background: var(--bg-card);
             font-size: 0.8rem;
             color: var(--text-muted);
         }
@@ -647,6 +706,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Kişiselleştirilmiş Gurme Modu Seçicileri -->
+    <div class="gourmet-controls">
+        <button class="gourmet-btn active" onclick="setTheme('dark', 'classic', event)">Akşam (Klasik Altın)</button>
+        <button class="gourmet-btn" onclick="setTheme('light', 'olive', event)">Öğle (Ferah Zeytin)</button>
+        <button class="gourmet-btn" onclick="setTheme('dark', 'terracotta', event)">Sıcak (Terracotta)</button>
+    </div>
 
     <div class="lang-container">
         <button class="lang-btn active" onclick="changeLang('tr', event)">TR</button>
@@ -786,6 +852,17 @@
 
     <script>
         let currentLang = 'tr';
+        
+        // Gurme Mod Tema Değiştirici Fonksiyon
+        function setTheme(theme, mood, e) {
+            const html = document.documentElement;
+            html.setAttribute('data-theme', theme);
+            html.setAttribute('data-mood', mood);
+
+            document.querySelectorAll('.gourmet-btn').forEach(btn => btn.classList.remove('active'));
+            if(e && e.target) e.target.classList.add('active');
+        }
+
         const categoryData = {
             tr: {
                 mezeler: {
@@ -1213,7 +1290,7 @@
                 "ana-yemekler": {
                     title: "XWARINÊN SEREKÊ",
                     items: [
-                        { name: " Qاورما (Qawurmaya Şef)", price: "750 ₺" },
+                        { name: "Qawurmaya Şef", price: "750 ₺" },
                         { name: "Pirsola Berxê", price: "850 ₺" },
                         { name: "Kofteya Zemherî", price: "700 ₺" },
                         { name: "Tandûra Berxê", price: "700 ₺" },
@@ -1506,13 +1583,13 @@
         function scrollToElement(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
         function closeModal(e) { if (e.target.id === 'appModal') closeModalDirect(); }
         function closeModalDirect() { document.getElementById('appModal').style.display = 'none'; }
-
     </script>
-<!-- Tasarım İmzası ve Instagram -->
-    <div class="signature-box" style="margin: 20px 0; font-size: 12px; letter-spacing: 1px; color: #d4af37; opacity: 0.9; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+
+    <!-- Tasarım İmzası ve Instagram -->
+    <div class="signature-box" style="margin: 20px 0; font-size: 12px; letter-spacing: 1px; color: var(--brand-light); opacity: 0.9; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
         <span>Design by <strong style="letter-spacing: 2px;">Roseven</strong></span>
         <span style="opacity: 0.5;">|</span>
-        <a href="https://instagram.com/dogantncy_cb" target="_blank" style="color: #d4af37; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+        <a href="https://instagram.com/dogantncy_cb" target="_blank" style="color: var(--brand-light); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <span></span>
         </a>
