@@ -340,6 +340,12 @@
             color: var(--primary-gold);
         }
 
+        .inspect-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-right: 5px;
+        }
+
         /* MODAL STYLES */
         .modal-overlay {
             display: none;
@@ -577,20 +583,20 @@
         <section id="fix-menu">
             <div class="fix-menu-container">
                 <div class="fix-menu-header">
-                    <h2>ZEMHERİ FİX MENÜ</h2>
+                    <h2 id="fix-main-title">ZEMHERİ FİX MENÜ</h2>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
                     
                     <div class="fix-price-grid">
                         <div class="fix-price-card" onclick="openFixModal('kizkiza')">
-                            <span class="option-title"><i class="fa-solid fa-person-dress"></i> <span id="fix-kizkiza">Kız Kıza</span></span>
+                            <span class="option-title"><i class="fa-solid fa-person-dress"></i> <span id="fix-kizkiza-title">Kız Kıza</span></span>
                             <span class="option-price">2.000 ₺</span>
                         </div>
                         <div class="fix-price-card" onclick="openFixModal('alkolsuz')">
-                            <span class="option-title"><i class="fa-solid fa-glass-water"></i> <span id="fix-alkolsuz">Alkolsüz</span></span>
+                            <span class="option-title"><i class="fa-solid fa-glass-water"></i> <span id="fix-alkolsuz-title">Alkolsüz</span></span>
                             <span class="option-price">2.300 ₺</span>
                         </div>
                         <div class="fix-price-card" onclick="openFixModal('alkollu')">
-                            <span class="option-title"><i class="fa-solid fa-wine-glass"></i> <span id="fix-alkollu">Alkollü</span></span>
+                            <span class="option-title"><i class="fa-solid fa-wine-glass"></i> <span id="fix-alkollu-title">Alkollü</span></span>
                             <span class="option-price">3.000 ₺</span>
                         </div>
                     </div>
@@ -602,56 +608,56 @@
         <div class="category-section" id="sec-mezeler">
             <div class="category-card" onclick="openCategoryModal('mezeler')">
                 <div class="category-card-title"><i class="fa-solid fa-bowl-food"></i> <span id="cat-mezeler">MEZELER</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-salatalar">
             <div class="category-card" onclick="openCategoryModal('salatalar')">
                 <div class="category-card-title"><i class="fa-solid fa-leaf"></i> <span id="cat-salatalar">SALATALAR</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-ara-sicaklar">
             <div class="category-card" onclick="openCategoryModal('ara-sicaklar')">
                 <div class="category-card-title"><i class="fa-solid fa-fire"></i> <span id="cat-ara-sicaklar">ARA SICAKLAR</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-peynirler">
             <div class="category-card" onclick="openCategoryModal('peynirler')">
                 <div class="category-card-title"><i class="fa-solid fa-cheese"></i> <span id="cat-peynirler">PEYNİR ÇEŞİTLERİ</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-ana-yemekler">
             <div class="category-card" onclick="openCategoryModal('ana-yemekler')">
                 <div class="category-card-title"><i class="fa-solid fa-utensils"></i> <span id="cat-ana-yemekler">ANA YEMEKLER</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-tatli-meyve">
             <div class="category-card" onclick="openCategoryModal('tatli-meyve')">
                 <div class="category-card-title"><i class="fa-solid fa-cake-candles"></i> <span id="cat-tatli">TATLI & MEYVE</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-alkolsuz-icecekler">
             <div class="category-card" onclick="openCategoryModal('alkolsuz-icecekler')">
                 <div class="category-card-title"><i class="fa-solid fa-glass-water"></i> <span id="cat-alkolsuz">ALKOLSÜZ İÇECEKLER</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
 
         <div class="category-section" id="sec-alkollu-icecekler">
             <div class="category-card" onclick="openCategoryModal('alkollu-icecekler')">
                 <div class="category-card-title"><i class="fa-solid fa-wine-glass"></i> <span id="cat-alkollu">ALKOLLÜ İÇECEKLER</span></div>
-                <div class="category-card-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
+                <div class="category-card-action"><span class="inspect-text" data-i18n="inspect">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
             </div>
         </div>
     </div>
@@ -691,6 +697,129 @@
 
     <script>
         let currentLang = 'tr';
+
+        const translations = {
+            tr: {
+                navFix: "Fix Menü",
+                navMezeler: "Mezeler",
+                navSalatalar: "Salatalar",
+                navAraSicaklar: "Ara Sıcaklar",
+                navPeynirler: "Peynirler",
+                navAnaYemekler: "Ana Yemekler",
+                navTatli: "Tatlı & Meyve",
+                navAlkolsuz: "Alkolsüz İçecekler",
+                navAlkollu: "Alkollü İçecekler",
+                fixMainTitle: "ZEMHERİ FİX MENÜ",
+                fixSubtext: "İçeriği görmek için tıklayın (Kişi Başı)",
+                fixKizkizaTitle: "Kız Kıza",
+                fixAlkolsuzTitle: "Alkolsüz",
+                fixAlkolluTitle: "Alkollü",
+                catMezeler: "MEZELER",
+                catSalatalar: "SALATALAR",
+                catAraSicaklar: "ARA SICAKLAR",
+                catPeynirler: "PEYNİR ÇEŞİTLERİ",
+                catAnaYemekler: "ANA YEMEKLER",
+                catTatli: "TATLI & MEYVE",
+                catAlkolsuz: "ALKOLSÜZ İÇECEKLER",
+                catAlkollu: "ALKOLLÜ İÇECEKLER",
+                inspect: "İncele",
+                reserveBtn: "Rezerve Et",
+                footTitle: "REZERVASYON YAPMAYI UNUTMAYIN!",
+                searchPlaceholder: "Menüde ara...",
+                searchResults: "Arama Sonuçları",
+                noResult: "Aradığınız ürün bulunamadı."
+            },
+            en: {
+                navFix: "Fixed Menu",
+                navMezeler: "Appetizers",
+                navSalatalar: "Salads",
+                navAraSicaklar: "Hot Starters",
+                navPeynirler: "Cheeses",
+                navAnaYemekler: "Main Courses",
+                navTatli: "Dessert & Fruit",
+                navAlkolsuz: "Non-Alcoholic Drinks",
+                navAlkollu: "Alcoholic Drinks",
+                fixMainTitle: "ZEMHERİ FIXED MENU",
+                fixSubtext: "Click to see contents (Per Person)",
+                fixKizkizaTitle: "Ladies Night",
+                fixAlkolsuzTitle: "Non-Alcoholic",
+                fixAlkolluTitle: "Alcoholic",
+                catMezeler: "APPETIZERS",
+                catSalatalar: "SALADS",
+                catAraSicaklar: "HOT STARTERS",
+                catPeynirler: "CHEESE VARIETIES",
+                catAnaYemekler: "MAIN COURSES",
+                catTatli: "DESSERT & FRUIT",
+                catAlkolsuz: "NON-ALCOHOLIC DRINKS",
+                catAlkollu: "ALCOHOLIC DRINKS",
+                inspect: "Inspect",
+                reserveBtn: "Reserve",
+                footTitle: "DON'T FORGET TO RESERVE!",
+                searchPlaceholder: "Search menu...",
+                searchResults: "Search Results",
+                noResult: "Item not found."
+            },
+            ar: {
+                navFix: "القائمة الثابتة",
+                navMezeler: "المقبلات",
+                navSalatalar: "السلطات",
+                navAraSicaklar: "المقبلات الساخنة",
+                navPeynirler: "الأجبان",
+                navAnaYemekler: "الأطباق الرئيسية",
+                navTatli: "التحلية والفواكه",
+                navAlkolsuz: "المشروبات الغازية",
+                navAlkollu: "المشروبات الكحولية",
+                fixMainTitle: "قائمة زمهرير الثابتة",
+                fixSubtext: "انقر لرؤية المحتويات (للشخص الواحد)",
+                fixKizkizaTitle: "سهرة السيدات",
+                fixAlkolsuzTitle: "بدون كحول",
+                fixAlkolluTitle: "مع كحول",
+                catMezeler: "المقبلات",
+                catSalatalar: "السلطات",
+                catAraSicaklar: "المقبلات الساخنة",
+                catPeynirler: "أنواع الأجبان",
+                catAnaYemekler: "الأطباق الرئيسية",
+                catTatli: "التحلية والفواكه",
+                catAlkolsuz: "المشروبات غير الكحولية",
+                catAlkollu: "المشروبات الكحولية",
+                inspect: "فحص",
+                reserveBtn: "احجز",
+                footTitle: "لا تنس الحجز!",
+                searchPlaceholder: "ابحث في القائمة...",
+                searchResults: "نتائج البحث",
+                noResult: "لم يتم العثور على العنصر."
+            },
+            ku: {
+                navFix: "Menûya Sazbûyî",
+                navMezeler: "Meze",
+                navSalatalar: "Salata",
+                navAraSicaklar: "Xwarinên Germ",
+                navPeynirler: "Penîr",
+                navAnaYemekler: "Xwarinên Sereke",
+                navTatli: "îstîkan & Fêkî",
+                navAlkolsuz: "Vexwarinên Bê Alkol",
+                navAlkollu: "Vexwarinên Alkordar",
+                fixMainTitle: "MENÛYA SAZBÛYÎ YA ZEMHERÎ",
+                fixSubtext: "Ji bo dîtina naverokê bikirtînin (Ji bo her kesî)",
+                fixKizkizaTitle: "Ya Jinan",
+                fixAlkolsuzTitle: "Bê Alkol",
+                fixAlkolluTitle: "Bi Alkol",
+                catMezeler: "MEZE",
+                catSalatalar: "SALATA",
+                catAraSicaklar: "XWARINÊN GERM",
+                catPeynirler: "CÛREYÊN PENÎR",
+                catAnaYemekler: "XWARINÊN SEREKE",
+                catTatli: "ŞIRAHÎ & FÊKÎ",
+                catAlkolsuz: "VEXWARINÊN BÊ ALKOL",
+                catAlkollu: "VEXWARINÊN ALKOLDAR",
+                inspect: "Binêre",
+                reserveBtn: "Cîh Bigire",
+                footTitle: "REZERVASYONA XWE BÎR NEKIN!",
+                searchPlaceholder: "Di menûyê de bigere...",
+                searchResults: "Encamên Lêgerînê",
+                noResult: "Berhem nehat dîtin."
+            }
+        };
 
         const categoryData = {
             tr: {
@@ -841,6 +970,12 @@
                         </ul>
                     </div>
                     <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> Alkol Bilgisi</div>
+                        <ul class="fix-list">
+                            <li>Kişi başı 3 adet 50 cl Bira veya 35 cl Rakı dahildir.</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
                         <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve</div>
                         <ul class="fix-list">
                             <li>Meyve ve Tatlı İkramı</li>
@@ -905,10 +1040,15 @@
                         </ul>
                     </div>
                     <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> İçecek & Meyve</div>
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> Alkol Seçeneği</div>
                         <ul class="fix-list">
-                            <li>Belirli Oranda Yerli Alkollü İçecek / Rakı Seçeneği</li>
-                            <li>Mevsim Meyveleri, Çerez & Meyve Tabağı</li>
+                            <li>35 cl Yerli Alkollü İçecek veya 3 adet 50 cl Bira dahildir.</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Meyve & İkram</div>
+                        <ul class="fix-list">
+                            <li>Mevsim Meyveleri, Çerez & Tatlı Tabağı</li>
                         </ul>
                     </div>
                 `
@@ -919,7 +1059,43 @@
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             if (event) event.target.classList.add('active');
-            filterSearch(); // Dil değiştiğinde aramayı yenile
+
+            const t = translations[lang];
+            if (!t) return;
+
+            document.getElementById('nav-fix').innerText = t.navFix;
+            document.getElementById('nav-mezeler').innerText = t.navMezeler;
+            document.getElementById('nav-salatalar').innerText = t.navSalatalar;
+            document.getElementById('nav-ara-sicaklar').innerText = t.navAraSicaklar;
+            document.getElementById('nav-peynirler').innerText = t.navPeynirler;
+            document.getElementById('nav-ana-yemekler').innerText = t.navAnaYemekler;
+            document.getElementById('nav-tatli').innerText = t.navTatli;
+            document.getElementById('nav-alkolsuz').innerText = t.navAlkolsuz;
+            document.getElementById('nav-alkollu').innerText = t.navAlkollu;
+
+            document.getElementById('fix-main-title').innerText = t.fixMainTitle;
+            document.getElementById('fix-subtext').innerText = t.fixSubtext;
+            document.getElementById('fix-kizkiza-title').innerText = t.fixKizkizaTitle;
+            document.getElementById('fix-alkolsuz-title').innerText = t.fixAlkolsuzTitle;
+            document.getElementById('fix-alkollu-title').innerText = t.fixAlkolluTitle;
+
+            document.getElementById('cat-mezeler').innerText = t.catMezeler;
+            document.getElementById('cat-salatalar').innerText = t.catSalatalar;
+            document.getElementById('cat-ara-sicaklar').innerText = t.catAraSicaklar;
+            document.getElementById('cat-peynirler').innerText = t.catPeynirler;
+            document.getElementById('cat-ana-yemekler').innerText = t.catAnaYemekler;
+            document.getElementById('cat-tatli').innerText = t.catTatli;
+            document.getElementById('cat-alkolsuz').innerText = t.catAlkolsuz;
+            document.getElementById('cat-alkollu').innerText = t.catAlkollu;
+
+            document.getElementById('reserve-btn').innerText = t.reserveBtn;
+            document.getElementById('foot-title').innerText = t.footTitle;
+            document.getElementById('menuSearch').placeholder = t.searchPlaceholder;
+            document.getElementById('search-results-title').innerText = t.searchResults;
+
+            document.querySelectorAll('.inspect-text').forEach(el => el.innerText = t.inspect);
+
+            filterSearch();
         }
 
         function scrollToElement(id) {
@@ -997,6 +1173,7 @@
             const resultsContainer = document.getElementById('search-results-container');
             const resultsList = document.getElementById('search-results-list');
             const mainContent = document.getElementById('main-content');
+            const t = translations[currentLang];
 
             if (query === "") {
                 resultsContainer.style.display = 'none';
@@ -1043,7 +1220,7 @@
                 resultsContainer.style.display = 'block';
                 mainContent.style.display = 'none';
             } else {
-                resultsList.innerHTML = '<div style="text-align:center; color: var(--text-muted); padding: 20px;">Aradığınız ürün bulunamadı.</div>';
+                resultsList.innerHTML = `<div style="text-align:center; color: var(--text-muted); padding: 20px;">${t.noResult}</div>`;
                 resultsContainer.style.display = 'block';
                 mainContent.style.display = 'none';
             }
