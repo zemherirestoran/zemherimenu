@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zemheri Semir Şef - Butik & Lüks Deneyim</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --brand-primary: #8C6D33;
-            --brand-light: #C5A059;
-            --brand-dark: #3A2C12;
-            --bg-base: #1C1915;
-            --bg-card: rgba(40, 35, 29, 0.65);
-            --border-glow: rgba(197, 160, 89, 0.25);
-            --text-main: #F7F3EE;
-            --text-muted: #B8B0A5;
-            --accent-warm: #E2C17D;
+            --brand-primary: #C59B27;
+            --brand-light: #E5C158;
+            --brand-dark: #4A3515;
+            /* Mardin gün batımı ve toprak tonlarından ilham alan lüks arka plan */
+            --bg-base: #2B2118;
+            --bg-card: rgba(53, 42, 33, 0.75);
+            --border-glow: rgba(229, 193, 88, 0.3);
+            --text-main: #F9F5EC;
+            --text-muted: #D1C5B4;
+            --accent-warm: #F3D372;
         }
 
         * {
@@ -29,14 +31,17 @@
 
         body {
             background-color: var(--bg-base);
+            /* mardin.jpg görselinden esinlenen gün batımı ve sıcak taş tonu katmanları */
+            background-image: 
+                linear-gradient(rgba(43, 33, 24, 0.75), rgba(26, 18, 12, 0.90)),
+                url('mardin.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
             padding-bottom: 120px;
-            background-image: 
-                radial-gradient(circle at 15% 10%, rgba(140, 109, 51, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 90%, rgba(58, 44, 18, 0.3) 0%, transparent 50%);
-            background-attachment: fixed;
             overflow-x: hidden;
         }
 
@@ -49,7 +54,7 @@
         }
 
         .lang-btn {
-            background: rgba(45, 38, 28, 0.7);
+            background: rgba(53, 42, 33, 0.85);
             border: 1px solid var(--border-glow);
             color: var(--text-muted);
             padding: 6px 16px;
@@ -66,7 +71,7 @@
             background: linear-gradient(135deg, var(--brand-light), var(--brand-primary));
             color: #1C1915;
             border-color: var(--brand-light);
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
             transform: translateY(-2px);
         }
 
@@ -104,7 +109,7 @@
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--bg-base);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
 
         /* Arama Çubuğu */
@@ -133,8 +138,8 @@
 
         .search-box input:focus {
             border-color: var(--brand-light);
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.2);
-            background: rgba(50, 42, 33, 0.9);
+            box-shadow: 0 0 25px rgba(229, 193, 88, 0.3);
+            background: rgba(68, 54, 43, 0.95);
         }
 
         .search-box i {
@@ -162,7 +167,7 @@
             padding-bottom: 8px;
         }
 
-        /* Kategori Navigasyonu (Dairesel / Modern Grid Menü) */
+        /* Kategori Navigasyonu */
         .category-grid-nav {
             max-width: 650px;
             margin: 30px auto 10px;
@@ -202,7 +207,7 @@
         }
 
         .grid-nav-item:hover {
-            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15), rgba(58, 44, 18, 0.4));
+            background: linear-gradient(135deg, rgba(229, 193, 88, 0.2), rgba(74, 53, 21, 0.5));
             border-color: var(--brand-light);
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -219,9 +224,9 @@
             padding: 20px;
         }
 
-        /* Fix Menü Kartı - Özel Tasarım */
+        /* Fix Menü Kartı */
         .fix-menu-showcase {
-            background: linear-gradient(145deg, rgba(50, 42, 33, 0.85) 0%, rgba(28, 23, 18, 0.95) 100%);
+            background: linear-gradient(145deg, rgba(65, 52, 41, 0.9) 0%, rgba(35, 26, 19, 0.95) 100%);
             border: 1px solid var(--brand-light);
             border-radius: 20px;
             padding: 30px 20px;
@@ -263,7 +268,7 @@
         }
 
         .fix-opt-card {
-            background: rgba(30, 25, 20, 0.6);
+            background: rgba(40, 31, 24, 0.7);
             border: 1px solid var(--border-glow);
             border-radius: 14px;
             padding: 14px 8px;
@@ -277,10 +282,10 @@
         }
 
         .fix-opt-card:hover {
-            background: rgba(197, 160, 89, 0.12);
+            background: rgba(229, 193, 88, 0.18);
             border-color: var(--brand-light);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 8px 20px rgba(229, 193, 88, 0.25);
         }
 
         .fix-opt-card .opt-title {
@@ -300,7 +305,7 @@
             color: var(--text-main);
         }
 
-        /* Kategori Kartları (Şık Liste Tarzı) */
+        /* Kategori Kartları */
         .category-list-section {
             display: flex;
             flex-direction: column;
@@ -318,14 +323,14 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .category-row-card:hover {
             border-color: var(--brand-light);
-            background: rgba(50, 42, 33, 0.85);
+            background: rgba(65, 52, 41, 0.9);
             transform: translateX(6px);
-            box-shadow: 0 8px 30px rgba(197, 160, 89, 0.15);
+            box-shadow: 0 8px 30px rgba(229, 193, 88, 0.2);
         }
 
         .category-row-title {
@@ -365,7 +370,7 @@
             transform: translateX(4px);
         }
 
-        /* Modal Pencereler (Butik Çarşaf / Şömine Tarzı) */
+        /* Modal Pencereler */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -373,7 +378,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 12, 9, 0.85);
+            background: rgba(26, 18, 12, 0.85);
             backdrop-filter: blur(15px);
             z-index: 1000;
             justify-content: center;
@@ -388,7 +393,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(145deg, #28221D 0%, #1A1511 100%);
+            background: linear-gradient(145deg, #352A21 0%, #1F150E 100%);
             border: 1px solid var(--brand-light);
             border-radius: 24px;
             width: 100%;
@@ -410,7 +415,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(197, 160, 89, 0.1);
+            background: rgba(229, 193, 88, 0.12);
             border: 1px solid var(--border-glow);
             color: var(--brand-light);
             width: 38px;
@@ -431,7 +436,7 @@
 
         .modal-header {
             text-align: center;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(229, 193, 88, 0.2);
             padding-bottom: 20px;
             margin-bottom: 24px;
         }
@@ -450,8 +455,8 @@
         }
 
         .modal-item {
-            background: rgba(40, 34, 28, 0.5);
-            border: 1px solid rgba(197, 160, 89, 0.1);
+            background: rgba(53, 42, 33, 0.6);
+            border: 1px solid rgba(229, 193, 88, 0.15);
             border-radius: 14px;
             padding: 16px 20px;
             display: flex;
@@ -461,8 +466,8 @@
         }
 
         .modal-item:hover {
-            border-color: rgba(197, 160, 89, 0.3);
-            background: rgba(55, 47, 39, 0.8);
+            border-color: rgba(229, 193, 88, 0.4);
+            background: rgba(70, 56, 45, 0.85);
         }
 
         .modal-item-name {
@@ -491,7 +496,7 @@
             font-family: 'Playfair Display', serif;
             margin: 28px 0 14px;
             font-size: 1.1rem;
-            border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
+            border-bottom: 1px dashed rgba(229, 193, 88, 0.35);
             padding-bottom: 8px;
             letter-spacing: 1px;
         }
@@ -509,7 +514,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(229, 193, 88, 0.2);
             padding-bottom: 8px;
         }
 
@@ -547,7 +552,7 @@
         }
 
         .drink-box {
-            background: rgba(197, 160, 89, 0.05);
+            background: rgba(229, 193, 88, 0.08);
             border: 1px solid var(--border-glow);
             padding: 12px 8px;
             border-radius: 12px;
@@ -595,8 +600,8 @@
             text-align: center;
             padding: 50px 20px;
             margin-top: 60px;
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
-            background: rgba(22, 18, 14, 0.95);
+            border-top: 1px solid rgba(229, 193, 88, 0.15);
+            background: rgba(26, 18, 12, 0.95);
             font-size: 0.82rem;
             color: var(--text-muted);
         }
@@ -637,6 +642,7 @@
         <div class="logo-wrapper">
             <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
         </div>
+        <p class="restaurant-subtitle" style="font-family:'Playfair Display',serif; font-size:0.85rem; letter-spacing:4px; color:var(--brand-light); text-transform:uppercase;">Semir Şef</p>
     </header>
 
     <div class="search-container">
@@ -1544,7 +1550,6 @@
             let html = '<div class="modal-item-list">';
 
             if (data.items) {
-                data.items.items = data.items; // safeguard
                 data.items.forEach(item => {
                     html += `
                         <div class="modal-item">
@@ -1588,4 +1593,3 @@
     </script>
 </body>
 </html>
-
