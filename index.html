@@ -35,7 +35,6 @@
             line-height: 1.6;
             padding-bottom: 80px;
 
-            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
             background-image: 
                 linear-gradient(rgba(11, 11, 11, 0.80), rgba(11, 11, 11, 0.90)), 
                 url('mardin-tas-duvar.jpeg');
@@ -84,7 +83,7 @@
         }
 
         .main-logo {
-            display: none; /* Üstteki büyük logo gizlendi */
+            display: none;
         }
 
         .header-frame {
@@ -98,6 +97,7 @@
             margin-top: 15px;
         }
 
+        /* Sadece bu alana logo yerleştirildi */
         .header-frame::before {
             content: '';
             position: absolute;
@@ -173,7 +173,6 @@
             color: var(--primary-gold);
         }
 
-        /* ARAMA SONUÇLARI KUTUSU */
         #search-results-container {
             display: none;
             max-width: 800px;
@@ -485,28 +484,6 @@
             font-weight: bold;
         }
 
-        .drink-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .drink-box {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid #3d3219;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        .drink-box strong {
-            color: var(--primary-gold);
-            display: block;
-        }
-
-        /* YÜZER REZERVASYON BUTONU */
         .floating-btn {
             position: fixed;
             bottom: 20px;
@@ -894,9 +871,10 @@
             
             document.getElementById('modalPrice').innerText = priceText;
 
+            /* Tamamen görseldeki orijinal liste içeriği */
             let content = `
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Meze Ve Salatalar</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> MEZE VE SALATALAR</div>
                     <ul class="fix-list">
                         <li>Humus, Tahin Soslu Köz Patlıcan, Muhammara</li>
                         <li>Zemheri Atom, Pembe Sultan, Midyat Turşu</li>
@@ -906,20 +884,20 @@
                     </ul>
                 </div>
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-fire"></i> ARA SICAKLAR</div>
                     <ul class="fix-list">
                         <li>İçli Köfte & Patlıcan Biber Dolması</li>
                         <li>Yaprak Ciğer</li>
                     </ul>
                 </div>
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek Seçeceği</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> ANA YEMEK SEÇECEĞİ</div>
                     <ul class="fix-list">
                         <li>Şef Kavurma veya Kuzu Pirzola</li>
                     </ul>
                 </div>
                 <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve</div>
+                    <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> TATLI & MEYVE</div>
                     <ul class="fix-list">
                         <li>Mevsim Meyveleri Tabağı</li>
                         <li>Mardin Yöresel Harire Tatlısı veya Sütlaç</li>
