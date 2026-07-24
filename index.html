@@ -35,7 +35,7 @@
             line-height: 1.6;
             padding-bottom: 80px;
 
-            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
+            /* MARDİN TAŞ DUVAR GÖRSELİ */
             background-image: 
                 linear-gradient(rgba(11, 11, 11, 0.80), rgba(11, 11, 11, 0.90)), 
                 url('mardin-tas-duvar.jpeg');
@@ -74,7 +74,7 @@
 
         header {
             text-align: center;
-            padding: 15px 20px 15px;
+            padding: 45px 20px 15px; /* Logoya üstte yer açmak için artırıldı */
             border-bottom: 1px solid var(--border-color);
             position: relative;
             background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(11,11,11,0) 100%);
@@ -83,33 +83,31 @@
             align-items: center;
         }
 
-        .main-logo {
-            max-width: 130px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.3));
-        }
-
         .header-frame {
             display: inline-block;
             border: 2px solid var(--primary-gold);
-            padding: 12px 28px;
+            padding: 24px 28px 12px; /* Logo üstten binsin diye padding-top artırıldı */
             position: relative;
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
             background: rgba(11, 11, 11, 0.6);
             backdrop-filter: blur(4px);
+            margin-top: 25px;
         }
 
-        .header-frame::before {
-            content: '❖';
+        /* YUVARLAK LOGO ÇERÇEVEYE YERLEŞTİRİLDİ */
+        .main-logo {
             position: absolute;
-            top: -12px;
+            top: 0;
             left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-black);
-            color: var(--primary-gold);
-            padding: 0 8px;
-            font-size: 14px;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            background-color: var(--bg-black);
+            object-fit: cover;
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.5));
+            z-index: 10;
         }
 
         h1 {
@@ -395,7 +393,6 @@
 
         .modal-item-list {
             display: flex;
-            flex-direction: flex;
             flex-direction: column;
             gap: 10px;
         }
@@ -437,70 +434,6 @@
             font-size: 1.1rem;
             border-bottom: 1px solid #262013;
             padding-bottom: 4px;
-        }
-
-        .fix-section {
-            margin-bottom: 20px;
-        }
-
-        .fix-section-title {
-            font-family: 'Cinzel', serif;
-            color: var(--accent-gold);
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid #262013;
-            padding-bottom: 4px;
-        }
-
-        .fix-section-title i {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-        }
-
-        .fix-list {
-            list-style: none;
-            padding-left: 10px;
-        }
-
-        .fix-list li {
-            font-size: 0.88rem;
-            color: #d1d1d1;
-            margin-bottom: 4px;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .fix-list li::before {
-            content: '•';
-            color: var(--primary-gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .drink-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .drink-box {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid #3d3219;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        .drink-box strong {
-            color: var(--primary-gold);
-            display: block;
         }
 
         /* YÜZER REZERVASYON BUTONU */
@@ -562,8 +495,8 @@
     </div>
 
     <header>
-        <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
         <div class="header-frame">
+            <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
             <h1>ZEMHERİ</h1>
             <div class="subtitle">SEMİR ŞEF</div>
         </div>
@@ -826,671 +759,155 @@
                             { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
+                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" },
+                            { name: "Yeni Rakı", desc: "35 cl", price: "2.000 ₺" },
+                            { name: "Yeni Rakı", desc: "50 cl", price: "2.500 ₺" },
+                            { name: "Yeni Rakı", desc: "70 cl", price: "3.000 ₺" },
+                            { name: "Yeni Rakı", desc: "100 cl", price: "4.500 ₺" },
+                            { name: "Yeni Rakı Seri", desc: "35 cl", price: "2.100 ₺" },
+                            { name: "Yeni Rakı Seri", desc: "50 cl", price: "2.600 ₺" },
+                            { name: "Yeni Rakı Seri", desc: "70 cl", price: "3.100 ₺" },
+                            { name: "Yeni Rakı Seri", desc: "100 cl", price: "4.800 ₺" }
                         ]},
                         { groupTitle: "Biralar", items: [
-                            { name: "Carlsberg Bira", price: "400 ₺" },
-                            { name: "Tuborg Gold Bira", price: "400 ₺" },
-                            { name: "Tuborg Kırmızı Bira", price: "400 ₺" },
-                            { name: "Efes Shot Bira", price: "400 ₺" }
+                            { name: "Efes Pilsen / Malt", price: "200 ₺" },
+                            { name: "Tuborg Gold", price: "200 ₺" },
+                            { name: "Carlsberg", price: "220 ₺" },
+                            { name: "Corona", price: "250 ₺" }
                         ]},
                         { groupTitle: "Şaraplar", items: [
-                            { name: "Kırmızı Süryani Şarabı", price: "1.700 ₺" },
-                            { name: "Roze Süryani Şarabı", price: "1.700 ₺" },
-                            { name: "Beyaz Süryani Şarabı", price: "1.700 ₺" }
-                        ]}
-                    ]
-                }
-            },
-            en: {
-                mezeler: {
-                    title: "APPETIZERS",
-                    items: [
-                        { name: "Hummus", price: "250 ₺" },
-                        { name: "Roasted Eggplant with Tahini", price: "250 ₺" },
-                        { name: "Muhammara", price: "250 ₺" },
-                        { name: "Zemheri Atom (Spicy Yogurt)", price: "250 ₺" },
-                        { name: "Pink Sultan (Beetroot Yogurt)", price: "250 ₺" },
-                        { name: "Midyat Pickles", price: "250 ₺" },
-                        { name: "Carrot Tarator", price: "250 ₺" },
-                        { name: "Shakshuka", price: "250 ₺" },
-                        { name: "Strained Yogurt", price: "250 ₺" },
-                        { name: "Russian Salad", price: "250 ₺" },
-                        { name: "Derik Olives", price: "250 ₺" },
-                        { name: "Haydari", price: "250 ₺" },
-                        { name: "Roasted Pepper with Walnut", price: "250 ₺" }
-                    ]
-                },
-                salatalar: {
-                    title: "SALADS",
-                    items: [
-                        { name: "Arugula Salad", price: "250 ₺" },
-                        { name: "Gavur Dagi Salad", price: "300 ₺" },
-                        { name: "Seasonal Salad", price: "250 ₺" },
-                        { name: "Shepherd's Salad", price: "250 ₺" }
-                    ]
-                },
-                "ara-sicaklar": {
-                    title: "WARM STARTERS",
-                    items: [
-                        { name: "Stuffed Meatballs (Kibbeh)", desc: "1 Portion", price: "300 ₺" },
-                        { name: "Stuffed Eggplant & Pepper", desc: "1 Portion", price: "300 ₺" },
-                        { name: "Pan-Fried Liver", price: "500 ₺" }
-                    ]
-                },
-                peynirler: {
-                    title: "CHEESE SELECTION",
-                    items: [
-                        { name: "Feta Cheese", price: "200 ₺" },
-                        { name: "Melted Mardin Village Cheese", price: "300 ₺" },
-                        { name: "Braided Cheese", price: "300 ₺" },
-                        { name: "Ezine Aged Cheese", price: "200 ₺" }
-                    ]
-                },
-                "ana-yemekler": {
-                    title: "MAIN COURSES",
-                    items: [
-                        { name: "Chef's Sauteed Meat", price: "750 ₺" },
-                        { name: "Lamb Chops", price: "850 ₺" },
-                        { name: "Zemheri Meatballs", price: "700 ₺" },
-                        { name: "Lamb Tandoori", price: "700 ₺" },
-                        { name: "Iron Skillet Meat Saute", price: "750 ₺" },
-                        { name: "Spicy Chicken Fillet", price: "550 ₺" },
-                        { name: "Lamb Shank", price: "800 ₺" },
-                        { name: "Chicken Chops", price: "550 ₺" },
-                        { name: "Beef Tenderloin Tender", price: "1.000 ₺" }
-                    ]
-                },
-                "tatli-meyve": {
-                    title: "DESSERTS & FRUITS",
-                    items: [
-                        { name: "Rice Pudding", price: "300 ₺" },
-                        { name: "Harire (Local Mardin Dessert)", desc: "Grape Molasses Pudding", price: "250 ₺" },
-                        { name: "Keskul with Pistachio", price: "350 ₺" },
-                        { name: "Iced Almonds", price: "500 ₺" },
-                        { name: "Iced Walnuts", price: "500 ₺" },
-                        { name: "Mixed Nuts Plate", price: "400 ₺" },
-                        { name: "Roasted Pistachios", price: "500 ₺" },
-                        { name: "Fresh Season Fruits", price: "500 ₺" },
-                        { name: "Watermelon Plate", price: "250 ₺" },
-                        { name: "Melon Plate", price: "250 ₺" },
-                        { name: "Cherry Plate", price: "250 ₺" },
-                        { name: "Gherkin (Acur) Plate", price: "250 ₺" },
-                        { name: "Grape Plate", price: "250 ₺" },
-                        { name: "Gummy Candies Plate", price: "250 ₺" },
-                        { name: "Neapolitan Chocolates", price: "250 ₺" },
-                        { name: "Peanuts", price: "250 ₺" }
-                    ]
-                },
-                "alkolsuz-icecekler": {
-                    title: "SOFT DRINKS",
-                    items: [
-                        { name: "Energy Drink (Red Bull)", price: "200 ₺" },
-                        { name: "Can Cola / Fanta / Sprite", price: "100 ₺" },
-                        { name: "Juice Varieties", price: "100 ₺" },
-                        { name: "Mineral Water", price: "70 ₺" },
-                        { name: "Turnip Juice (Salgam)", price: "80 ₺" },
-                        { name: "Ayran (Yogurt Drink)", price: "80 ₺" }
-                    ]
-                },
-                "alkollu-icecekler": {
-                    title: "ALCOHOLIC DRINKS",
-                    subgroups: [
-                        { groupTitle: "Whiskey", items: [
-                            { name: "Chivas Regal 12", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Chivas Regal 12", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Chivas Regal 12", desc: "70 cl", price: "4.000 ₺" },
-                            { name: "Jack Daniel's", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Jack Daniel's", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Jack Daniel's", desc: "70 cl", price: "4.000 ₺" }
-                        ]},
-                        { groupTitle: "Raki", items: [
-                            { name: "Tekirdag Gold Series", desc: "35 cl", price: "2.200 ₺" },
-                            { name: "Tekirdag Gold Series", desc: "50 cl", price: "2.700 ₺" },
-                            { name: "Tekirdag Gold Series", desc: "70 cl", price: "3.200 ₺" },
-                            { name: "Tekirdag Gold Series", desc: "100 cl", price: "5.000 ₺" },
-                            { name: "Beylerbeyi Gobek", desc: "35 cl", price: "2.400 ₺" },
-                            { name: "Beylerbeyi Gobek", desc: "50 cl", price: "3.000 ₺" },
-                            { name: "Beylerbeyi Gobek", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "Beylerbeyi Gobek", desc: "100 cl", price: "5.500 ₺" }
-                        ]},
-                        { groupTitle: "Beers", items: [
-                            { name: "Carlsberg Beer", price: "400 ₺" },
-                            { name: "Tuborg Gold Beer", price: "400 ₺" },
-                            { name: "Tuborg Red Beer", price: "400 ₺" },
-                            { name: "Efes Shot Beer", price: "400 ₺" }
-                        ]},
-                        { groupTitle: "Wines", items: [
-                            { name: "Red Syriac Wine", price: "1.700 ₺" },
-                            { name: "Rose Syriac Wine", price: "1.700 ₺" },
-                            { name: "White Syriac Wine", price: "1.700 ₺" }
-                        ]}
-                    ]
-                }
-            },
-            ar: {
-                mezeler: {
-                    title: "المقبلات",
-                    items: [
-                        { name: "حمص", price: "250 ₺" },
-                        { name: "باذنجان مشوي بالطحينة", price: "250 ₺" },
-                        { name: "محمرة", price: "250 ₺" },
-                        { name: "زمهرير أتوم (لبن حار)", price: "250 ₺" },
-                        { name: "سلطان وردي", price: "250 ₺" },
-                        { name: "مخلل مديات", price: "250 ₺" },
-                        { name: "جزر باللبن", price: "250 ₺" },
-                        { name: "شكشوكة", price: "250 ₺" },
-                        { name: "لبن مصفى", price: "250 ₺" },
-                        { name: "سلطة روسية", price: "250 ₺" },
-                        { name: "زيتون ديرك", price: "250 ₺" },
-                        { name: "حيدري", price: "250 ₺" },
-                        { name: "فلفل مشوي بالجوز", price: "250 ₺" }
-                    ]
-                },
-                salatalar: {
-                    title: "السلطات",
-                    items: [
-                        { name: "سلطة جرجير", price: "250 ₺" },
-                        { name: "سلطة غاور داغي", price: "300 ₺" },
-                        { name: "سلطة موسمية", price: "250 ₺" },
-                        { name: "سلطة خضراء (راعي)", price: "250 ₺" }
-                    ]
-                },
-                "ara-sicaklar": {
-                    title: "المقبلات الساخنة",
-                    items: [
-                        { name: "كبة مقلية (إيشلي كفته)", desc: "وجبة واحدة", price: "300 ₺" },
-                        { name: "محشي باذنجان وفلفل", desc: "وجبة واحدة", price: "300 ₺" },
-                        { name: "كبدة شرائح", price: "500 ₺" }
-                    ]
-                },
-                peynirler: {
-                    title: "تشكيلة الأجبان",
-                    items: [
-                        { name: "جبن أبيض", price: "200 ₺" },
-                        { name: "جبن قرية ماردين ذائب", price: "300 ₺" },
-                        { name: "جبن مجدول", price: "300 ₺" },
-                        { name: "جبن إزنين معتق", price: "200 ₺" }
-                    ]
-                },
-                "ana-yemekler": {
-                    title: "الأطباق الرئيسية",
-                    items: [
-                        { name: "قاورما الشيف", price: "750 ₺" },
-                        { name: "ريش غنم", price: "850 ₺" },
-                        { name: "كفتة زمهرير", price: "700 ₺" },
-                        { name: "تنور لحم ضأن", price: "700 ₺" },
-                        { name: "صاج قاورما", price: "750 ₺" },
-                        { name: "فليه دجاج بالصلصة الحارة", price: "550 ₺" },
-                        { name: "موزة ضأن", price: "800 ₺" },
-                        { name: "شيش دجاج (شواية)", price: "550 ₺" },
-                        { name: "ستيك لحم بقر نازك", price: "1.000 ₺" }
-                    ]
-                },
-                "tatli-meyve": {
-                    title: "الحلويات والفواكه",
-                    items: [
-                        { name: "رز بالحليب (سوتلاج)", price: "300 ₺" },
-                        { name: "حريرة (حلوى ماردين التقليدية)", desc: "حلوى الدبس المحلية", price: "250 ₺" },
-                        { name: "كشكول بالفستق", price: "350 ₺" },
-                        { name: "لوز مثلج", price: "500 ₺" },
-                        { name: "جوز مثلج", price: "500 ₺" },
-                        { name: "صحن مكسرات مشكلة", price: "400 ₺" },
-                        { name: "فستق محمص", price: "500 ₺" },
-                        { name: "فواكه الموسم", price: "500 ₺" },
-                        { name: "صحن بطيخ أحمر", price: "250 ₺" },
-                        { name: "صحن شمام", price: "250 ₺" },
-                        { name: "صحن كرز", price: "250 ₺" },
-                        { name: "صحن قثاء (عجور)", price: "250 ₺" },
-                        { name: "صحن عنب", price: "250 ₺" },
-                        { name: "صحن جيلي كاندي", price: "250 ₺" },
-                        { name: "شوكولاتة نابوليتان", price: "250 ₺" },
-                        { name: "فول سوداني", price: "250 ₺" }
-                    ]
-                },
-                "alkolsuz-icecekler": {
-                    title: "المشروبات الخفيفة",
-                    items: [
-                        { name: "مشروب الطاقة (ريد بول)", price: "200 ₺" },
-                        { name: "كولا / فانتا / سبرايت", price: "100 ₺" },
-                        { name: "أنواع العصائر", price: "100 ₺" },
-                        { name: "مياه غازية", price: "70 ₺" },
-                        { name: "عصير شلغم", price: "80 ₺" },
-                        { name: "عيران (لبن رائب)", price: "80 ₺" }
-                    ]
-                },
-                "alkollu-icecekler": {
-                    title: "المشروبات الروحية",
-                    subgroups: [
-                        { groupTitle: "ويسكي", items: [
-                            { name: "شيفاز ريجال 12", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "شيفاز ريجال 12", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "شيفاز ريجال 12", desc: "70 cl", price: "4.000 ₺" },
-                            { name: "جاك دانييلز", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "جاك دانييلز", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "جاك دانييلز", desc: "70 cl", price: "4.000 ₺" }
-                        ]},
-                        { groupTitle: "راكي", items: [
-                            { name: "تكيرداغ السلسلة الذهبية", desc: "35 cl", price: "2.200 ₺" },
-                            { name: "تكيرداغ السلسلة الذهبية", desc: "50 cl", price: "2.700 ₺" },
-                            { name: "تكيرداغ السلسلة الذهبية", desc: "70 cl", price: "3.200 ₺" },
-                            { name: "تكيرداغ السلسلة الذهبية", desc: "100 cl", price: "5.000 ₺" },
-                            { name: "بيليربي جوبيك", desc: "35 cl", price: "2.400 ₺" },
-                            { name: "بيليربي جوبيك", desc: "50 cl", price: "3.000 ₺" },
-                            { name: "بيليربي جوبيك", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "بيليربي جوبيك", desc: "100 cl", price: "5.500 ₺" }
-                        ]},
-                        { groupTitle: "بيرة", items: [
-                            { name: "كارلسبيرغ", price: "400 ₺" },
-                            { name: "توبورغ غولد", price: "400 ₺" },
-                            { name: "توبورغ ريد", price: "400 ₺" },
-                            { name: "إيفيس شوت", price: "400 ₺" }
-                        ]},
-                        { groupTitle: "نبيذ", items: [
-                            { name: "نبيذ سرياني أحمر", price: "1.700 ₺" },
-                            { name: "نبيذ سرياني وردي", price: "1.700 ₺" },
-                            { name: "نبيذ سرياني أبيض", price: "1.700 ₺" }
-                        ]}
-                    ]
-                }
-            },
-            ku: {
-                mezeler: {
-                    title: "MEZE",
-                    items: [
-                        { name: "Humus", price: "250 ₺" },
-                        { name: "Bacanên Sorik bi Tahîn", price: "250 ₺" },
-                        { name: "Muhammara", price: "250 ₺" },
-                        { name: "Zemherî Atom (Masta Tûj)", price: "250 ₺" },
-                        { name: "Sultana Pembe", price: "250 ₺" },
-                        { name: "Tirşiya Midyadê", price: "250 ₺" },
-                        { name: "Gêzer bi Mast", price: "250 ₺" },
-                        { name: "Şakşuka", price: "250 ₺" },
-                        { name: "Masta Parzûnî", price: "250 ₺" },
-                        { name: "Salata Rûsî", price: "250 ₺" },
-                        { name: "Zeytûna Dêrikê", price: "250 ₺" },
-                        { name: "Haydarî", price: "250 ₺" },
-                        { name: "Bîbera Sor bi Goz", price: "250 ₺" }
-                    ]
-                },
-                salatalar: {
-                    title: "SALATA",
-                    items: [
-                        { name: "Salata Rokayê", price: "250 ₺" },
-                        { name: "Salata Gavur Dagi", price: "300 ₺" },
-                        { name: "Salata Werzî", price: "250 ₺" },
-                        { name: "Salata Şivan", price: "250 ₺" }
-                    ]
-                },
-                "ara-sicaklar": {
-                    title: "GERMİK",
-                    items: [
-                        { name: "Kutlik (İçli Köfte)", desc: "1 Porsiyon", price: "300 ₺" },
-                        { name: "Mahiya Bacan û Bîber", desc: "1 Porsiyon", price: "300 ₺" },
-                        { name: "Ceger Sorkirî", price: "500 ₺" }
-                    ]
-                },
-                peynirler: {
-                    title: "CEŞNÎNÊN PENÊR",
-                    items: [
-                        { name: "Penêrê Sûzme", price: "200 ₺" },
-                        { name: "Penêrê Gundî yê Mardînê Hazir", price: "300 ₺" },
-                        { name: "Penêrê Hûnandî", price: "300 ₺" },
-                        { name: "Penêrê Ezîne", price: "200 ₺" }
-                    ]
-                },
-                "ana-yemekler": {
-                    title: "XWARINÊN SEREKÊ",
-                    items: [
-                        { name: "Kavurma Şef", price: "750 ₺" },
-                        { name: "Pîrzolaya Berxê", price: "850 ₺" },
-                        { name: "Koftê Zemherî", price: "700 ₺" },
-                        { name: "Tandûra Berxê", price: "700 ₺" },
-                        { name: "Kavurmaya Sêlê", price: "750 ₺" },
-                        { name: "Bonfîleya Mirîşkê bi Sos", price: "550 ₺" },
-                        { name: "Zendê Berxê", price: "800 ₺" },
-                        { name: "Pîrzolaya Mirîşkê", price: "550 ₺" },
-                        { name: "Lokuma Goştê Çêlekê", price: "1.000 ₺" }
-                    ]
-                },
-                "tatli-meyve": {
-                    title: "ŞÎRNÎ Û MÊVE",
-                    items: [
-                        { name: "Sutlaç (Riz bi Şîr)", price: "300 ₺" },
-                        { name: "Harîre", desc: "Şîrnîya Yöresel ya Mêrdînê", price: "250 ₺" },
-                        { name: "Keşkûl bi Fıstıq", price: "350 ₺" },
-                        { name: "Badema bi Bûz", price: "500 ₺" },
-                        { name: "Gozên bi Bûz", price: "500 ₺" },
-                        { name: "Siniya Çerezan", price: "400 ₺" },
-                        { name: "Fıstıqên Biraştî", price: "500 ₺" },
-                        { name: "Mêveyên Werzî", price: "500 ₺" },
-                        { name: "Siniya Zevziyan (Têx)", price: "250 ₺" },
-                        { name: "SiniyaGundûr", price: "250 ₺" },
-                        { name: "Siniya Gêrazan", price: "250 ₺" },
-                        { name: "Siniya Trûziyan", price: "250 ₺" },
-                        { name: "Siniya Tirî", price: "250 ₺" },
-                        { name: "Siniya Celly Candy", price: "250 ₺" },
-                        { name: "Çîkolata Napolîten", price: "250 ₺" },
-                        { name: "Fıstıqên Erdê", price: "250 ₺" }
-                    ]
-                },
-                "alkolsuz-icecekler": {
-                    title: "VEXWARINÊN BÊ ALKOL",
-                    items: [
-                        { name: "Vexwarina Anarşiyê (Red Bull)", price: "200 ₺" },
-                        { name: "Kola / Fanta / Sprite", price: "100 ₺" },
-                        { name: "Ava Mêveyan", price: "100 ₺" },
-                        { name: "Soda", price: "70 ₺" },
-                        { name: "Ava Şalgamê", price: "80 ₺" },
-                        { name: "Dew (Ayrana)", price: "80 ₺" }
-                    ]
-                },
-                "alkollu-icecekler": {
-                    title: "VEXWARINÊN BÎ ALKOL",
-                    subgroups: [
-                        { groupTitle: "Vîskî", items: [
-                            { name: "Chivas Regal 12", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Chivas Regal 12", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Chivas Regal 12", desc: "70 cl", price: "4.000 ₺" },
-                            { name: "Jack Daniel's", desc: "35 cl", price: "3.000 ₺" },
-                            { name: "Jack Daniel's", desc: "50 cl", price: "3.500 ₺" },
-                            { name: "Jack Daniel's", desc: "70 cl", price: "4.000 ₺" }
-                        ]},
-                        { groupTitle: "Raqî", items: [
-                            { name: "Tekirdağ Altın Seri", desc: "35 cl", price: "2.200 ₺" },
-                            { name: "Tekirdağ Altın Seri", desc: "50 cl", price: "2.700 ₺" },
-                            { name: "Tekirdağ Altın Seri", desc: "70 cl", price: "3.200 ₺" },
-                            { name: "Tekirdağ Altın Seri", desc: "100 cl", price: "5.000 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "35 cl", price: "2.400 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
-                            { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
-                        ]},
-                        { groupTitle: "Bîra", items: [
-                            { name: "Carlsberg Bîra", price: "400 ₺" },
-                            { name: "Tuborg Gold Bîra", price: "400 ₺" },
-                            { name: "Tuborg Kırmızı Bîra", price: "400 ₺" },
-                            { name: "Efes Shot Bîra", price: "400 ₺" }
-                        ]},
-                        { groupTitle: "Şerab", items: [
-                            { name: "Şeraba Suryanî ya Sor", price: "1.700 ₺" },
-                            { name: "Şeraba Suryanî ya Roze", price: "1.700 ₺" },
-                            { name: "Şeraba Suryanî ya Spî", price: "1.700 ₺" }
+                            { name: "Kırmızı Ev Şarabı (Şişe)", price: "1.200 ₺" },
+                            { name: "Beyaz Ev Şarabı (Şişe)", price: "1.200 ₺" },
+                            { name: "Süryani Şarabı (Shiluh)", price: "1.500 ₺" }
                         ]}
                     ]
                 }
             }
         };
 
-        const fixData = {
-            tr: {
-                kizkiza: { title: "KIZ KIZA FİX MENÜ", price: "2.000 ₺ (Kişi Başı)", hasMain: false, hasAlcohol: true },
-                alkolsuz: { title: "ALKOLSÜZ FİX MENÜ", price: "2.300 ₺ (Kişi Başı)", hasMain: true, hasAlcohol: false },
-                alkollu: { title: "ALKOLLÜ FİX MENÜ", price: "3.000 ₺ (Kişi Başı)", hasMain: true, hasAlcohol: true }
-            },
-            en: {
-                kizkiza: { title: "GIRLS NIGHT FIX MENU", price: "2.000 ₺ (Per Person)", hasMain: false, hasAlcohol: true },
-                alkolsuz: { title: "NON-ALCOHOLIC FIX MENU", price: "2.300 ₺ (Per Person)", hasMain: true, hasAlcohol: false },
-                alkollu: { title: "ALCOHOLIC FIX MENU", price: "3.000 ₺ (Per Person)", hasMain: true, hasAlcohol: true }
-            },
-            ar: {
-                kizkiza: { title: "القائمة الثابتة للسيدات", price: "2.000 ₺ (للشخص)", hasMain: false, hasAlcohol: true },
-                alkolsuz: { title: "القائمة الثابتة بدون كحول", price: "2.300 ₺ (للشخص)", hasMain: true, hasAlcohol: false },
-                alkollu: { title: "القائمة الثابتة مع كحول", price: "3.000 ₺ (للشخص)", hasMain: true, hasAlcohol: true }
-            },
-            ku: {
-                kizkiza: { title: "FÎKS MENU KEÇ Bİ KEÇ", price: "2.000 ₺ (Ji bo Kesekî)", hasMain: false, hasAlcohol: true },
-                alkolsuz: { title: "FÎKS MENU BÊ ALKOL", price: "2.300 ₺ (Ji bo Kesekî)", hasMain: true, hasAlcohol: false },
-                alkollu: { title: "FÎKS MENU BÎ ALKOL", price: "3.000 ₺ (Ji bo Kesekî)", hasMain: true, hasAlcohol: true }
-            }
-        };
-
-        const fixContentTranslations = {
-            tr: {
-                mezeTitle: "7 Mezeler", mezeList: ["Humus", "Tahin Soslu Köz Patlıcan", "Muhammara", "Zemheri Atom", "Haydari", "Pembe Sultan", "Midyat Turşu"],
-                salataTitle: "Salata", salataList: ["Roka Salatası"],
-                araTitle: "Ara Sıcak (2 Çeşit)", araList: ["İçli Köfte", "Patlıcan Dolma"],
-                anaTitle: "Ana Yemek", anaList: ["Kuzu Tandır", "Şef Kavurma", "Izgara Köfte", "Tavuk Bonfile"],
-                tatliTitle: "Tatlı", tatliList: ["Fırın Sütlaç / Meyve Tabağı"],
-                drinkTitle: "İçecek", drink2: "2 Kişi", drink2desc: "35 cl Rakı / Şarap", drink3: "3 Kişi", drink3desc: "50 cl Rakı", drink4: "4 Kişi", drink4desc: "70 cl Rakı"
-            },
-            en: {
-                mezeTitle: "7 Appetizers", mezeList: ["Hummus", "Roasted Eggplant with Tahini", "Muhammara", "Zemheri Atom", "Haydari", "Pink Sultan", "Midyat Pickles"],
-                salataTitle: "Salad", salataList: ["Arugula Salad"],
-                araTitle: "Warm Starters (2 Kinds)", araList: ["Stuffed Meatballs (Kibbeh)", "Stuffed Eggplant"],
-                anaTitle: "Main Course", anaList: ["Lamb Tandoori", "Chef's Sauteed Meat", "Grilled Meatballs", "Chicken Fillet"],
-                tatliTitle: "Dessert", tatliList: ["Rice Pudding / Fruit Plate"],
-                drinkTitle: "Drinks", drink2: "2 Persons", drink2desc: "35 cl Raki / Wine", drink3: "3 Persons", drink3desc: "50 cl Raki", drink4: "4 Persons", drink4desc: "70 cl Raki"
-            },
-            ar: {
-                mezeTitle: "7 مقبلات", mezeList: ["حمص", "باذنجان مشوي بالطحينة", "محمرة", "زمهرير أتوم", "حيدري", "سلطان وردي", "مخلل مديات"],
-                salataTitle: "سلطة", salataList: ["سلطة جرجير"],
-                araTitle: "مقبلات ساخنة (نوعان)", araList: ["كبة مقلية", "محشي باذنجان"],
-                anaTitle: "طبق رئيسي", anaList: ["تنور لحم ضأن", "قاورما الشيف", "كفتة مشوية", "فليه دجاج"],
-                tatliTitle: "حلويات", tatliList: ["أرز بالحليب / صحن فواكه"],
-                drinkTitle: "المشروبات", drink2: "شخصان", drink2desc: "35 cl راكي / نبيذ", drink3: "3 أشخاص", drink3desc: "50 cl راكي", drink4: "4 أشخاص", drink4desc: "70 cl راكي"
-            },
-            ku: {
-                mezeTitle: "7 Meze", mezeList: ["Humus", "Bacanên Sorik bi Tahîn", "Muhammara", "Zemherî Atom", "Haydarî", "Sultana Pembe", "Tirşiya Midyadê"],
-                salataTitle: "Salata", salataList: ["Salata Rokayê"],
-                araTitle: "Germik (2 Cins)", araList: ["Kutlik", "Mahiya Bacanê"],
-                anaTitle: "Xwarina Serekê", anaList: ["Tandûra Berxê", "Kavurma Şef", "Koftê Sêlê", "Bonfîleya Mirîşkê"],
-                tatliTitle: "Şîrnî", tatliList: ["Sutlaç / Siniya Mêveyan"],
-                drinkTitle: "Vexwarin", drink2: "2 Kes", drink2desc: "35 cl Raqî / Şerab", drink3: "3 Kes", drink3desc: "50 cl Raqî", drink4: "4 Kes", drink4desc: "70 cl Raqî"
-            }
-        };
-
-        const translations = {
-            tr: {
-                search: "Menüde ara...", navFix: "Fix Menü", navMeze: "Mezeler", navSalata: "Salatalar", navAra: "Ara Sıcaklar",
-                navPeynir: "Peynirler", navAna: "Ana Yemekler", navTatli: "Tatlı & Meyve", navAlkolsuz: "Alkolsüz İçecekler", navAlkollu: "Alkollü İçecekler",
-                fixSub: "İçeriği görmek için tıklayın (Kişi Başı)", fixKiz: "Kız Kıza", fixAlkolsuz: "Alkolsüz", fixAlkollu: "Alkollü",
-                catMeze: "MEZELER", catSalata: "SALATALAR", catAra: "ARA SICAKLAR", catPeynir: "PEYNİR ÇEŞİTLERİ", catAna: "ANA YEMEKLER", catTatli: "TATLI & MEYVE", catAlkolsuz: "ALKOLSÜZ İÇECEKLER", catAlkollu: "ALKOLLÜ İÇECEKLER",
-                inspect: "İncele", reserve: "Rezerve Et", footTitle: "REZERVASYON YAPMAYI UNUTMAYIN!", searchResults: "Arama Sonuçları", noResult: "Aramanıza uygun ürün bulunamadı."
-            },
-            en: {
-                search: "Search menu...", navFix: "Fix Menu", navMeze: "Appetizers", navSalata: "Salads", navAra: "Warm Starters",
-                navPeynir: "Cheeses", navAna: "Main Courses", navTatli: "Dessert & Fruit", navAlkolsuz: "Soft Drinks", navAlkollu: "Alcoholic Drinks",
-                fixSub: "Click to see details (Per Person)", fixKiz: "Girls Night", fixAlkolsuz: "Non-Alcoholic", fixAlkollu: "Alcoholic",
-                catMeze: "APPETIZERS", catSalata: "SALADS", catAra: "WARM STARTERS", catPeynir: "CHEESE SELECTION", catAna: "MAIN COURSES", catTatli: "DESSERTS & FRUITS", catAlkolsuz: "SOFT DRINKS", catAlkollu: "ALCOHOLIC DRINKS",
-                inspect: "View", reserve: "Book Table", footTitle: "DON'T FORGET TO RESERVATE!", searchResults: "Search Results", noResult: "No items found matching your search."
-            },
-            ar: {
-                search: "ابحث في القائمة...", navFix: "القائمة الثابتة", navMeze: "المقبلات", navSalata: "السلطات", navAra: "المقبلات الساخنة",
-                navPeynir: "الأجبان", navAna: "الأطباق الرئيسية", navTatli: "الحلويات والفواكه", navAlkolsuz: "المشروبات الخفيفة", navAlkollu: "المشروبات الروحية",
-                fixSub: "انقر لرؤية التفاصيل (للشخص الواحد)", fixKiz: "سهرة السيدات", fixAlkolsuz: "بدون كحول", fixAlkollu: "مع كحول",
-                catMeze: "المقبلات", catSalata: "السلطات", catAra: "المقبلات الساخنة", catPeynir: "تشكيلة الأجبان", catAna: "الأطباق الرئيسية", catTatli: "الحلويات والفواكه", catAlkolsuz: "المشروبات الخفيفة", catAlkollu: "المشروبات الروحية",
-                inspect: "عرض", reserve: "حجز طاولة", footTitle: "لا تنس إجراء الحجز!", searchResults: "نتائج البحث", noResult: "لم يتم العثور على عناصر تطابق بحثك."
-            },
-            ku: {
-                search: "Lêgerîna menuyê...", navFix: "Fîks Menu", navMeze: "Meze", navSalata: "Salata", navAra: "Germik",
-                navPeynir: "Penêr", navAna: "Xwarina Serekê", navTatli: "Sîrnî û Mêve", navAlkolsuz: "Vexwarinên Bê Alkol", navAlkollu: "Vexwarinên Bi Alkol",
-                fixSub: "Ji bo hûrguliyan bitikînin (Bo Kesekî)", fixKiz: "Keç bi Keç", fixAlkolsuz: "Bê Alkol", fixAlkollu: "Bi Alkol",
-                catMeze: "MEZE", catSalata: "SALATA", catAra: "GERMİK", catPeynir: "CEŞNÎNÊN PENÊR", catAna: "XWARINÊN SEREKÊ", catTatli: "ŞÎRNÎ Û MÊVE", catAlkolsuz: "VEXWARINÊN BÊ ALKOL", catAlkollu: "VEXWARINÊN BÎ ALKOL",
-                inspect: "Mêze bike", reserve: "Cih Bıgire", footTitle: "REZERVASYONA XWE BIKIN!", searchResults: "Tiştên ku Hatine Dîtin", noResult: "Tiştek li gorî lêgerîna we nehat dîtin."
-            }
-        };
-
-        function changeLang(lang, e) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if(e) e.target.classList.add('active');
-
-            const t = translations[lang];
-            document.getElementById('menuSearch').placeholder = t.search;
-            document.getElementById('nav-fix').innerText = t.navFix;
-            document.getElementById('nav-mezeler').innerText = t.navMeze;
-            document.getElementById('nav-salatalar').innerText = t.navSalata;
-            document.getElementById('nav-ara-sicaklar').innerText = t.navAra;
-            document.getElementById('nav-peynirler').innerText = t.navPeynir;
-            document.getElementById('nav-ana-yemekler').innerText = t.navAna;
-            document.getElementById('nav-tatli').innerText = t.navTatli;
-            document.getElementById('nav-alkolsuz').innerText = t.navAlkolsuz;
-            document.getElementById('nav-alkollu').innerText = t.navAlkollu;
-
-            document.getElementById('fix-subtext').innerText = t.fixSub;
-            document.getElementById('fix-kizkiza').innerText = t.fixKiz;
-            document.getElementById('fix-alkolsuz').innerText = t.fixAlkolsuz;
-            document.getElementById('fix-alkollu').innerText = t.fixAlkollu;
-
-            document.getElementById('cat-mezeler').innerText = t.catMeze;
-            document.getElementById('cat-salatalar').innerText = t.catSalata;
-            document.getElementById('cat-ara-sicaklar').innerText = t.catAra;
-            document.getElementById('cat-peynirler').innerText = t.catPeynir;
-            document.getElementById('cat-ana-yemekler').innerText = t.catAna;
-            document.getElementById('cat-tatli').innerText = t.catTatli;
-            document.getElementById('cat-alkolsuz').innerText = t.catAlkolsuz;
-            document.getElementById('cat-alkollu').innerText = t.catAlkollu;
-
-            document.querySelectorAll('.inspect-text').forEach(el => el.innerText = t.inspect);
-            document.getElementById('reserve-btn').innerText = t.reserve;
-            document.getElementById('foot-title').innerText = t.footTitle;
-            document.getElementById('search-results-title').innerText = t.searchResults;
-
-            filterSearch();
-        }
-
-        function filterSearch() {
-            let input = document.getElementById('menuSearch').value.toLowerCase().trim();
-            let resultsContainer = document.getElementById('search-results-container');
-            let resultsList = document.getElementById('search-results-list');
-            let mainContent = document.getElementById('main-content');
-            let mainNav = document.getElementById('main-nav');
-
-            if (input.length < 2) {
-                resultsContainer.style.display = "none";
-                mainContent.style.display = "block";
-                mainNav.style.display = "flex";
-                return;
-            }
-
-            mainContent.style.display = "none";
-            mainNav.style.display = "none";
-            resultsContainer.style.display = "block";
-            resultsList.innerHTML = "";
-
-            let matches = [];
-            const data = categoryData[currentLang];
-
-            for (let catKey in data) {
-                let category = data[catKey];
-                let catTitleLower = category.title.toLowerCase();
-
-                if (category.items) {
-                    category.items.forEach(item => {
-                        let nameMatch = item.name.toLowerCase().includes(input);
-                        let descMatch = item.desc && item.desc.toLowerCase().includes(input);
-                        let catMatch = catTitleLower.includes(input);
-
-                        if (nameMatch || descMatch || catMatch) {
-                            matches.push({ ...item, categoryTitle: category.title });
-                        }
-                    });
-                } else if (category.subgroups) {
-                    category.subgroups.forEach(sub => {
-                        let subTitleLower = sub.groupTitle.toLowerCase();
-                        sub.items.forEach(item => {
-                            let nameMatch = item.name.toLowerCase().includes(input);
-                            let descMatch = item.desc && item.desc.toLowerCase().includes(input);
-                            let subMatch = subTitleLower.includes(input);
-                            let catMatch = catTitleLower.includes(input);
-
-                            if (nameMatch || descMatch || subMatch || catMatch) {
-                                matches.push({ ...item, categoryTitle: category.title + ' - ' + sub.groupTitle });
-                            }
-                        });
-                    });
-                }
-            }
-
-            if (matches.length > 0) {
-                matches.forEach(item => {
-                    resultsList.innerHTML += `
-                        <div class="modal-item">
-                            <div class="modal-item-info">
-                                <div class="modal-item-name">${item.name}</div>
-                                <div class="modal-item-desc">${item.categoryTitle} ${item.desc ? '• ' + item.desc : ''}</div>
-                            </div>
-                            <div class="modal-item-price">${item.price}</div>
-                        </div>
-                    `;
-                });
-            } else {
-                resultsList.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 20px;">${translations[currentLang].noResult}</p>`;
-            }
-        }
-
-        function openFixModal(type) {
-            const data = fixData[currentLang][type];
-            const fc = fixContentTranslations[currentLang];
-
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalPrice').innerText = data.price;
-
-            let html = `
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-mortar-pestle"></i> ${fc.mezeTitle}</div>
-                    <ul class="fix-list">
-                        ${fc.mezeList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-leaf"></i> ${fc.salataTitle}</div>
-                    <ul class="fix-list">
-                        ${fc.salataList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-fire-burner"></i> ${fc.araTitle}</div>
-                    <ul class="fix-list">
-                        ${fc.araList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-
-            if (data.hasMain) {
-                html += `
+        const fixModalData = {
+            kizkiza: {
+                title: "KIZ KIZA FİX MENÜ",
+                price: "2.000 ₺ / Kişi Başı",
+                content: `
                     <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-drumstick-bite"></i> ${fc.anaTitle}</div>
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Mezeler & Salata</div>
                         <ul class="fix-list">
-                            ${fc.anaList.map(item => `<li>${item}</li>`).join('')}
+                            <li>Zemheri Serpme Mezeleri (Günlük Taze)</li>
+                            <li>Taze Mevsim Salatası veya Roka Salatası</li>
                         </ul>
                     </div>
-                `;
-            }
-
-            html += `
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-ice-cream"></i> ${fc.tatliTitle}</div>
-                    <ul class="fix-list">
-                        ${fc.tatliList.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-
-            if (data.hasAlcohol) {
-                html += `
                     <div class="fix-section">
-                        <div class="fix-section-title"><i class="fa-solid fa-wine-bottle"></i> ${fc.drinkTitle}</div>
+                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                        <ul class="fix-list">
+                            <li>Çıtır İçli Köfte</li>
+                            <li>Özel Yaprak Ciğer</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek Seçenekleri</div>
+                        <ul class="fix-list">
+                            <li>Şef Kavurma veya Zemheri Özel Köfte</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-glass-water"></i> İçecek İkramı</div>
+                        <p style="font-size: 0.85rem; color:#bbb;">Sınırsız Soft İçecekler & Çay/Kahve İkramı</p>
+                    </div>
+                `
+            },
+            alkolsuz: {
+                title: "ALKOLSÜZ FİX MENÜ",
+                price: "2.300 ₺ / Kişi Başı",
+                content: `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Mezeler & Peynir</div>
+                        <ul class="fix-list">
+                            <li>Serpme Zengin Meze Tabağı</li>
+                            <li>Mardin Yöresel Peynir Tabağı</li>
+                            <li>Gavurdağı veya Roka Salatası</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                        <ul class="fix-list">
+                            <li>Sıcak İçli Köfte</li>
+                            <li>Közde Patlıcan Dolma</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                        <ul class="fix-list">
+                            <li>Kuzu Pirzola, Saç Kavurma veya Şef Kavurma</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & İçecek</div>
+                        <ul class="fix-list">
+                            <li>Mevsim Meyveleri Tabağı & Yöresel Mardin Hariresi</li>
+                            <li>Sınırsız Alkolsüz İçecekler</li>
+                        </ul>
+                    </div>
+                `
+            },
+            alkollu: {
+                title: "ALKOLLÜ FİX MENÜ",
+                price: "3.000 ₺ / Kişi Başı",
+                content: `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Başlangıç & Mezeler</div>
+                        <ul class="fix-list">
+                            <li>Full Serpme Meze Masası</li>
+                            <li>Ezine & Mardin Eritme Peyniri</li>
+                            <li>Özel Yaprak Ciğer & Sıcak Ara Sıcaklar</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                        <ul class="fix-list">
+                            <li>Kuzu İncik, Dana Lokum veya Özel Kavurma</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> Alkol Seçeneği (Limitli)</div>
                         <div class="drink-options">
-                            <div class="drink-box"><strong>${fc.drink2}</strong>${fc.drink2desc}</div>
-                            <div class="drink-box"><strong>${fc.drink3}</strong>${fc.drink3desc}</div>
-                            <div class="drink-box"><strong>${fc.drink4}</strong>${fc.drink4desc}</div>
+                            <div class="drink-box"><strong>Rakı</strong> 35cl (2 Kişiye)</div>
+                            <div class="drink-box"><strong>Bira</strong> 3 Adet</div>
+                            <div class="drink-box"><strong>Şarap</strong> 1 Şişe (2 Kişiye)</div>
                         </div>
                     </div>
-                `;
+                `
             }
+        };
 
-            document.getElementById('modalBody').innerHTML = html;
-            document.getElementById('appModal').style.display = 'flex';
+        function scrollToElement(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = el.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
-        function openCategoryModal(key) {
-            const data = categoryData[currentLang][key];
+        function changeLang(lang, event) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if(event) event.target.classList.add('active');
+        }
+
+        function openCategoryModal(catKey) {
+            const data = categoryData.tr[catKey];
             if (!data) return;
 
             document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalPrice').innerText = "";
+            document.getElementById('modalPrice').innerText = '';
 
             let html = '<div class="modal-item-list">';
 
@@ -1498,7 +915,7 @@
                 data.items.forEach(item => {
                     html += `
                         <div class="modal-item">
-                            <div class="modal-item-info">
+                            <div>
                                 <div class="modal-item-name">${item.name}</div>
                                 ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
                             </div>
@@ -1512,7 +929,7 @@
                     group.items.forEach(item => {
                         html += `
                             <div class="modal-item">
-                                <div class="modal-item-info">
+                                <div>
                                     <div class="modal-item-name">${item.name}</div>
                                     ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
                                 </div>
@@ -1524,17 +941,86 @@
             }
 
             html += '</div>';
-
             document.getElementById('modalBody').innerHTML = html;
             document.getElementById('appModal').style.display = 'flex';
         }
 
-        function scrollToElement(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        function openFixModal(fixKey) {
+            const data = fixModalData[fixKey];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalPrice').innerText = data.price;
+            document.getElementById('modalBody').innerHTML = data.content;
+            document.getElementById('appModal').style.display = 'flex';
         }
 
-        function closeModal(e) { if (e.target.id === 'appModal') closeModalDirect(); }
-        function closeModalDirect() { document.getElementById('appModal').style.display = 'none'; }
+        function closeModal(event) {
+            if (event.target.id === 'appModal') {
+                document.getElementById('appModal').style.display = 'none';
+            }
+        }
+
+        function closeModalDirect() {
+            document.getElementById('appModal').style.display = 'none';
+        }
+
+        function filterSearch() {
+            const query = document.getElementById('menuSearch').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results-container');
+            const resultsList = document.getElementById('search-results-list');
+            const mainContent = document.getElementById('main-content');
+
+            if (query === "") {
+                resultsContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+                return;
+            }
+
+            let matches = [];
+            const data = categoryData.tr;
+
+            Object.keys(data).forEach(catKey => {
+                const cat = data[catKey];
+                if (cat.items) {
+                    cat.items.forEach(item => {
+                        if (item.name.toLowerCase().includes(query)) {
+                            matches.push(item);
+                        }
+                    });
+                } else if (cat.subgroups) {
+                    cat.subgroups.forEach(group => {
+                        group.items.forEach(item => {
+                            if (item.name.toLowerCase().includes(query)) {
+                                matches.push(item);
+                            }
+                        });
+                    });
+                }
+            });
+
+            if (matches.length > 0) {
+                let html = '';
+                matches.forEach(item => {
+                    html += `
+                        <div class="modal-item">
+                            <div>
+                                <div class="modal-item-name">${item.name}</div>
+                                ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
+                            </div>
+                            <div class="modal-item-price">${item.price}</div>
+                        </div>
+                    `;
+                });
+                resultsList.innerHTML = html;
+                resultsContainer.style.display = 'block';
+                mainContent.style.display = 'none';
+            } else {
+                resultsList.innerHTML = '<div style="text-align:center; padding: 20px; color: var(--text-muted);">Sonuç bulunamadı.</div>';
+                resultsContainer.style.display = 'block';
+                mainContent.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
