@@ -35,7 +35,6 @@
             line-height: 1.6;
             padding-bottom: 80px;
 
-            /* YÜKLEDİĞİNİZ MARDİN TAŞ DUVAR GÖRSELİ BURADA BAĞLANDI */
             background-image: 
                 linear-gradient(rgba(11, 11, 11, 0.80), rgba(11, 11, 11, 0.90)), 
                 url('mardin-tas-duvar.jpeg');
@@ -74,7 +73,7 @@
 
         header {
             text-align: center;
-            padding: 20px 20px 10px;
+            padding: 15px 20px 15px;
             border-bottom: 1px solid var(--border-color);
             position: relative;
             background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(11,11,11,0) 100%);
@@ -84,10 +83,51 @@
         }
 
         .main-logo {
-            max-width: 170px;
+            max-width: 130px;
             height: auto;
-            margin-bottom: 5px;
-            filter: drop-shadow(0px 0px 12px rgba(212, 175, 55, 0.4));
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.3));
+        }
+
+        .header-frame {
+            display: inline-block;
+            border: 2px solid var(--primary-gold);
+            padding: 12px 28px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+            background: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .header-frame::before {
+            content: '❖';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-black);
+            color: var(--primary-gold);
+            padding: 0 8px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            color: var(--accent-gold);
+            margin-top: 4px;
+            text-transform: uppercase;
         }
 
         /* ARAMA ÇUBUĞU */
@@ -440,27 +480,6 @@
             font-weight: bold;
         }
 
-        .drink-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .drink-box {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid #3d3219;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        .drink-box strong {
-            color: var(--primary-gold);
-            display: block;
-        }
-
         /* YÜZER REZERVASYON BUTONU */
         .floating-btn {
             position: fixed;
@@ -521,6 +540,10 @@
 
     <header>
         <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
+        <div class="header-frame">
+            <h1>ZEMHERİ</h1>
+            <div class="subtitle">SEMİR ŞEF</div>
+        </div>
     </header>
 
     <!-- ARAMA ÇUBUĞU -->
@@ -781,80 +804,142 @@
                             { name: "Beylerbeyi Göbek", desc: "50 cl", price: "3.000 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "70 cl", price: "3.600 ₺" },
                             { name: "Beylerbeyi Göbek", desc: "100 cl", price: "5.500 ₺" }
+                        ]},
+                        { groupTitle: "Biralar", items: [
+                            { name: "Carlsberg Bira", desc: "50 cl", price: "220 ₺" },
+                            { name: "Tuborg Bira", desc: "50 cl", price: "200 ₺" }
                         ]}
                     ]
                 }
             }
         };
 
-        function scrollToElement(id) {
-            const el = document.getElementById(id);
-            if(el) {
-                el.scrollIntoView({ behavior: 'smooth' });
+        const fixMenuDetails = {
+            kizkiza: {
+                title: "KIZ KIZA FİX MENÜ",
+                price: "2.000 ₺ / Kişi Başı",
+                content: `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Soğuk Mezeler & Peynirler</div>
+                        <ul class="fix-list">
+                            <li>Serpme Meze Çeşitleri</li>
+                            <li>Peynir Tabağı</li>
+                            <li>Mevsim Salatası</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                        <ul class="fix-list">
+                            <li>İçli Köfte</li>
+                            <li>Patlıcan Biber Dolması</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                        <ul class="fix-list">
+                            <li>Seçmeli Ana Yemek (Köfte / Tavuk Pirzola / Kavurma)</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve</div>
+                        <ul class="fix-list">
+                            <li>Meyve ve Tatlı İkramı</li>
+                        </ul>
+                    </div>
+                `
+            },
+            alkolsuz: {
+                title: "ALKOLSÜZ FİX MENÜ",
+                price: "2.300 ₺ / Kişi Başı",
+                content: `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Mezeler & Salatalar</div>
+                        <ul class="fix-list">
+                            <li>Günün Mezeleri & Peynir İkramı</li>
+                            <li>Mevsim Salatası</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
+                        <ul class="fix-list">
+                            <li>Eritme Köy Peyniri, İçli Köfte & Dolma</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                        <ul class="fix-list">
+                            <li>Zemheri Special Ana Yemek Tabağı</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-glass-water"></i> İçecekler & İkramlar</div>
+                        <ul class="fix-list">
+                            <li>Sınırsız Meşrubat / Soft İçecekler</li>
+                            <li>Meyve, Tatlı ve Çerez Tabağı</li>
+                        </ul>
+                    </div>
+                `
+            },
+            alkollu: {
+                title: "ALKOLLÜ FİX MENÜ",
+                price: "3.000 ₺ / Kişi Başı",
+                content: `
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Başlangıç & Mezeler</div>
+                        <ul class="fix-list">
+                            <li>Zengin Zenne & Meze Tabağı</li>
+                            <li>Zengin Peynir Çeşitleri</li>
+                            <li>Özel Salata</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Sıcak İkramlar</div>
+                        <ul class="fix-list">
+                            <li>Sıcak Ara Sıcak Tabağı (Köfte, Dolma, Yaprak Ciğer)</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemek</div>
+                        <ul class="fix-list">
+                            <li>Şefin Özel Seçim Et veya Tavuk Ana Yemeği</li>
+                        </ul>
+                    </div>
+                    <div class="fix-section">
+                        <div class="fix-section-title"><i class="fa-solid fa-wine-glass"></i> İçecek & Meyve</div>
+                        <ul class="fix-list">
+                            <li>Belirli Oranda Yerli Alkollü İçecek / Rakı Seçeneği</li>
+                            <li>Mevsim Meyveleri, Çerez & Meyve Tabağı</li>
+                        </ul>
+                    </div>
+                `
             }
+        };
+
+        function changeLang(lang, event) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (event) event.target.classList.add('active');
+            filterSearch(); // Dil değiştiğinde aramayı yenile
         }
 
-        function filterSearch() {
-            const query = document.getElementById('menuSearch').value.toLowerCase().trim();
-            const resultsContainer = document.getElementById('search-results-container');
-            const resultsList = document.getElementById('search-results-list');
-            
-            if (!query) {
-                resultsContainer.style.display = 'none';
-                return;
-            }
-
-            let results = [];
-            const langData = categoryData[currentLang] || categoryData.tr;
-
-            for (const key in langData) {
-                const cat = langData[key];
-                if (cat.items) {
-                    cat.items.forEach(item => {
-                        if (item.name.toLowerCase().includes(query) || (item.desc && item.desc.toLowerCase().includes(query))) {
-                            results.push(item);
-                        }
-                    });
-                }
-                if (cat.subgroups) {
-                    cat.subgroups.forEach(group => {
-                        group.items.forEach(item => {
-                            if (item.name.toLowerCase().includes(query) || (item.desc && item.desc.toLowerCase().includes(query))) {
-                                results.push(item);
-                            }
-                        });
-                    });
-                }
-            }
-
-            if (results.length > 0) {
-                resultsList.innerHTML = results.map(item => `
-                    <div class="modal-item">
-                        <div>
-                            <div class="modal-item-name">${item.name}</div>
-                            ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
-                        </div>
-                        <div class="modal-item-price">${item.price}</div>
-                    </div>
-                `).join('');
-                resultsContainer.style.display = 'block';
-            } else {
-                resultsList.innerHTML = `<div style="color: var(--text-muted); text-align: center; padding: 10px;">Sonuç bulunamadı.</div>`;
-                resultsContainer.style.display = 'block';
+        function scrollToElement(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
         function openCategoryModal(catKey) {
-            const langData = categoryData[currentLang] || categoryData.tr;
-            const cat = langData[catKey];
-            if (!cat) return;
+            const data = categoryData.tr[catKey];
+            if (!data) return;
 
-            document.getElementById('modalTitle').innerText = cat.title;
+            document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalPrice').innerText = '';
-            
+
             let html = '<div class="modal-item-list">';
-            if (cat.items) {
-                cat.items.forEach(item => {
+
+            if (data.items) {
+                data.items.forEach(item => {
                     html += `
                         <div class="modal-item">
                             <div>
@@ -865,10 +950,10 @@
                         </div>
                     `;
                 });
-            } else if (cat.subgroups) {
-                cat.subgroups.forEach(group => {
-                    html += `<div class="modal-subgroup-title">${group.groupTitle}</div>`;
-                    group.items.forEach(item => {
+            } else if (data.subgroups) {
+                data.subgroups.forEach(sub => {
+                    html += `<div class="modal-subgroup-title">${sub.groupTitle}</div>`;
+                    sub.items.forEach(item => {
                         html += `
                             <div class="modal-item">
                                 <div>
@@ -881,76 +966,24 @@
                     });
                 });
             }
+
             html += '</div>';
-
             document.getElementById('modalBody').innerHTML = html;
             document.getElementById('appModal').style.display = 'flex';
         }
 
-        function openFixModal(type) {
-            document.getElementById('modalTitle').innerText = "ZEMHERİ FİX MENÜ";
-            let priceText = "";
-            if (type === 'kizkiza') priceText = "Kız Kıza - 2.000 ₺";
-            else if (type === 'alkolsuz') priceText = "Alkolsüz - 2.300 ₺";
-            else if (type === 'alkollu') priceText = "Alkollü - 3.000 ₺";
-            
-            document.getElementById('modalPrice').innerText = priceText;
+        function openFixModal(fixType) {
+            const details = fixMenuDetails[fixType];
+            if (!details) return;
 
-            let html = `
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-bowl-food"></i> Soğuk Mezeler</div>
-                    <ul class="fix-list">
-                        <li>Humus</li>
-                        <li>Tahin Soslu Köz Patlıcan</li>
-                        <li>Muhammara</li>
-                        <li>Zemheri Atom</li>
-                        <li>Pembe Sultan</li>
-                        <li>Midyat Turşu</li>
-                        <li>Havuç Tarator</li>
-                        <li>Şakşuka</li>
-                        <li>Süzme Yoğurt</li>
-                        <li>Derik Zeytin</li>
-                        <li>Haydari</li>
-                        <li>Cevizli Köz Biber</li>
-                    </ul>
-                </div>
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-fire"></i> Ara Sıcaklar</div>
-                    <ul class="fix-list">
-                        <li>İçli Köfte</li>
-                        <li>Patlıcan Biber Dolma</li>
-                        <li>Yaprak Ciğer</li>
-                    </ul>
-                </div>
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-utensils"></i> Ana Yemekler (Seçmeli)</div>
-                    <ul class="fix-list">
-                        <li>Şef Kavurma</li>
-                        <li>Kuzu Pirzola</li>
-                        <li>Zemheri Köfte</li>
-                        <li>Kuzu Tandır</li>
-                        <li>Saç Kavurma</li>
-                        <li>Acı Soslu Tavuk Bonfile</li>
-                        <li>Tavuk Pirzola</li>
-                    </ul>
-                </div>
-                <div class="fix-section">
-                    <div class="fix-section-title"><i class="fa-solid fa-cake-candles"></i> Tatlı & Meyve & Çerez</div>
-                    <ul class="fix-list">
-                        <li>Mevsim Meyvesi Tabağı</li>
-                        <li>Buzlu Badem</li>
-                        <li>Çerez Tabağı</li>
-                        <li>Harire / Sütlaç / Fıstıklı Keşkül</li>
-                    </ul>
-                </div>
-            `;
-
-            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('modalTitle').innerText = details.title;
+            document.getElementById('modalPrice').innerText = details.price;
+            document.getElementById('modalBody').innerHTML = details.content;
             document.getElementById('appModal').style.display = 'flex';
         }
 
-        function closeModal(e) {
-            if (e.target.classList.contains('modal-overlay')) {
+        function closeModal(event) {
+            if (event.target.id === 'appModal') {
                 document.getElementById('appModal').style.display = 'none';
             }
         }
@@ -959,10 +992,61 @@
             document.getElementById('appModal').style.display = 'none';
         }
 
-        function changeLang(lang, event) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if(event && event.target) event.target.classList.add('active');
+        function filterSearch() {
+            const query = document.getElementById('menuSearch').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results-container');
+            const resultsList = document.getElementById('search-results-list');
+            const mainContent = document.getElementById('main-content');
+
+            if (query === "") {
+                resultsContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+                return;
+            }
+
+            let matches = [];
+            const data = categoryData.tr;
+
+            for (let catKey in data) {
+                const category = data[catKey];
+                if (category.items) {
+                    category.items.forEach(item => {
+                        if (item.name.toLowerCase().includes(query)) {
+                            matches.push(item);
+                        }
+                    });
+                } else if (category.subgroups) {
+                    category.subgroups.forEach(sub => {
+                        sub.items.forEach(item => {
+                            if (item.name.toLowerCase().includes(query)) {
+                                matches.push(item);
+                            }
+                        });
+                    });
+                }
+            }
+
+            if (matches.length > 0) {
+                let html = "";
+                matches.forEach(item => {
+                    html += `
+                        <div class="modal-item">
+                            <div>
+                                <div class="modal-item-name">${item.name}</div>
+                                ${item.desc ? `<div class="modal-item-desc">${item.desc}</div>` : ''}
+                            </div>
+                            <div class="modal-item-price">${item.price}</div>
+                        </div>
+                    `;
+                });
+                resultsList.innerHTML = html;
+                resultsContainer.style.display = 'block';
+                mainContent.style.display = 'none';
+            } else {
+                resultsList.innerHTML = '<div style="text-align:center; color: var(--text-muted); padding: 20px;">Aradığınız ürün bulunamadı.</div>';
+                resultsContainer.style.display = 'block';
+                mainContent.style.display = 'none';
+            }
         }
     </script>
 </body>
