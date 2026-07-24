@@ -66,18 +66,18 @@
             --bg-gradient: linear-gradient(rgba(26, 20, 18, 0.7), rgba(15, 11, 10, 0.85));
         }
 
-        /* Koyu Mod Teması (Saf Siyah) */
+        /* Koyu Mod Teması (Sağdaki Yeni Buton İçin) */
         [data-theme="dark"][data-mood="pure-dark"] {
-            --brand-primary: #d4af37;
-            --brand-light: #f3d372;
-            --brand-dark: #1a1a1a;
-            --bg-base: #000000;
-            --bg-card: rgba(15, 15, 15, 0.85);
-            --border-glow: rgba(255, 255, 255, 0.12);
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --accent-warm: #f3d372;
-            --bg-gradient: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
+            --brand-primary: #a370f7;
+            --brand-light: #c49eff;
+            --brand-dark: #2a1b4e;
+            --bg-base: #0b090e;
+            --bg-card: rgba(20, 16, 28, 0.78);
+            --border-glow: rgba(196, 158, 255, 0.3);
+            --text-main: #f5f2ff;
+            --text-muted: #b8b0cc;
+            --accent-warm: #d4bcff;
+            --bg-gradient: linear-gradient(rgba(11, 9, 14, 0.7), rgba(5, 4, 8, 0.85));
         }
 
         * {
@@ -1459,7 +1459,7 @@
                 anaTitle: "Ana Yemek", anaList: ["Kuzu Tandır", "Şef Kavurma", "Izgara Köfte", "Tavuk Bonfile"],
                 tatliTitle: "Tatlı", tatliList: ["Fırın Sütlaç / Meyve Tabağı"],
                 drinkTitle: "İçecek", drink2: "2 Kişi", drink2desc: "35 cl Rakı / Şarap", drink3: "3 Kişi", drink3desc: "50 cl Rakı / Şarap", drink4: "4 Kişi", drink4desc: "70 cl Rakı / Şarap",
-                softDrinkTitle: "İçecek", softDrinkText: "1 Adet Soft İçecek"
+                softDrinkTitle: "İçecek", softDrinkName: "Soft İçecek", softDrinkDesc: "1 Adet"
             },
             en: { 
                 mezeTitle: "7 Appetizers", mezeList: ["Hummus", "Roasted Eggplant with Tahini", "Muhammara", "Zemheri Atom", "Haydari", "Pink Sultan", "Midyat Pickles"], 
@@ -1468,7 +1468,7 @@
                 anaTitle: "Main Course", anaList: ["Slow Cooked Lamb", "Chef's Sauteed Meat", "Grilled Meatballs", "Chicken Fillet"], 
                 tatliTitle: "Dessert", tatliList: ["Baked Rice Pudding / Fruit Plate"], 
                 drinkTitle: "Drinks", drink2: "2 Person", drink2desc: "35cl Rakı / Wine", drink3: "3 Person", drink3desc: "50cl Rakı / Wine", drink4: "4 Person", drink4desc: "70cl Rakı / Wine",
-                softDrinkTitle: "Drink", softDrinkText: "1 Soft Drink"
+                softDrinkTitle: "Drinks", softDrinkName: "Soft Drink", softDrinkDesc: "1 Piece"
             },
             ar: { 
                 mezeTitle: "7 مقبلات", mezeList: ["حمص", "باذنجان مشوي بالطحينة", "محمرة", "زمهري أتوم", "حيدري", "السلطانة البنفسجية", "مخلل مديات"], 
@@ -1477,7 +1477,7 @@
                 anaTitle: "الطبق الرئيسي", anaList: ["لحم تنور", "قاورما الشيف", "كفتة مشوية", "فيليه دجاج"], 
                 tatliTitle: "الحلوى", tatliList: ["رز بالحليب بالفرن / صحن فواكه"], 
                 drinkTitle: "المشروبات", drink2: "شخصان", drink2desc: "35 سل راكي / نبيذ", drink3: "3 أشخاص", drink3desc: "50 سل راكي / نبيذ", drink4: "4 أشخاص", drink4desc: "70 سل راكي / نبيذ",
-                softDrinkTitle: "المشروبات", softDrinkText: "مشروب غازي واحد (Soft Drink)"
+                softDrinkTitle: "المشروبات", softDrinkName: "مشروب خفيف", softDrinkDesc: "قطعة 1"
             },
             ku: { 
                 mezeTitle: "7 Meze", mezeList: ["Humus", "Bademcanê Roştandî bi Tahîn", "Muhammara", "Zemheri Atom", "Haydarî", "Pembe Sultan", "Tirşiya Mêrdînê"], 
@@ -1486,7 +1486,7 @@
                 anaTitle: "Xwarina Serekê", anaList: ["Tandûra Berxê", "Qawurmaya Şef", "Kofteya Grill", "Bonfîla Mirîşkê"], 
                 tatliTitle: "Şîrnî", tatliList: ["Sutlaçê Firûnê / Sêniya Mêwan"], 
                 drinkTitle: "Vexwarin", drink2: "2 Kes", drink2desc: "35 cl Raqî / Şerab", drink3: "3 Kes", drink3desc: "50 cl Raqî / Şerab", drink4: "4 Kes", drink4desc: "70 cl Raqî / Şerab",
-                softDrinkTitle: "Vexwarin", softDrinkText: "1 Vexwarina Bê Alkol (Soft)"
+                softDrinkTitle: "Vexwarin", softDrinkName: "Vexwarina Bê Alkol", softDrinkDesc: "1 Dan"
             }
         };
 
@@ -1615,17 +1615,16 @@
                         </div>
                     </div>
                 `;
-            } else if (type === 'alkolsuz') {
+            } else {
                 html += `
                     <div class="fix-section animate-item" style="animation-delay: 0.3s">
-                        <div class="fix-section-title"><i class="fa-solid fa-glass-water"></i> ${fc.softDrinkTitle}</div>
-                        <div style="background: var(--bg-base); border: 1px solid var(--border-glow); padding: 12px; border-radius: 10px; text-align: center; font-size: 0.85rem; color: var(--text-main); font-family: 'Playfair Display', serif; font-weight: 600;">
-                            ${fc.softDrinkText}
+                        <div class="fix-section-title"><i class="fa-solid fa-glass-water"></i> ${fc.softDrinkTitle || fc.drinkTitle}</div>
+                        <div class="drink-options">
+                            <div class="drink-box" style="grid-column: span 3;"><strong>${fc.softDrinkName || 'Soft İçecek'}</strong>${fc.softDrinkDesc || '1 Adet'}</div>
                         </div>
                     </div>
                 `;
             }
-
             document.getElementById('modalBody').innerHTML = html;
             document.getElementById('appModal').style.display = 'flex';
         }
