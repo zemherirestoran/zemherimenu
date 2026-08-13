@@ -823,17 +823,846 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* V4: arka planlı dört görünüm modu */
+        :root {
+            --v4-bg: #211914;
+            --v4-overlay-top: rgba(25, 18, 13, .48);
+            --v4-overlay-bottom: rgba(25, 18, 13, .82);
+            --v4-surface: rgba(43, 33, 26, .92);
+            --v4-surface-soft: rgba(53, 41, 32, .88);
+            --v4-text: #fff8ec;
+            --v4-muted: #d6c5b0;
+            --v4-accent: #ddb66d;
+            --v4-accent-strong: #a96b24;
+            --v4-border: rgba(226, 187, 111, .28);
+            --v4-hero: rgba(31, 23, 18, .55);
+            --v4-cta: #7b3028;
+        }
+        [data-theme="light"][data-mood="olive"] {
+            --v4-bg: #dde2d1;
+            --v4-overlay-top: rgba(231, 236, 220, .62);
+            --v4-overlay-bottom: rgba(217, 225, 203, .86);
+            --v4-surface: rgba(248, 248, 239, .94);
+            --v4-surface-soft: rgba(235, 239, 224, .92);
+            --v4-text: #273326;
+            --v4-muted: #5f6f5e;
+            --v4-accent: #6f7f47;
+            --v4-accent-strong: #51622e;
+            --v4-border: rgba(71, 92, 51, .24);
+            --v4-hero: rgba(32, 49, 31, .47);
+            --v4-cta: #586b35;
+        }
+        [data-theme="dark"][data-mood="terracotta"] {
+            --v4-bg: #291914;
+            --v4-overlay-top: rgba(48, 24, 16, .45);
+            --v4-overlay-bottom: rgba(38, 20, 15, .82);
+            --v4-surface: rgba(55, 34, 27, .93);
+            --v4-surface-soft: rgba(73, 42, 31, .9);
+            --v4-text: #fff2e5;
+            --v4-muted: #d8bbaa;
+            --v4-accent: #e19a68;
+            --v4-accent-strong: #c4643f;
+            --v4-border: rgba(225, 136, 91, .3);
+            --v4-hero: rgba(104, 42, 25, .48);
+            --v4-cta: #a3442f;
+        }
+        [data-theme="dark"][data-mood="pure-dark"] {
+            --v4-bg: #050505;
+            --v4-overlay-top: rgba(0, 0, 0, .65);
+            --v4-overlay-bottom: rgba(0, 0, 0, .92);
+            --v4-surface: rgba(16, 16, 16, .95);
+            --v4-surface-soft: rgba(26, 26, 26, .92);
+            --v4-text: #fafafa;
+            --v4-muted: #b9b9b9;
+            --v4-accent: #f0f0f0;
+            --v4-accent-strong: #d7d7d7;
+            --v4-border: rgba(255, 255, 255, .18);
+            --v4-hero: rgba(0, 0, 0, .6);
+            --v4-cta: #f2f2f2;
+        }
+
+        body {
+            background-color: var(--v4-bg);
+            background-image:
+                linear-gradient(180deg, var(--v4-overlay-top), var(--v4-overlay-bottom)),
+                url('mardin.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            color: var(--v4-text);
+        }
+
+        .brand-topline {
+            color: var(--v4-text);
+            background: var(--v4-surface);
+            border: 1px solid var(--v4-border);
+            border-radius: 18px;
+            padding: 8px 210px 8px 10px;
+            box-shadow: 0 14px 38px rgba(0,0,0,.2);
+            backdrop-filter: blur(18px);
+        }
+        .brand-name strong { color: var(--v4-text); }
+        .brand-name span { color: var(--v4-muted); }
+
+        .gourmet-controls {
+            display: flex;
+            justify-content: flex-start;
+            gap: 7px;
+            padding: 12px 0;
+        }
+        .gourmet-btn {
+            min-height: 36px;
+            padding: 7px 14px;
+            color: var(--v4-muted);
+            background: var(--v4-surface);
+            border: 1px solid var(--v4-border);
+            box-shadow: none;
+            backdrop-filter: blur(14px);
+        }
+        .gourmet-btn.active, .gourmet-btn:hover {
+            color: var(--v4-bg);
+            background: var(--v4-accent);
+            border-color: var(--v4-accent);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .lang-btn {
+            color: var(--v4-muted);
+            background: var(--v4-surface);
+            border-color: var(--v4-border);
+        }
+        .lang-btn.active, .lang-btn:hover {
+            color: var(--v4-bg);
+            background: var(--v4-accent);
+            border-color: var(--v4-accent);
+        }
+
+        .heritage-hero {
+            background-image:
+                linear-gradient(90deg, var(--v4-hero) 0%, rgba(18, 13, 10, .25) 72%, transparent 100%),
+                url('mardin.jpg');
+            border: 1px solid var(--v4-border);
+        }
+        .hero-kicker { color: var(--v4-accent); }
+        .hero-copy h1 { color: #fffaf2; }
+
+        .search-box,
+        .grid-nav-item,
+        .grid-nav-item:nth-child(1),
+        .grid-nav-item:nth-child(2),
+        .grid-nav-item:nth-child(3),
+        .grid-nav-item:nth-child(4),
+        .grid-nav-item:nth-child(5),
+        .grid-nav-item:nth-child(6),
+        .grid-nav-item:nth-child(7),
+        .grid-nav-item:last-child {
+            background: var(--v4-surface);
+            color: var(--v4-text);
+            border-color: var(--v4-border);
+            backdrop-filter: blur(16px);
+        }
+        .search-box input { color: var(--v4-text); }
+        .search-box input::placeholder { color: var(--v4-muted); }
+        .search-box i,
+        .grid-nav-item i,
+        .grid-nav-item:nth-child(1) i,
+        .grid-nav-item:nth-child(4) i,
+        .grid-nav-item:nth-child(5) i,
+        .grid-nav-item:nth-child(6) i,
+        .grid-nav-item:nth-child(7) i { color: var(--v4-accent); }
+        .grid-nav-item:hover { background: var(--v4-surface-soft); border-color: var(--v4-accent); }
+
+        .fix-menu-showcase {
+            background: var(--v4-surface);
+            color: var(--v4-text);
+            border: 1px solid var(--v4-border);
+            backdrop-filter: blur(18px);
+        }
+        .fix-header h2, .fix-opt-card .opt-price { color: var(--v4-accent); }
+        #fix-subtext { color: var(--v4-muted) !important; }
+        .fix-opt-card { background: var(--v4-surface-soft); color: var(--v4-text); border-color: var(--v4-border); }
+
+        footer { background: var(--v4-surface); color: var(--v4-muted); border-color: var(--v4-border); }
+        footer .footer-info a, footer #foot-title { color: var(--v4-accent) !important; }
+
+        .action-dock { background: var(--v4-surface); border-color: var(--v4-border); }
+        .action-dock > a { color: var(--v4-text); }
+        .action-dock > a i { color: var(--v4-accent); }
+        .action-dock .floating-btn { background: var(--v4-cta); color: var(--v4-bg); }
+        [data-mood="pure-dark"] .action-dock .floating-btn { color: #111; }
+
+        .modal-content { background: var(--v4-surface); color: var(--v4-text); border-color: var(--v4-accent); }
+        .modal-title, #modalTitle, .modal-item-name { color: var(--v4-text); }
+        .modal-item { background: var(--v4-surface-soft); border-color: var(--v4-border); }
+        .modal-item-desc { color: var(--v4-muted); }
+        .modal-item-price, .modal-subgroup-title, .modal-close { color: var(--v4-accent); }
+
+        @media (max-width: 620px) {
+            body { background-attachment: scroll; }
+            .brand-topline { padding: 7px 155px 7px 8px; }
+            .gourmet-controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 9px 0; }
+            .gourmet-btn { min-height: 35px; padding: 6px 4px; font-size: .64rem; }
+        }
+
+        /* V5 okunabilirlik kilidi: eski tema kurallarının renkleri ezmesini engeller */
+        html body .search-box {
+            background: var(--v4-surface) !important;
+            border-color: var(--v4-border) !important;
+        }
+        html body .search-box input {
+            color: var(--v4-text) !important;
+            background: transparent !important;
+            opacity: 1 !important;
+        }
+        html body .search-box input::placeholder {
+            color: var(--v4-muted) !important;
+            opacity: 1 !important;
+        }
+
+        html body .category-grid-nav .grid-nav-item,
+        html body .category-grid-nav .grid-nav-item:nth-child(n) {
+            background: var(--v4-surface) !important;
+            color: var(--v4-text) !important;
+            border-color: var(--v4-border) !important;
+            opacity: 1 !important;
+        }
+        html body .category-grid-nav .grid-nav-item span,
+        html body .category-grid-nav .grid-nav-item:nth-child(n) span {
+            color: var(--v4-text) !important;
+            opacity: 1 !important;
+            text-shadow: none !important;
+        }
+        html body .category-grid-nav .grid-nav-item i,
+        html body .category-grid-nav .grid-nav-item:nth-child(n) i {
+            color: var(--v4-accent) !important;
+            opacity: 1 !important;
+        }
+        html body .category-grid-nav .grid-nav-item:hover {
+            background: var(--v4-surface-soft) !important;
+            border-color: var(--v4-accent) !important;
+        }
+
+        html body .fix-menu-showcase {
+            background: var(--v4-surface) !important;
+            color: var(--v4-text) !important;
+        }
+        html body .fix-opt-card {
+            background: var(--v4-surface-soft) !important;
+            color: var(--v4-text) !important;
+        }
+        html body .fix-opt-card span:not(.opt-price) { color: var(--v4-text) !important; }
+        html body .fix-opt-card .opt-price,
+        html body .fix-header h2 { color: var(--v4-accent) !important; }
+
+        html body .action-dock { background: var(--v4-surface) !important; }
+        html body .action-dock > a:not(.floating-btn),
+        html body .action-dock > a:not(.floating-btn) span { color: var(--v4-text) !important; }
+
+        html body .modal-content { background: var(--v4-surface) !important; color: var(--v4-text) !important; }
+        html body .modal-item { background: var(--v4-surface-soft) !important; }
+        html body .modal-item-name { color: var(--v4-text) !important; }
+        html body .modal-item-desc { color: var(--v4-muted) !important; }
+        html body .modal-item-price { color: var(--v4-accent) !important; }
+
+        /* Açık Zeytin temasında daha güçlü kontrast */
+        [data-theme="light"][data-mood="olive"] {
+            --v4-surface: rgba(250, 248, 239, .98);
+            --v4-surface-soft: rgba(229, 235, 215, .98);
+            --v4-text: #1e2a1d;
+            --v4-muted: #4c604b;
+            --v4-accent: #52672f;
+            --v4-border: rgba(51, 76, 39, .34);
+        }
+
+        /* Modern Mezopotamya + Mardin Konağı prototipi */
+        body {
+            background: #ead9bd;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(142, 70, 35, .07) 0 1px, transparent 1px),
+                linear-gradient(115deg, rgba(255,255,255,.24), transparent 45%);
+            background-size: 18px 18px, 100% 100%;
+            color: #2b2119;
+            padding-bottom: 140px;
+        }
+
+        .gourmet-controls { display: none; }
+
+        .lang-container {
+            position: absolute;
+            z-index: 10;
+            top: 24px;
+            right: max(22px, calc((100vw - 900px) / 2 + 22px));
+            padding: 0;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            min-width: 38px;
+            padding: 7px 9px;
+            color: #4b392c;
+            background: rgba(246, 235, 216, .72);
+            border-color: rgba(75, 57, 44, .18);
+            backdrop-filter: blur(12px);
+            letter-spacing: .08em;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            color: #fff7ea;
+            background: #943818;
+            border-color: #943818;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .brand-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 18px 0;
+            text-align: left;
+        }
+
+        .brand-topline {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding-right: 205px;
+        }
+
+        .brand-topline .logo-wrapper {
+            width: 62px;
+            height: 62px;
+            margin: 0;
+            flex: 0 0 auto;
+        }
+
+        .brand-topline .logo-wrapper::before {
+            inset: -2px;
+            background: #a6532b;
+            animation: none;
+            filter: none;
+        }
+
+        .brand-topline .main-logo {
+            border: 2px solid #ead9bd;
+            box-shadow: 0 6px 20px rgba(64, 36, 21, .16);
+        }
+
+        .brand-name { display: grid; gap: 2px; }
+        .brand-name strong {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.35rem, 3vw, 1.85rem);
+            letter-spacing: .16em;
+            color: #2c2119;
+        }
+        .brand-name span {
+            font-size: .62rem;
+            letter-spacing: .2em;
+            color: #7b624e;
+        }
+
+        .heritage-hero {
+            position: relative;
+            min-height: 360px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            padding: clamp(30px, 6vw, 62px);
+            border-radius: 120px 120px 28px 28px;
+            color: #fff5e4;
+            background: #a74622;
+            border: 1px solid rgba(92, 37, 17, .22);
+            box-shadow: 0 24px 60px rgba(83, 46, 25, .18);
+        }
+
+        .heritage-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .18;
+            background-image: radial-gradient(circle, #fff2d7 0 1px, transparent 1px);
+            background-size: 13px 13px;
+        }
+
+        .hero-copy { position: relative; z-index: 1; }
+        .hero-kicker { font-size: .68rem; letter-spacing: .22em; color: #f2c99e; }
+        .hero-copy h1 {
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 500;
+            line-height: .92;
+            letter-spacing: -.045em;
+        }
+
+        .hero-mark {
+            position: relative;
+            z-index: 1;
+            justify-self: center;
+            width: min(220px, 25vw);
+            aspect-ratio: .72;
+            border: 2px solid #e8b777;
+            border-radius: 110px 110px 10px 10px;
+        }
+        .hero-sun {
+            position: absolute;
+            width: 72px;
+            aspect-ratio: 1;
+            border: 2px solid #e8b777;
+            border-radius: 50%;
+            top: 18%; left: 50%; transform: translateX(-50%);
+            box-shadow: 0 0 0 14px rgba(232,183,119,.1), 0 0 0 28px rgba(232,183,119,.05);
+        }
+        .hero-hill {
+            position: absolute;
+            left: 16%; right: 16%; bottom: 18%; height: 35%;
+            border-bottom: 2px solid #e8b777;
+            background: linear-gradient(145deg, transparent 48%, #e8b777 49% 50%, transparent 51%);
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 3;
+            max-width: 760px;
+            margin: -28px auto 24px;
+            padding: 0 22px;
+        }
+        .search-box {
+            background: #f5ead7;
+            border: 1px solid rgba(86, 55, 35, .18);
+            box-shadow: 0 14px 35px rgba(76, 46, 26, .14);
+        }
+        .search-box input { color: #30251d; }
+        .search-box input::placeholder { color: #7b6655; }
+        .search-box i { color: #a74622; }
+
+        .category-grid-nav {
+            max-width: 900px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            padding: 0 18px;
+            margin-bottom: 30px;
+        }
+        .grid-nav-item {
+            min-height: 160px;
+            padding: 24px 12px;
+            border-radius: 0;
+            border: 1px solid rgba(72, 51, 35, .14);
+            background: #efe0c4;
+            color: #26331f;
+            box-shadow: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+        }
+        .grid-nav-item i { font-size: 1.45rem; color: #a74622; }
+        .grid-nav-item:hover { transform: none; background: #f6ead5; border-color: #a74622; }
+        .grid-nav-item:nth-child(1), .grid-nav-item:nth-child(6) { background: #39462d; color: #fff3dc; }
+        .grid-nav-item:nth-child(1) i, .grid-nav-item:nth-child(6) i { color: #e5bd7c; }
+        .grid-nav-item:nth-child(4), .grid-nav-item:nth-child(7) { background: #ad4a25; color: #fff5e5; }
+        .grid-nav-item:nth-child(4) i, .grid-nav-item:nth-child(7) i { color: #f2c390; }
+        .grid-nav-item:nth-child(5) { background: #172a3f; color: #fff5e5; }
+        .grid-nav-item:nth-child(5) i { color: #e6b878; }
+        .grid-nav-item:first-child { border-radius: 28px 0 0 0; }
+        .grid-nav-item:nth-child(4) { border-radius: 0 28px 0 0; }
+        .grid-nav-item:nth-child(5) { border-radius: 0 0 0 28px; }
+        .grid-nav-item:last-child { border-radius: 0 0 28px 0; }
+
+        .container { max-width: 900px; padding: 0 18px; }
+        .category-list-section { display: none; }
+        .fix-menu-showcase {
+            background: #f2e5ce;
+            color: #2c2119;
+            border-color: rgba(108, 65, 39, .22);
+            box-shadow: 0 16px 40px rgba(71, 45, 27, .12);
+        }
+        .fix-header h2, .fix-opt-card .opt-price { color: #943818; }
+        .fix-opt-card { background: #ead8bb; border-color: rgba(76, 55, 39, .18); color: #2b2119; }
+        #fix-subtext { color: #745d4c !important; }
+
+        footer {
+            background: rgba(241, 226, 201, .8);
+            color: #745d4c;
+            border-color: rgba(76, 55, 39, .15);
+        }
+        footer .footer-info a, footer #foot-title { color: #7e321a !important; }
+
+        .modal-overlay { background: rgba(31, 23, 18, .76); }
+        .modal-content { background: #f4e8d3; border-color: #a74622; color: #2b2119; }
+        .modal-title, #modalTitle, .modal-item-name { color: #2b2119; }
+        .modal-item { background: #ead9bd; border-color: rgba(78, 53, 36, .14); }
+        .modal-item-desc { color: #756050; }
+        .modal-item-price, .modal-subgroup-title { color: #943818; }
+        .modal-close { color: #943818; border-color: rgba(148,56,24,.25); }
+
+        .action-dock {
+            position: fixed;
+            z-index: 1100;
+            left: 50%; bottom: max(14px, env(safe-area-inset-bottom));
+            transform: translateX(-50%);
+            width: min(720px, calc(100% - 24px));
+            display: grid;
+            grid-template-columns: .72fr 1fr 1.35fr;
+            gap: 7px;
+            padding: 8px;
+            border: 1px solid rgba(80, 52, 34, .17);
+            border-radius: 24px;
+            background: rgba(247, 236, 217, .94);
+            box-shadow: 0 18px 50px rgba(54, 34, 22, .24);
+            backdrop-filter: blur(18px);
+        }
+        .action-dock > a {
+            min-height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            color: #39291e;
+            text-decoration: none;
+            border-radius: 17px;
+            font-weight: 700;
+        }
+        .action-dock > a i { color: #943818; }
+        .action-dock .floating-btn {
+            position: static;
+            padding: 0 14px;
+            color: #fff8ed;
+            background: #781a1e;
+            box-shadow: none;
+            transform: none;
+        }
+        .action-dock .floating-btn i { color: #fff8ed; }
+
+        @media (max-width: 620px) {
+            .lang-container { top: 25px; right: 14px; gap: 3px; }
+            .lang-btn { min-width: 31px; min-height: 34px; padding: 5px; font-size: .66rem; }
+            .brand-header { padding: 14px 12px 0; }
+            .brand-topline { min-height: 72px; padding-right: 155px; }
+            .brand-topline .logo-wrapper { width: 54px; height: 54px; }
+            .brand-name strong { font-size: 1.08rem; }
+            .brand-name span { font-size: .5rem; }
+            .heritage-hero { min-height: 325px; grid-template-columns: 1.2fr .8fr; padding: 34px 25px; border-radius: 70px 70px 22px 22px; }
+            .hero-copy h1 { font-size: clamp(2.75rem, 13vw, 3.7rem); }
+            .hero-mark { width: 110px; }
+            .hero-sun { width: 46px; }
+            .search-container { width: 100%; margin-top: -24px; padding: 0 24px; }
+            .category-grid-nav { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 12px; }
+            .grid-nav-item { min-height: 126px; }
+            .grid-nav-item:nth-child(3), .grid-nav-item:nth-child(4), .grid-nav-item:nth-child(5), .grid-nav-item:nth-child(6) { border-radius: 0; }
+            .grid-nav-item:first-child { border-radius: 24px 0 0 0; }
+            .grid-nav-item:nth-child(2) { border-radius: 0 24px 0 0; }
+            .grid-nav-item:nth-child(7) { border-radius: 0 0 0 24px; }
+            .grid-nav-item:last-child { border-radius: 0 0 24px 0; }
+            .container { width: 100%; padding: 0 12px; }
+            .fix-options-grid { grid-template-columns: 1fr; }
+            .action-dock { grid-template-columns: .7fr 1fr 1.35fr; }
+            .action-dock > a { min-height: 50px; font-size: .77rem; }
+            .action-dock > a span { white-space: nowrap; }
+        }
+
+        /* V2: gerçek Mardin fotoğrafı ve daha güçlü katman derinliği */
+        body {
+            background-color: #211813;
+            background-image:
+                linear-gradient(180deg, rgba(28, 19, 14, .42), rgba(28, 19, 14, .68)),
+                url('mardin.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+
+        .brand-topline {
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-radius: 999px;
+            background: rgba(244, 230, 205, .9);
+            border: 1px solid rgba(255,255,255,.28);
+            box-shadow: 0 12px 36px rgba(0,0,0,.2);
+            backdrop-filter: blur(16px);
+        }
+
+        .heritage-hero {
+            background-color: #8f3519;
+            background-image:
+                linear-gradient(90deg, rgba(115, 35, 15, .96) 0%, rgba(139, 50, 22, .86) 48%, rgba(90, 35, 22, .44) 100%),
+                url('mardin.jpg');
+            background-size: cover;
+            background-position: center 42%;
+            border: 1px solid rgba(255, 221, 173, .34);
+            box-shadow: 0 28px 70px rgba(0,0,0,.35);
+        }
+
+        .heritage-hero::after { opacity: .09; }
+        .hero-copy { text-shadow: 0 2px 18px rgba(56, 18, 9, .38); }
+        .hero-mark { background: rgba(85, 29, 17, .2); backdrop-filter: blur(3px); }
+
+        .search-box {
+            background: rgba(247, 235, 213, .94);
+            box-shadow: 0 18px 45px rgba(0,0,0,.28);
+            backdrop-filter: blur(18px);
+        }
+
+        .category-grid-nav {
+            filter: drop-shadow(0 22px 28px rgba(0,0,0,.24));
+        }
+        .grid-nav-item {
+            border-color: rgba(255, 245, 225, .28);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
+        }
+
+        .fix-menu-showcase {
+            background: rgba(244, 230, 205, .92);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 22px 60px rgba(0,0,0,.3);
+        }
+
+        footer {
+            background: rgba(27, 20, 16, .78);
+            color: #d9c7ad;
+            backdrop-filter: blur(16px);
+        }
+        footer .footer-info a, footer #foot-title { color: #f0c88e !important; }
+
+        @media (max-width: 620px) {
+            body { background-attachment: scroll; background-position: 58% top; }
+            .brand-topline { padding-left: 8px; margin-bottom: 9px; }
+            .heritage-hero { background-position: 61% center; }
+        }
+
+        /* V3: sade, doğal ve fotoğraf odaklı restoran kimliği */
+        body {
+            background: #f1eadf;
+            color: #2d251f;
+        }
+
+        .brand-header { max-width: 1040px; padding-top: 22px; }
+        .brand-topline {
+            margin: 0 0 18px;
+            padding: 0 210px 0 0;
+            min-height: 66px;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+        .brand-topline .logo-wrapper { width: 58px; height: 58px; }
+        .brand-name strong { color: #2a211b; }
+        .brand-name span { color: #7a695b; }
+
+        .lang-container { top: 36px; right: max(22px, calc((100vw - 1040px) / 2 + 22px)); }
+        .lang-btn {
+            color: #55483e;
+            background: transparent;
+            border-color: #cabdaf;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+        .lang-btn.active, .lang-btn:hover { color: #fff; background: #713225; border-color: #713225; }
+
+        .heritage-hero {
+            min-height: 440px;
+            display: flex;
+            align-items: flex-end;
+            padding: clamp(34px, 6vw, 70px);
+            border-radius: 24px;
+            background-color: #2c211b;
+            background-image:
+                linear-gradient(90deg, rgba(24, 18, 14, .82) 0%, rgba(24, 18, 14, .5) 50%, rgba(24, 18, 14, .16) 100%),
+                url('mardin.jpg');
+            background-size: cover;
+            background-position: center 46%;
+            border: 0;
+            box-shadow: 0 22px 55px rgba(55, 39, 28, .2);
+        }
+        .heritage-hero::after { display: none; }
+        .hero-copy { max-width: 600px; text-shadow: 0 2px 20px rgba(0,0,0,.38); }
+        .hero-kicker { color: #e5c79f; letter-spacing: .18em; }
+        .hero-copy h1 {
+            margin-top: 13px;
+            font-size: clamp(2.8rem, 7vw, 4.8rem);
+            line-height: .98;
+            letter-spacing: -.035em;
+            color: #fffaf1;
+        }
+        .hero-mark { display: none; }
+
+        .search-container { max-width: 800px; margin-top: -27px; }
+        .search-box {
+            background: #fffaf2;
+            border: 1px solid #d8ccbe;
+            box-shadow: 0 14px 34px rgba(65, 46, 32, .14);
+            backdrop-filter: none;
+        }
+
+        .category-grid-nav {
+            max-width: 1040px;
+            gap: 12px;
+            filter: none;
+            margin-top: 6px;
+        }
+        .grid-nav-item,
+        .grid-nav-item:nth-child(1),
+        .grid-nav-item:nth-child(4),
+        .grid-nav-item:nth-child(5),
+        .grid-nav-item:nth-child(6),
+        .grid-nav-item:nth-child(7) {
+            min-height: 132px;
+            background: #fffaf2;
+            color: #332922;
+            border: 1px solid #ddd0c1;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(67, 47, 33, .07);
+        }
+        .grid-nav-item i,
+        .grid-nav-item:nth-child(1) i,
+        .grid-nav-item:nth-child(4) i,
+        .grid-nav-item:nth-child(5) i,
+        .grid-nav-item:nth-child(6) i,
+        .grid-nav-item:nth-child(7) i { color: #9a4b32; }
+        .grid-nav-item:hover {
+            background: #f8efe2;
+            border-color: #a95d43;
+            transform: translateY(-2px);
+        }
+
+        .container { max-width: 1040px; }
+        .fix-menu-showcase {
+            background: #34271f;
+            color: #fff8ed;
+            border: 0;
+            box-shadow: 0 18px 45px rgba(58, 40, 28, .17);
+            backdrop-filter: none;
+        }
+        .fix-header h2 { color: #edc992; }
+        #fix-subtext { color: #d4c4b3 !important; }
+        .fix-opt-card {
+            background: rgba(255,255,255,.055);
+            border-color: rgba(255,255,255,.14);
+            color: #fff8ed;
+        }
+        .fix-opt-card .opt-price { color: #edc992; }
+
+        footer {
+            background: #2c221c;
+            color: #cab9a9;
+            border: 0;
+            backdrop-filter: none;
+        }
+        footer .footer-info a, footer #foot-title { color: #e4c18d !important; }
+
+        .action-dock {
+            background: rgba(255, 250, 242, .96);
+            border-color: #d7c9ba;
+            box-shadow: 0 16px 44px rgba(46, 32, 23, .18);
+        }
+        .action-dock .floating-btn { background: #713225; }
+        .action-dock > a i { color: #8e412e; }
+        .action-dock .floating-btn i { color: #fff; }
+
+        @media (max-width: 620px) {
+            .brand-header { padding: 14px 12px 0; }
+            .brand-topline { padding-right: 155px; margin-bottom: 12px; }
+            .lang-container { top: 25px; right: 14px; }
+            .heritage-hero {
+                min-height: 390px;
+                padding: 30px 24px 42px;
+                border-radius: 18px;
+                background-position: 62% center;
+            }
+            .hero-copy h1 { font-size: clamp(2.8rem, 14vw, 3.8rem); }
+            .search-container { margin-top: -25px; }
+            .category-grid-nav { gap: 9px; }
+            .grid-nav-item,
+            .grid-nav-item:nth-child(1),
+            .grid-nav-item:nth-child(2),
+            .grid-nav-item:nth-child(3),
+            .grid-nav-item:nth-child(4),
+            .grid-nav-item:nth-child(5),
+            .grid-nav-item:nth-child(6),
+            .grid-nav-item:nth-child(7),
+            .grid-nav-item:last-child {
+                min-height: 116px;
+                border-radius: 12px;
+            }
+        }
+
+        /* V5 FINAL — daima en son uygulanır */
+        body {
+            background-color: var(--v4-bg) !important;
+            background-image: linear-gradient(180deg, var(--v4-overlay-top), var(--v4-overlay-bottom)), url('mardin.jpg') !important;
+            background-size: cover !important;
+            background-position: center top !important;
+            background-attachment: fixed !important;
+            color: var(--v4-text) !important;
+        }
+        .brand-topline {
+            color: var(--v4-text) !important;
+            background: var(--v4-surface) !important;
+            border: 1px solid var(--v4-border) !important;
+            border-radius: 18px !important;
+            padding: 8px 210px 8px 10px !important;
+            box-shadow: 0 14px 38px rgba(0,0,0,.2) !important;
+            backdrop-filter: blur(18px) !important;
+        }
+        .brand-name strong { color: var(--v4-text) !important; }
+        .brand-name span { color: var(--v4-muted) !important; }
+        .gourmet-controls { display: flex !important; justify-content: flex-start !important; gap: 7px !important; padding: 12px 0 !important; }
+        .gourmet-btn {
+            min-height: 36px !important; padding: 7px 14px !important;
+            color: var(--v4-muted) !important; background: var(--v4-surface) !important;
+            border-color: var(--v4-border) !important; box-shadow: none !important;
+        }
+        .gourmet-btn.active, .gourmet-btn:hover {
+            color: var(--v4-bg) !important; background: var(--v4-accent) !important;
+            border-color: var(--v4-accent) !important; transform: none !important;
+        }
+        .lang-btn { color: var(--v4-muted) !important; background: var(--v4-surface) !important; border-color: var(--v4-border) !important; }
+        .lang-btn.active, .lang-btn:hover { color: var(--v4-bg) !important; background: var(--v4-accent) !important; border-color: var(--v4-accent) !important; }
+        .heritage-hero {
+            background-image: linear-gradient(90deg, var(--v4-hero), rgba(18,13,10,.18) 75%, transparent), url('mardin.jpg') !important;
+            border-color: var(--v4-border) !important;
+        }
+        .hero-kicker { color: var(--v4-accent) !important; }
+        html body .search-box,
+        html body .category-grid-nav .grid-nav-item:nth-child(n),
+        html body .fix-menu-showcase,
+        html body .action-dock,
+        html body .modal-content {
+            background: var(--v4-surface) !important;
+            color: var(--v4-text) !important;
+            border-color: var(--v4-border) !important;
+        }
+        html body .search-box input,
+        html body .category-grid-nav .grid-nav-item:nth-child(n) span,
+        html body .fix-opt-card span:not(.opt-price),
+        html body .action-dock > a:not(.floating-btn),
+        html body .modal-item-name { color: var(--v4-text) !important; opacity: 1 !important; }
+        html body .search-box input::placeholder,
+        html body #fix-subtext,
+        html body .modal-item-desc { color: var(--v4-muted) !important; opacity: 1 !important; }
+        html body .category-grid-nav .grid-nav-item:nth-child(n) i,
+        html body .search-box i,
+        html body .fix-header h2,
+        html body .fix-opt-card .opt-price,
+        html body .modal-item-price { color: var(--v4-accent) !important; opacity: 1 !important; }
+        html body .fix-opt-card,
+        html body .modal-item { background: var(--v4-surface-soft) !important; color: var(--v4-text) !important; border-color: var(--v4-border) !important; }
+        html body footer { background: var(--v4-surface) !important; color: var(--v4-muted) !important; border-color: var(--v4-border) !important; }
+        html body footer a, html body footer #foot-title { color: var(--v4-accent) !important; }
+        html body .action-dock .floating-btn { background: var(--v4-cta) !important; }
+        @media (max-width: 620px) {
+            body { background-attachment: scroll !important; }
+            .brand-topline { padding: 7px 155px 7px 8px !important; }
+            .gourmet-controls { display: grid !important; grid-template-columns: repeat(4,1fr) !important; gap: 5px !important; padding: 9px 0 !important; }
+            .gourmet-btn { min-height: 35px !important; padding: 6px 4px !important; font-size: .64rem !important; }
+        }
     </style>
 </head>
 <body>
-
-    <!-- Kişiselleştirilmiş Gurme Modu Seçicileri -->
-    <div class="gourmet-controls" role="group" aria-label="Görünüm teması">
-        <button type="button" class="gourmet-btn active" aria-pressed="true" data-theme-value="dark" data-mood-value="classic" onclick="setTheme('dark', 'classic', event)">Akşam (Klasik Altın)</button>
-        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="light" data-mood-value="olive" onclick="setTheme('light', 'olive', event)">Öğle (Ferah Zeytin)</button>
-        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="terracotta" onclick="setTheme('dark', 'terracotta', event)">Sıcak (Terracotta)</button>
-        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="pure-dark" onclick="setTheme('dark', 'pure-dark', event)">Koyu Mod</button>
-    </div>
 
     <div class="lang-container" role="group" aria-label="Menü dili">
         <button type="button" class="lang-btn active" aria-pressed="true" data-lang="tr" onclick="changeLang('tr', event)">TR</button>
@@ -842,9 +1671,24 @@
         <button type="button" class="lang-btn" aria-pressed="false" data-lang="ku" onclick="changeLang('ku', event)">KU</button>
     </div>
 
-    <header>
-        <div class="logo-wrapper">
-            <img src="zemherilogo.png" alt="Zemheri Semir Şef" class="main-logo" width="704" height="636" decoding="async" fetchpriority="high">
+    <header class="brand-header">
+        <div class="brand-topline">
+            <div class="logo-wrapper">
+                <img src="zemherilogo.png" alt="Zemheri Semir Şef" class="main-logo" width="704" height="636" decoding="async" fetchpriority="high">
+            </div>
+            <div class="brand-name"><strong>ZEMHERİ</strong><span>SEMİR ŞEF · MARDİN</span></div>
+        </div>
+        <div class="gourmet-controls" role="group" aria-label="Görünüm teması">
+            <button type="button" class="gourmet-btn active" aria-pressed="true" data-theme-value="dark" data-mood-value="classic" onclick="setTheme('dark', 'classic', event)">Akşam</button>
+            <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="light" data-mood-value="olive" onclick="setTheme('light', 'olive', event)">Zeytin</button>
+            <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="terracotta" onclick="setTheme('dark', 'terracotta', event)">Sıcak</button>
+            <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="pure-dark" onclick="setTheme('dark', 'pure-dark', event)">Koyu</button>
+        </div>
+        <div class="heritage-hero">
+            <div class="hero-copy">
+                <span class="hero-kicker">MARDİN’DEN SOFRANIZA</span>
+                <h1>Topraktan,<br>ateşten,<br>sofradan.</h1>
+            </div>
         </div>
     </header>
 
@@ -863,13 +1707,13 @@
     <!-- Kısayol Grid -->
     <nav class="category-grid-nav" id="main-nav">
         <button type="button" class="grid-nav-item" onclick="scrollToElement('fix-menu')"><i class="fa-solid fa-star" aria-hidden="true"></i> <span id="nav-fix">Fix Menü</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-mezeler')"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> <span id="nav-mezeler">Mezeler</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-salatalar')"><i class="fa-solid fa-leaf" aria-hidden="true"></i> <span id="nav-salatalar">Salatalar</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-ara-sicaklar')"><i class="fa-solid fa-fire" aria-hidden="true"></i> <span id="nav-ara-sicaklar">Ara Sıcaklar</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-peynirler')"><i class="fa-solid fa-cheese" aria-hidden="true"></i> <span id="nav-peynirler">Peynirler</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-ana-yemekler')"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span id="nav-ana-yemekler">Ana Yemekler</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-tatli-meyve')"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> <span id="nav-tatli">Tatlı & Meyve</span></button>
-        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-alkolsuz-icecekler')"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> <span id="nav-alkolsuz">İçecekler</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('mezeler')"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> <span id="nav-mezeler">Mezeler</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('salatalar')"><i class="fa-solid fa-leaf" aria-hidden="true"></i> <span id="nav-salatalar">Salatalar</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('ara-sicaklar')"><i class="fa-solid fa-fire" aria-hidden="true"></i> <span id="nav-ara-sicaklar">Ara Sıcaklar</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('peynirler')"><i class="fa-solid fa-cheese" aria-hidden="true"></i> <span id="nav-peynirler">Peynirler</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('ana-yemekler')"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span id="nav-ana-yemekler">Ana Yemekler</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('tatli-meyve')"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> <span id="nav-tatli">Tatlı & Meyve</span></button>
+        <button type="button" class="grid-nav-item" onclick="openCategoryModal('alkolsuz-icecekler')"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> <span id="nav-alkolsuz">İçecekler</span></button>
     </nav>
 
     <div class="container" id="main-content">
@@ -940,9 +1784,13 @@
         </div>
     </div>
 
-    <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener noreferrer" class="floating-btn">
-        <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> <span id="reserve-btn">Rezerve Et</span>
-    </a>
+    <div class="action-dock" aria-label="Hızlı işlemler">
+        <a href="tel:+905352113133"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Ara</span></a>
+        <a href="https://maps.apple.com/place?address=Zübeyde+Hanım+Cd.+10%2C+47100+Hatunlu+Mardin%2C+Türkiye&coordinate=37.316830%2C40.750430" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Yol Tarifi</span></a>
+        <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener noreferrer" class="floating-btn">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span id="reserve-btn">Rezervasyon</span>
+        </a>
+    </div>
 
     <div id="appModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" onclick="closeModal(event)">
         <div class="modal-content" tabindex="-1" onclick="event.stopPropagation()">
@@ -986,6 +1834,8 @@
                 btn.classList.toggle('active', selected);
                 btn.setAttribute('aria-pressed', String(selected));
             });
+            const themeColors = { classic: '#211914', olive: '#dde2d1', terracotta: '#291914', 'pure-dark': '#050505' };
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColors[mood] || '#211914');
             try { localStorage.setItem('zemheri-theme', JSON.stringify({ theme, mood })); } catch (_) {}
         }
 
