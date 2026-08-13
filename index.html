@@ -9,7 +9,10 @@
     <meta property="og:image" content="https://zemherirestoran.github.io/zemherimenu/zemherilogo.png">
     <meta property="og:url" content="https://zemherirestoran.github.io/zemherimenu/">
     <meta property="og:type" content="website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1C1510">
+    <link rel="canonical" href="https://zemherirestoran.github.io/zemherimenu/">
+    <link rel="icon" href="zemherilogo.png" type="image/png">
     <!-- Google Etiketi (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLD0QZE4CN"></script>
     <script>
@@ -231,7 +234,7 @@
 
         /* Arama Çubuğu */
         .search-container {
-            max-width: 580px;
+            max-width: 760px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -276,7 +279,7 @@
 
         #search-results-container {
             display: none;
-            max-width: 580px;
+            max-width: 760px;
             margin: 25px auto;
             padding: 0 20px;
             animation: fadeInUp 0.4s ease forwards;
@@ -294,7 +297,7 @@
 
         /* Kategori Navigasyonu (Grid) */
         .category-grid-nav {
-            max-width: 580px;
+            max-width: 760px;
             margin: 25px auto 10px;
             padding: 0 20px;
             display: grid;
@@ -344,7 +347,7 @@
 
         /* Ana İçerik Alanı */
         .container {
-            max-width: 580px;
+            max-width: 760px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -760,34 +763,94 @@
             justify-content: center;
             gap: 8px;
         }
+
+        /* Responsive, erişilebilir ve daha dengeli yerleşim */
+        button, a, input { font: inherit; }
+
+        :focus-visible {
+            outline: 3px solid var(--accent-warm);
+            outline-offset: 3px;
+        }
+
+        .grid-nav-item,
+        .fix-opt-card,
+        .category-row-card {
+            appearance: none;
+            color: inherit;
+            font: inherit;
+            text-align: inherit;
+            cursor: pointer;
+        }
+
+        .grid-nav-item { width: 100%; }
+        .category-row-card { width: 100%; }
+
+        body.modal-open { overflow: hidden; }
+
+        .modal-content {
+            overscroll-behavior: contain;
+            scrollbar-gutter: stable;
+        }
+
+        @media (min-width: 900px) {
+            .category-grid-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .container { max-width: 760px; }
+            .logo-wrapper { width: 155px; height: 155px; }
+        }
+
+        @media (max-width: 620px) {
+            body { padding-bottom: 100px; background-attachment: scroll; }
+            .gourmet-controls { gap: 6px; padding-inline: 12px; }
+            .gourmet-btn { flex: 1 1 calc(50% - 6px); min-height: 40px; padding: 7px 9px; }
+            .lang-container { padding-inline: 14px; gap: 7px; }
+            .lang-btn { flex: 1; min-height: 40px; padding-inline: 8px; }
+            header { padding-inline: 14px; }
+            .search-container, #search-results-container, .category-grid-nav, .container { width: calc(100% - 28px); }
+            .category-grid-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+            .fix-options-grid { grid-template-columns: 1fr; }
+            .modal-overlay { padding: 10px; align-items: flex-end; }
+            .modal-content { max-height: 90dvh; border-radius: 22px 22px 12px 12px; padding: 28px 16px; }
+            .floating-btn { right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); padding: 13px 18px; }
+            .drink-options { grid-template-columns: 1fr; }
+            .drink-box, .drink-box[style] { grid-column: auto !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Kişiselleştirilmiş Gurme Modu Seçicileri -->
-    <div class="gourmet-controls">
-        <button class="gourmet-btn active" onclick="setTheme('dark', 'classic', event)">Akşam (Klasik Altın)</button>
-        <button class="gourmet-btn" onclick="setTheme('light', 'olive', event)">Öğle (Ferah Zeytin)</button>
-        <button class="gourmet-btn" onclick="setTheme('dark', 'terracotta', event)">Sıcak (Terracotta)</button>
-        <button class="gourmet-btn" onclick="setTheme('dark', 'pure-dark', event)">Koyu Mod</button>
+    <div class="gourmet-controls" role="group" aria-label="Görünüm teması">
+        <button type="button" class="gourmet-btn active" aria-pressed="true" data-theme-value="dark" data-mood-value="classic" onclick="setTheme('dark', 'classic', event)">Akşam (Klasik Altın)</button>
+        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="light" data-mood-value="olive" onclick="setTheme('light', 'olive', event)">Öğle (Ferah Zeytin)</button>
+        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="terracotta" onclick="setTheme('dark', 'terracotta', event)">Sıcak (Terracotta)</button>
+        <button type="button" class="gourmet-btn" aria-pressed="false" data-theme-value="dark" data-mood-value="pure-dark" onclick="setTheme('dark', 'pure-dark', event)">Koyu Mod</button>
     </div>
 
-    <div class="lang-container">
-        <button class="lang-btn active" onclick="changeLang('tr', event)">TR</button>
-        <button class="lang-btn" onclick="changeLang('en', event)">EN</button>
-        <button class="lang-btn" onclick="changeLang('ar', event)">AR</button>
-        <button class="lang-btn" onclick="changeLang('ku', event)">KU</button>
+    <div class="lang-container" role="group" aria-label="Menü dili">
+        <button type="button" class="lang-btn active" aria-pressed="true" data-lang="tr" onclick="changeLang('tr', event)">TR</button>
+        <button type="button" class="lang-btn" aria-pressed="false" data-lang="en" onclick="changeLang('en', event)">EN</button>
+        <button type="button" class="lang-btn" aria-pressed="false" data-lang="ar" onclick="changeLang('ar', event)">AR</button>
+        <button type="button" class="lang-btn" aria-pressed="false" data-lang="ku" onclick="changeLang('ku', event)">KU</button>
     </div>
 
     <header>
         <div class="logo-wrapper">
-            <img src="zemherilogo.png" alt="Zemheri Semir Şef Logo" class="main-logo">
+            <img src="zemherilogo.png" alt="Zemheri Semir Şef" class="main-logo" width="704" height="636" decoding="async" fetchpriority="high">
         </div>
     </header>
 
     <div class="search-container">
         <div class="search-box">
-            <input type="text" id="menuSearch" placeholder="Menüde arayın..." onkeyup="filterSearch()">
+            <input type="search" id="menuSearch" placeholder="Menüde arayın..." aria-label="Menüde ara" autocomplete="off" oninput="filterSearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     </div>
@@ -799,14 +862,14 @@
 
     <!-- Kısayol Grid -->
     <nav class="category-grid-nav" id="main-nav">
-        <div class="grid-nav-item" onclick="scrollToElement('fix-menu')"><i class="fa-solid fa-star"></i> <span id="nav-fix">Fix Menü</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-mezeler')"><i class="fa-solid fa-bowl-food"></i> <span id="nav-mezeler">Mezeler</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-salatalar')"><i class="fa-solid fa-leaf"></i> <span id="nav-salatalar">Salatalar</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-ara-sicaklar')"><i class="fa-solid fa-fire"></i> <span id="nav-ara-sicaklar">Ara Sıcaklar</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-peynirler')"><i class="fa-solid fa-cheese"></i> <span id="nav-peynirler">Peynirler</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-ana-yemekler')"><i class="fa-solid fa-utensils"></i> <span id="nav-ana-yemekler">Ana Yemekler</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-tatli-meyve')"><i class="fa-solid fa-cake-candles"></i> <span id="nav-tatli">Tatlı & Meyve</span></div>
-        <div class="grid-nav-item" onclick="scrollToElement('sec-alkolsuz-icecekler')"><i class="fa-solid fa-glass-water"></i> <span id="nav-alkolsuz">İçecekler</span></div>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('fix-menu')"><i class="fa-solid fa-star" aria-hidden="true"></i> <span id="nav-fix">Fix Menü</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-mezeler')"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> <span id="nav-mezeler">Mezeler</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-salatalar')"><i class="fa-solid fa-leaf" aria-hidden="true"></i> <span id="nav-salatalar">Salatalar</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-ara-sicaklar')"><i class="fa-solid fa-fire" aria-hidden="true"></i> <span id="nav-ara-sicaklar">Ara Sıcaklar</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-peynirler')"><i class="fa-solid fa-cheese" aria-hidden="true"></i> <span id="nav-peynirler">Peynirler</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-ana-yemekler')"><i class="fa-solid fa-utensils" aria-hidden="true"></i> <span id="nav-ana-yemekler">Ana Yemekler</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-tatli-meyve')"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> <span id="nav-tatli">Tatlı & Meyve</span></button>
+        <button type="button" class="grid-nav-item" onclick="scrollToElement('sec-alkolsuz-icecekler')"><i class="fa-solid fa-glass-water" aria-hidden="true"></i> <span id="nav-alkolsuz">İçecekler</span></button>
     </nav>
 
     <div class="container" id="main-content">
@@ -817,73 +880,73 @@
                     <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;" id="fix-subtext">İçeriği görmek için tıklayın (Kişi Başı)</p>
                     
                     <div class="fix-options-grid">
-                        <div class="fix-opt-card" onclick="openFixModal('kizkiza')">
+                        <button type="button" class="fix-opt-card" onclick="openFixModal('kizkiza')">
                             <span class="opt-title"><i class="fa-solid fa-person-dress"></i> <span id="fix-kizkiza">Kız Kıza</span></span>
                             <span class="opt-price">2.000 ₺</span>
-                        </div>
-                        <div class="fix-opt-card" onclick="openFixModal('alkolsuz')">
+                        </button>
+                        <button type="button" class="fix-opt-card" onclick="openFixModal('alkolsuz')">
                             <span class="opt-title"><i class="fa-solid fa-glass-water"></i> <span id="fix-alkolsuz">Alkolsüz</span></span>
                             <span class="opt-price">2.300 ₺</span>
-                        </div>
-                        <div class="fix-opt-card" onclick="openFixModal('alkollu')">
+                        </button>
+                        <button type="button" class="fix-opt-card" onclick="openFixModal('alkollu')">
                             <span class="opt-title"><i class="fa-solid fa-wine-glass"></i> <span id="fix-alkollu">Alkollü</span></span>
                             <span class="opt-price">3.000 ₺</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
         <div class="category-list-section">
-            <div class="category-row-card" id="sec-mezeler" onclick="openCategoryModal('mezeler')">
+            <button type="button" class="category-row-card" id="sec-mezeler" onclick="openCategoryModal('mezeler')">
                 <div class="category-row-title"><i class="fa-solid fa-bowl-food"></i> <span id="cat-mezeler">MEZELER</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-salatalar" onclick="openCategoryModal('salatalar')">
+            <button type="button" class="category-row-card" id="sec-salatalar" onclick="openCategoryModal('salatalar')">
                 <div class="category-row-title"><i class="fa-solid fa-leaf"></i> <span id="cat-salatalar">SALATALAR</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-ara-sicaklar" onclick="openCategoryModal('ara-sicaklar')">
+            <button type="button" class="category-row-card" id="sec-ara-sicaklar" onclick="openCategoryModal('ara-sicaklar')">
                 <div class="category-row-title"><i class="fa-solid fa-fire"></i> <span id="cat-ara-sicaklar">ARA SICAKLAR</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-peynirler" onclick="openCategoryModal('peynirler')">
+            <button type="button" class="category-row-card" id="sec-peynirler" onclick="openCategoryModal('peynirler')">
                 <div class="category-row-title"><i class="fa-solid fa-cheese"></i> <span id="cat-peynirler">PEYNİR ÇEŞİTLERİ</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-ana-yemekler" onclick="openCategoryModal('ana-yemekler')">
+            <button type="button" class="category-row-card" id="sec-ana-yemekler" onclick="openCategoryModal('ana-yemekler')">
                 <div class="category-row-title"><i class="fa-solid fa-utensils"></i> <span id="cat-ana-yemekler">ANA YEMEKLER</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-tatli-meyve" onclick="openCategoryModal('tatli-meyve')">
+            <button type="button" class="category-row-card" id="sec-tatli-meyve" onclick="openCategoryModal('tatli-meyve')">
                 <div class="category-row-title"><i class="fa-solid fa-cake-candles"></i> <span id="cat-tatli">TATLI & MEYVE</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-alkolsuz-icecekler" onclick="openCategoryModal('alkolsuz-icecekler')">
+            <button type="button" class="category-row-card" id="sec-alkolsuz-icecekler" onclick="openCategoryModal('alkolsuz-icecekler')">
                 <div class="category-row-title"><i class="fa-solid fa-glass-water"></i> <span id="cat-alkolsuz">ALKOLSÜZ İÇECEKLER</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
 
-            <div class="category-row-card" id="sec-alkollu-icecekler" onclick="openCategoryModal('alkollu-icecekler')">
+            <button type="button" class="category-row-card" id="sec-alkollu-icecekler" onclick="openCategoryModal('alkollu-icecekler')">
                 <div class="category-row-title"><i class="fa-solid fa-wine-glass"></i> <span id="cat-alkollu">ALKOLLÜ İÇECEKLER</span></div>
                 <div class="category-row-action"><span class="inspect-text">İncele</span> <i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+            </button>
         </div>
     </div>
 
-    <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" class="floating-btn">
+    <a href="https://wa.me/905352113133?text=Merhaba,%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener noreferrer" class="floating-btn">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> <span id="reserve-btn">Rezerve Et</span>
     </a>
 
-    <div id="appModal" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalDirect()"><i class="fa-solid fa-xmark"></i></button>
+    <div id="appModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" onclick="closeModal(event)">
+        <div class="modal-content" tabindex="-1" onclick="event.stopPropagation()">
+            <button type="button" class="modal-close" aria-label="Menüyü kapat" onclick="closeModalDirect()"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             <div class="modal-header">
                 <h3 id="modalTitle">MENÜ DETAYI</h3>
                 <div style="color: var(--accent-warm); margin-top: 5px; font-size: 0.95rem; font-family:'Playfair Display',serif;" id="modalPrice"></div>
@@ -910,6 +973,7 @@
 
     <script>
         let currentLang = 'tr';
+        let lastFocusedElement = null;
         
         // Gurme Mod Tema Değiştirici Fonksiyon
         function setTheme(theme, mood, e) {
@@ -917,8 +981,12 @@
             html.setAttribute('data-theme', theme);
             html.setAttribute('data-mood', mood);
 
-            document.querySelectorAll('.gourmet-btn').forEach(btn => btn.classList.remove('active'));
-            if(e && e.target) e.target.classList.add('active');
+            document.querySelectorAll('.gourmet-btn').forEach(btn => {
+                const selected = btn.dataset.themeValue === theme && btn.dataset.moodValue === mood;
+                btn.classList.toggle('active', selected);
+                btn.setAttribute('aria-pressed', String(selected));
+            });
+            try { localStorage.setItem('zemheri-theme', JSON.stringify({ theme, mood })); } catch (_) {}
         }
 
         const categoryData = {
@@ -1499,8 +1567,14 @@
 
         function changeLang(lang, e) {
             currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if(e) e.target.classList.add('active');
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const selected = btn.dataset.lang === lang;
+                btn.classList.toggle('active', selected);
+                btn.setAttribute('aria-pressed', String(selected));
+            });
+            try { localStorage.setItem('zemheri-lang', lang); } catch (_) {}
             const t = translations[lang];
             document.getElementById('menuSearch').placeholder = t.search;
             document.getElementById('nav-fix').innerText = t.navFix;
@@ -1626,7 +1700,7 @@
                 `;
             }
             document.getElementById('modalBody').innerHTML = html;
-            document.getElementById('appModal').style.display = 'flex';
+            showModal();
         }
 
         function openCategoryModal(key) {
@@ -1654,12 +1728,43 @@
             }
             html += '</div>';
             document.getElementById('modalBody').innerHTML = html;
-            document.getElementById('appModal').style.display = 'flex';
+            showModal();
         }
 
         function scrollToElement(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
         function closeModal(e) { if (e.target.id === 'appModal') closeModalDirect(); }
-        function closeModalDirect() { document.getElementById('appModal').style.display = 'none'; }
+        function showModal() {
+            const modal = document.getElementById('appModal');
+            lastFocusedElement = document.activeElement;
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+            modal.querySelector('.modal-content').focus();
+        }
+
+        function closeModalDirect() {
+            const modal = document.getElementById('appModal');
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+            if (lastFocusedElement && document.contains(lastFocusedElement)) lastFocusedElement.focus();
+        }
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && document.getElementById('appModal').getAttribute('aria-hidden') === 'false') {
+                closeModalDirect();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('button i, a i').forEach(icon => icon.setAttribute('aria-hidden', 'true'));
+            try {
+                const savedTheme = JSON.parse(localStorage.getItem('zemheri-theme'));
+                if (savedTheme?.theme && savedTheme?.mood) setTheme(savedTheme.theme, savedTheme.mood);
+                const savedLang = localStorage.getItem('zemheri-lang');
+                if (translations[savedLang]) changeLang(savedLang);
+            } catch (_) {}
+        });
     </script>
 
     <!-- Tasarım İmzası ve Instagram -->
