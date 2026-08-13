@@ -1660,6 +1660,19 @@
             .gourmet-controls { display: grid !important; grid-template-columns: repeat(4,1fr) !important; gap: 5px !important; padding: 9px 0 !important; }
             .gourmet-btn { min-height: 35px !important; padding: 6px 4px !important; font-size: .64rem !important; }
         }
+
+        /* V6: modal açıldığında alt işlem çubuğu içeriği kapatmasın */
+        .action-dock {
+            transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+        }
+        body.modal-open .action-dock {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: translate(-50%, 18px) !important;
+        }
+        body.modal-open .modal-overlay { z-index: 2000 !important; }
+        body.modal-open .modal-content { padding-bottom: 30px !important; }
     </style>
 </head>
 <body>
