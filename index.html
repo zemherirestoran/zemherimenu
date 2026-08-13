@@ -1673,6 +1673,37 @@
         }
         body.modal-open .modal-overlay { z-index: 2000 !important; }
         body.modal-open .modal-content { padding-bottom: 30px !important; }
+
+        /* V7: arama alanındaki dikdörtgen/köşegen dış katmanı kaldır */
+        html body .search-container {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+        }
+        html body .search-box {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            overflow: visible !important;
+        }
+        html body .search-box input {
+            display: block !important;
+            width: 100% !important;
+            background: var(--v4-surface) !important;
+            border: 1px solid var(--v4-border) !important;
+            border-radius: 999px !important;
+            box-shadow: 0 14px 34px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.06) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
+        }
+        html body .search-box input:focus {
+            background: var(--v4-surface) !important;
+            border-color: var(--v4-accent) !important;
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--v4-accent) 24%, transparent), 0 14px 34px rgba(0,0,0,.2) !important;
+        }
     </style>
 </head>
 <body>
